@@ -1,0 +1,68 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   .gitignore
+#	new file:   README.md
+#	new file:   babel.config.js
+#	new file:   jsconfig.json
+#	new file:   package-lock.json
+#	new file:   package.json
+#	new file:   public/favicon.ico
+#	new file:   public/index.html
+#	new file:   src/App.vue
+#	new file:   src/api/index.js
+#	new file:   src/assets/demo/datas.js
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Display Bold.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Display Medium.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Display Regular.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Display Thin.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Display Ultralight.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Text Bold.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Text Heavy.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Text Medium.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Text Regular.ttf
+#	new file:   src/assets/fonts/San Francisco/System San Francisco Text Thin.ttf
+#	new file:   "src/assets/fonts/\350\213\271\346\226\271\345\255\227\344\275\223/PingFang Bold.ttf"
+#	new file:   "src/assets/fonts/\350\213\271\346\226\271\345\255\227\344\275\223/PingFang Light.ttf"
+#	new file:   "src/assets/fonts/\350\213\271\346\226\271\345\255\227\344\275\223/PingFang Medium.ttf"
+#	new file:   "src/assets/fonts/\350\213\271\346\226\271\345\255\227\344\275\223/PingFang Regular.ttf"
+#	new file:   src/assets/icons/arrow_right_line.svg
+#	new file:   src/assets/icons/comment_fill.svg
+#	new file:   src/assets/icons/comment_line.svg
+#	new file:   src/assets/icons/edit_fill.svg
+#	new file:   src/assets/icons/edit_line.svg
+#	new file:   src/assets/icons/home_fill.svg
+#	new file:   src/assets/icons/home_line.svg
+#	new file:   src/assets/icons/location_line.svg
+#	new file:   src/assets/icons/mail_fill.svg
+#	new file:   src/assets/icons/mail_line.svg
+#	new file:   src/assets/icons/search_line.svg
+#	new file:   src/assets/icons/services/asking.svg
+#	new file:   src/assets/icons/services/design_work.svg
+#	new file:   src/assets/icons/services/group.svg
+#	new file:   src/assets/icons/user_fill.svg
+#	new file:   src/assets/icons/user_line.svg
+#	new file:   src/assets/logo.png
+#	new file:   src/assets/pictures/home_top_bg.png
+#	new file:   src/assets/styles/theme.less
+#	new file:   src/components/TagBox.vue
+#	new file:   src/components/UserInfoBox.vue
+#	new file:   src/components/pages/LoginPage.vue
+#	new file:   src/components/pages/MainPage.vue
+#	new file:   src/components/pages/MainPage/BottomNavigationBar.vue
+#	new file:   src/components/pages/MainPage/pages/Home/GroupInfoBox.vue
+#	new file:   src/components/pages/MainPage/pages/Home/PageDivider.vue
+#	new file:   src/components/pages/MainPage/pages/Home/ProminentButton.vue
+#	new file:   src/components/pages/MainPage/pages/Home/SearchBox.vue
+#	new file:   src/components/pages/MainPage/pages/HomePage.vue
+#	new file:   src/components/pages/MainPage/pages/UserPage.vue
+#	new file:   src/main.js
+#	new file:   src/router/index.js
+#	new file:   vue.config.js
+#
