@@ -24,7 +24,7 @@ div {
     box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25);
 
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0.625rem;
 
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@ div > span {
     width: 3.5rem;
     height: 1.25rem;
     /** 文本1 */
-    font-size: 0.875rem;
+    .font-style(2);
     font-weight: 700;
     letter-spacing: 0;
     color: @font-color2;
@@ -58,7 +58,7 @@ div > span {
     width: 2.375rem;
     height: 1.0625rem;
     /** 文本1 */
-    font-size: 0.75rem;
+    .font-style(3);
     font-weight: 400;
     letter-spacing: 0;
     color: @font-color3;

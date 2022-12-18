@@ -74,7 +74,7 @@ export default {
     width: max-content;
     height: 1rem;
     /** 文本1 */
-    font-size: 0.625rem;
+    .font-style(4);
     font-weight: 500;
     letter-spacing: 0;
     line-height: 1rem;

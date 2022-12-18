@@ -41,18 +41,18 @@ export default {
 }
 .name {
     /** 文本1 */
-    font-size: 0.875rem;
+    .font-style(2);
     font-weight: 700;
-    letter-spacing: 0px;
+    letter-spacing: 0;
     color: @font-color2;
     text-align: left;
     vertical-align: middle;
 }
 .region {
     /** 文本1 */
-    font-size: 0.75rem;
+    .font-style(3);
     font-weight: 500;
-    letter-spacing: 0px;
+    letter-spacing: 0;
     color: @font-color3;
     text-align: left;
     vertical-align: middle;

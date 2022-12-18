@@ -44,7 +44,7 @@ export default {
 
 .title {
     /** 文本1 */
-    font-size: 1rem;
+    .font-style(1);
     font-weight: 700;
     letter-spacing: 0;
     color: @font-color1;
@@ -60,7 +60,7 @@ export default {
     align-items: center;
 
     /** 文本1 */
-    font-size: 0.75rem;
+    .font-style(3);
     font-weight: 700;
     letter-spacing: 0;
     color: rgba(166, 166, 166, 1);

@@ -64,7 +64,7 @@ input {
     outline: none;
 
     /** 文本1 */
-    font-size: 0.75rem;
+    .font-style(3);
     font-weight: 400;
     letter-spacing: 0;
     line-height: 1.375rem;

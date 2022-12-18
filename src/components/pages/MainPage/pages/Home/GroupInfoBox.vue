@@ -54,12 +54,12 @@ export default {
     border-radius: 0.3125rem;
     background: @light-color;
 
-    border: 1px solid rgba(229, 229, 229, 1);
+    border: 0.0625rem solid rgba(229, 229, 229, 1);
 
     display: flex;
     flex-direction: column;
     align-items: start;
     box-sizing: border-box;
-    padding: 8px 10px 13px 10px;
+    padding: 0.5rem 0.625rem 0.8125rem 0.625rem;
 }
 </style>
