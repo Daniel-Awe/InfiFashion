@@ -31,8 +31,18 @@
             </div>
             <PageDivider title="金牌团队" :hasMore="true" />
             <div class="row unitBox">
-                <GroupInfoBox teamId="0" />
+                <GroupInfoBox
+                    v-for="(item, key) in goldTeams"
+                    :key="key"
+                    :team="item"
+                />
             </div>
+            <PageDivider title="行业资讯" :hasMore="true" />
+            <ArticleCard
+                class="unitBox"
+                v-if="latestArticle"
+                :article="latestArticle"
+            />
         </div>
     </div>
 </template>
@@ -42,11 +52,18 @@ import SearchBox from "./Home/SearchBox.vue";
 import PageDivider from "./Home/PageDivider.vue";
 import ProminentButton from "./Home/ProminentButton.vue";
 import GroupInfoBox from "./Home/GroupInfoBox.vue";
+import ArticleCard from "@/components/ArticleCard.vue";
 
-import { getAllTeams } from "@/api/index.js";
+import { getAllTeams, getNewArticles } from "@/api/index.js";
 
 export default {
-    components: { SearchBox, PageDivider, ProminentButton, GroupInfoBox },
+    components: {
+        SearchBox,
+        PageDivider,
+        ProminentButton,
+        GroupInfoBox,
+        ArticleCard,
+    },
     name: "HomePage",
     data() {
         return {
@@ -72,6 +89,7 @@ export default {
                 },
             ],
             goldTeams: [],
+            latestArticle: undefined,
         };
     },
     methods: {
@@ -85,10 +103,18 @@ export default {
             }
         },
     },
-    async mounted() {
+    async created() {
         window.addEventListener("scroll", this.scrollEvent);
 
-        this.goldTeams = await getAllTeams();
+        {
+            const response = await getAllTeams();
+            this.goldTeams = response.slice(0, 2);
+        }
+
+        {
+            const response = await getNewArticles(1);
+            this.latestArticle = response[0];
+        }
     },
     destroyed() {
         window.removeEventListener("scroll", this.scrollEvent);
@@ -136,6 +162,6 @@ export default {
 }
 
 .unitBox {
-    margin: 0.625rem 0 1.25rem 0;
+    margin: 0.625rem auto 1.25rem auto;
 }
 </style>

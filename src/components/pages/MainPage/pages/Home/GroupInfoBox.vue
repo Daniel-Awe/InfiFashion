@@ -1,48 +1,31 @@
 <template>
     <div class="groupInfoBox">
-        <UserInfoBox
-            v-if="teamInfo && teamInfo.leader"
-            :avatar="teamInfo.leader.avatar"
-            :name="teamInfo.leader.name"
-            :region="teamInfo.leader.region"
-        />
-        <TagBox
-            v-if="teamInfo && teamInfo.leader"
-            :datas="teamInfo.leader.tags"
+        <div class="userInfoBox">
+            <RoundAvatar :src="team.leader.avatar" />
+            <div class="text" style="margin-left: 0.5rem">
+                <span class="name">{{ team.leader.name }}</span>
+                <span class="region">{{ team.leader.region }}</span>
+            </div>
+        </div>
+        <TagBox style="margin-top: 0.625rem" :tags="team.leader.tags" />
+        <img
+            style="margin-top: 0.625rem; margin-bottom: 0.1875rem"
+            class="picture"
+            :src="team.picture"
+            alt=""
         />
     </div>
 </template>
 
 <script>
-import UserInfoBox from "@/components/UserInfoBox.vue";
 import TagBox from "@/components/TagBox.vue";
-import { getTeamInfo } from "@/api";
+import RoundAvatar from "@/components/RoundAvatar.vue";
 
 export default {
     name: "GroupInfoBox",
-    components: { UserInfoBox, TagBox },
-    data() {
-        return {
-            teamInfo: undefined,
-        };
-    },
-    methods: {
-        async updateTeamInfo() {
-            const response = await getTeamInfo(this.teamId);
-            if (response) this.teamInfo = response;
-            else this.teamInfo = undefined;
-        },
-    },
+    components: { TagBox, RoundAvatar },
     props: {
-        teamId: String,
-    },
-    watch: {
-        teamId() {
-            this.updateTeamInfo();
-        },
-    },
-    async created() {
-        this.updateTeamInfo();
+        team: Object
     },
 };
 </script>
@@ -50,7 +33,7 @@ export default {
 <style lang="less" scoped>
 .groupInfoBox {
     width: 10.625rem;
-    height: 12.5rem;
+    height: max-content;
     border-radius: 0.3125rem;
     background: @light-color;
 
@@ -60,6 +43,40 @@ export default {
     flex-direction: column;
     align-items: start;
     box-sizing: border-box;
-    padding: 0.5rem 0.625rem 0.8125rem 0.625rem;
+    padding: 0.5rem 0.625rem;
+}
+
+.picture {
+    width: 9.375rem;
+    box-sizing: border-box;
+    border-radius: 0.125rem;
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+
+    object-fit: cover;
+}
+.userInfoBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: max-content;
+}
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.name {
+    /** 文本1 */
+    .font-size-style(2);
+    font-weight: 700;
+    color: @font-color2;
+}
+.region {
+    /** 文本1 */
+    .font-size-style(3);
+    font-weight: 500;
+    color: @font-color3;
 }
 </style>

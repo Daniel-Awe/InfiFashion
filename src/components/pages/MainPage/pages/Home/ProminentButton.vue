@@ -47,22 +47,16 @@ div > span {
     width: 3.5rem;
     height: 1.25rem;
     /** 文本1 */
-    .font-style(2);
+    .font-size-style(2);
     font-weight: 700;
-    letter-spacing: 0;
     color: @font-color2;
-    text-align: left;
-    vertical-align: middle;
 }
 .subtitle {
     width: 2.375rem;
     height: 1.0625rem;
     /** 文本1 */
-    .font-style(3);
+    .font-size-style(3);
     font-weight: 400;
-    letter-spacing: 0;
     color: @font-color3;
-    text-align: left;
-    vertical-align: top;
 }
 </style>

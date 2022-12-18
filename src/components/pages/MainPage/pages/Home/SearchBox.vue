@@ -64,13 +64,10 @@ input {
     outline: none;
 
     /** 文本1 */
-    .font-style(3);
+    .font-size-style(3);
     font-weight: 400;
-    letter-spacing: 0;
     line-height: 1.375rem;
     color: @font-color3;
-    text-align: left;
-    vertical-align: top;
 }
 
 input:focus {

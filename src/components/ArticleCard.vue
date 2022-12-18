@@ -1,0 +1,129 @@
+<template>
+    <div class="articleCardContainer">
+        <div style="margin-top: 4px" class="head">
+            <RoundAvatar :src="article.author.avatar" />
+            <span style="margin-left: 8px" class="text">
+                <div class="name">{{ article.author.name }}</div>
+                <div class="date">{{ article.date }}</div>
+            </span>
+            <RoundButton class="button" title="关注" />
+        </div>
+        <div style="margin-top: 9px" class="title">{{ article.title }}</div>
+        <img
+            style="margin: 10px auto"
+            class="picture"
+            :src="article.picture"
+            alt=""
+        />
+        <div class="operation">
+            <span class="item" v-for="(item, key) in operations" :key="key">
+                <img :src="item.iconUrl" alt="" />
+                <p style="margin-left: 4px">{{ article[item.key] }}</p>
+            </span>
+        </div>
+    </div>
+</template>
+
+<script>
+import RoundAvatar from "@/components/RoundAvatar.vue";
+import RoundButton from "@/components/RoundButton.vue";
+
+export default {
+    name: "ArticleCard",
+    components: { RoundAvatar, RoundButton },
+    data() {
+        return {
+            operations: [
+                {
+                    key: "agree",
+                    iconUrl: require("@/assets/icons/thumb_up_line.svg"),
+                },
+                {
+                    key: "collect",
+                    iconUrl: require("@/assets/icons/star_line.svg"),
+                },
+                {
+                    key: "comment",
+                    iconUrl: require("@/assets/icons/message_line.svg"),
+                },
+                {
+                    key: "share",
+                    iconUrl: require("@/assets/icons/share_line.svg"),
+                },
+            ],
+        };
+    },
+    props: {
+        article: Object,
+    },
+};
+</script>
+
+<style lang="less" scoped>
+.articleCardContainer {
+    width: 21.875rem;
+    border-radius: 0.3125rem;
+    background-color: @light-color;
+
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.head {
+    display: flex;
+    align-items: center;
+}
+.text {
+    flex-grow: 1;
+}
+.button {
+    background-color: @primary-color;
+    color: @light-color;
+}
+.name {
+    /** 文本1 */
+    .font-size-style(2);
+    font-weight: 700;
+
+    color: @primary-color;
+}
+.date {
+    /** 文本1 */
+    .font-size-style(3);
+    font-weight: 700;
+
+    color: @font-color3;
+}
+.title {
+    /** 文本1 */
+    .font-size-style(3);
+    font-weight: 400;
+    color: @font-color1;
+
+    .font-ellipsis();
+}
+.picture {
+    width: 19.375rem;
+    border-radius: 0.125rem;
+}
+.operation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .item {
+        display: flex;
+        align-items: center;
+        p {
+            /** 文本1 */
+            .font-size-style(3);
+            font-weight: 400;
+            color: @font-color2;
+
+            margin: 0;
+        }
+    }
+}
+</style>

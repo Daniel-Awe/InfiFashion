@@ -44,12 +44,9 @@ export default {
 
 .title {
     /** 文本1 */
-    .font-style(1);
+    .font-size-style(1);
     font-weight: 700;
-    letter-spacing: 0;
     color: @font-color1;
-    text-align: left;
-    vertical-align: middle;
 }
 
 .more {
@@ -60,11 +57,8 @@ export default {
     align-items: center;
 
     /** 文本1 */
-    .font-style(3);
+    .font-size-style(3);
     font-weight: 700;
-    letter-spacing: 0;
     color: rgba(166, 166, 166, 1);
-    text-align: left;
-    vertical-align: middle;
 }
 </style>

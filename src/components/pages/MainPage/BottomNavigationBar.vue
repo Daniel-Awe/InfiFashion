@@ -60,7 +60,7 @@ export default {
 }
 
 .item.selected {
-    color: @font-selected;
+    color: @font-primary-color;
 }
 
 .item img {
@@ -74,12 +74,9 @@ export default {
     width: max-content;
     height: 1rem;
     /** 文本1 */
-    .font-style(4);
+    .font-size-style(4);
     font-weight: 500;
-    letter-spacing: 0;
     line-height: 1rem;
-    text-align: center;
-    vertical-align: top;
 
     white-space: nowrap;
 }

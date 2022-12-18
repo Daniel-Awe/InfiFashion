@@ -1,6 +1,6 @@
 <template>
     <div class="tagBox">
-        <span class="item" v-for="(item, key) in datas" :key="key">
+        <span class="item" v-for="(item, key) in tags" :key="key">
             {{ item }}
         </span>
     </div>
@@ -11,7 +11,7 @@ export default {
     name: "TagBox",
     props: {
         /** @type {[string]} */
-        datas: Array,
+        tags: Array,
     },
 };
 </script>
@@ -29,10 +29,11 @@ export default {
     border-radius: 0.4rem;
     padding: 0.125rem 0.3125rem;
 
+    margin: 0.15625rem;
+
     /** 文本1 */
-    .font-style(4);
+    .font-size-style(4);
     font-weight: 400;
-    letter-spacing: 0;
     color: rgba(42, 130, 228, 1);
 
     white-space: nowrap;
