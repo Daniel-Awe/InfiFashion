@@ -27,25 +27,24 @@
                     :title="item.title"
                     :iconUrl="item.iconUrl"
                     :subtitle="item.subtitle"
+                    @click="
+                        $router.push(item.routeName, undefined, (reason) => {
+                            console.log(reason);
+                        })
+                    "
                 />
             </div>
             <PageDivider title="金牌团队" :hasMore="true" />
-            <LoadingView :isLoading="!goldTeams">
-                <div class="row unitBox">
-                    <GroupInfoBox
-                        v-for="(item, key) in goldTeams"
-                        :key="key"
-                        :team="item"
-                    />
-                </div>
+            <LoadingView class="row unitBox" :isLoading="!goldTeams">
+                <GroupInfoBox
+                    v-for="(item, key) in goldTeams"
+                    :key="key"
+                    :team="item"
+                />
             </LoadingView>
             <PageDivider title="行业资讯" :hasMore="true" />
-            <LoadingView :isLoading="!latestArticle">
-                <ArticleCard
-                    class="unitBox"
-                    v-if="latestArticle"
-                    :article="latestArticle"
-                />
+            <LoadingView class="unitBox" :isLoading="!latestArticle">
+                <ArticleCard v-if="latestArticle" :article="latestArticle" />
             </LoadingView>
         </div>
     </div>
@@ -53,10 +52,10 @@
 
 <script>
 import { getAllTeams, getNewArticles } from "@/api/index.js";
-import SearchBox from "./Home/SearchBox.vue";
-import PageDivider from "./Home/PageDivider.vue";
-import ProminentButton from "./Home/ProminentButton.vue";
-import GroupInfoBox from "./Home/GroupInfoBox.vue";
+import SearchBox from "./HomePage/SearchBox.vue";
+import PageDivider from "./HomePage/PageDivider.vue";
+import ProminentButton from "./HomePage/ProminentButton.vue";
+import GroupInfoBox from "./HomePage/GroupInfoBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
 import TopBar from "@/components/TopBar.vue";
 import LoadingView from "@/components/LoadingView.vue";
@@ -80,19 +79,19 @@ export default {
                     title: "设计团队",
                     subtitle: "Design",
                     iconUrl: require("@/assets/icons/services/group.svg"),
-                    route: "Design__blankRoute",
+                    routeName: undefined,
                 },
                 {
                     title: "包装推广",
                     subtitle: "Extend",
                     iconUrl: require("@/assets/icons/services/design_work.svg"),
-                    route: "Extend__blankRoute",
+                    routeName: undefined,
                 },
                 {
                     title: "代理顾问",
                     subtitle: "Agent",
                     iconUrl: require("@/assets/icons/services/asking.svg"),
-                    route: "Agent__blankRoute",
+                    routeName: undefined,
                 },
             ],
             goldTeams: undefined,

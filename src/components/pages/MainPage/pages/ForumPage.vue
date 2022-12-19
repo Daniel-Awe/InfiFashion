@@ -16,6 +16,9 @@
                 </SlideshowBox>
             </LoadingView>
             <div>
+                <div>
+                    <span v-for="(item, key) in sortDatas" :key="key"></span>
+                </div>
                 <LoadingView :isLoading="!articles">
                     <ArticleCard
                         v-for="(item, key) in articles"
@@ -42,6 +45,28 @@ export default {
         return {
             forumDatas: undefined,
             articles: undefined,
+            sortDatas: [
+                {
+                    title: "流行趋势",
+                    iconUrl: require("@/assets/icons/articles/trend.svg"),
+                    routeName: undefined,
+                },
+                {
+                    title: "服饰文化",
+                    iconUrl: require("@/assets/icons/articles/culture.svg"),
+                    routeName: undefined,
+                },
+                {
+                    title: "经验分享",
+                    iconUrl: require("@/assets/icons/articles/communicate.svg"),
+                    routeName: undefined,
+                },
+                {
+                    title: "成功案例",
+                    iconUrl: require("@/assets/icons/articles/achievement.svg"),
+                    routeName: undefined,
+                },
+            ],
         };
     },
     methods: {},

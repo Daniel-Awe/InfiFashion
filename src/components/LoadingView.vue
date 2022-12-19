@@ -2,7 +2,7 @@
     <div>
         <div class="loadingBox" v-if="isLoading">
             <img
-                :style="'transform: rotate(' + degree + 'deg)'"
+                :style="'transform: rotate(' + degree + 'deg) scale(0.5)'"
                 :src="iconUrl"
                 alt=""
             />
