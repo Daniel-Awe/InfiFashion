@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="topBar" style="padding-top: 1.125rem" ref="topBar">
+        <TopBar ref="topBar" class="topBar">
             <img
                 class="locationIcon"
                 style="margin-left: 0.625rem"
@@ -12,13 +12,13 @@
                 style="margin-left: 0.75rem; margin-right: 1.81rem"
                 v-model="searchContent"
             />
-        </div>
+        </TopBar>
         <img
             width="100%"
             :src="require('@/assets/pictures/home_top_bg.png')"
             alt=""
         />
-        <div style="padding: 0.625rem">
+        <div class="container">
             <PageDivider title="提供服务" />
             <div class="row unitBox">
                 <ProminentButton
@@ -30,31 +30,36 @@
                 />
             </div>
             <PageDivider title="金牌团队" :hasMore="true" />
-            <div class="row unitBox">
-                <GroupInfoBox
-                    v-for="(item, key) in goldTeams"
-                    :key="key"
-                    :team="item"
-                />
-            </div>
+            <LoadingView :isLoading="!goldTeams">
+                <div class="row unitBox">
+                    <GroupInfoBox
+                        v-for="(item, key) in goldTeams"
+                        :key="key"
+                        :team="item"
+                    />
+                </div>
+            </LoadingView>
             <PageDivider title="行业资讯" :hasMore="true" />
-            <ArticleCard
-                class="unitBox"
-                v-if="latestArticle"
-                :article="latestArticle"
-            />
+            <LoadingView :isLoading="!latestArticle">
+                <ArticleCard
+                    class="unitBox"
+                    v-if="latestArticle"
+                    :article="latestArticle"
+                />
+            </LoadingView>
         </div>
     </div>
 </template>
 
 <script>
+import { getAllTeams, getNewArticles } from "@/api/index.js";
 import SearchBox from "./Home/SearchBox.vue";
 import PageDivider from "./Home/PageDivider.vue";
 import ProminentButton from "./Home/ProminentButton.vue";
 import GroupInfoBox from "./Home/GroupInfoBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
-
-import { getAllTeams, getNewArticles } from "@/api/index.js";
+import TopBar from "@/components/TopBar.vue";
+import LoadingView from "@/components/LoadingView.vue";
 
 export default {
     components: {
@@ -63,6 +68,8 @@ export default {
         ProminentButton,
         GroupInfoBox,
         ArticleCard,
+        TopBar,
+        LoadingView,
     },
     name: "HomePage",
     data() {
@@ -88,36 +95,37 @@ export default {
                     route: "Agent__blankRoute",
                 },
             ],
-            goldTeams: [],
+            goldTeams: undefined,
             latestArticle: undefined,
         };
     },
     methods: {
         scrollEvent() {
             /** @type Element */
-            let topBar = this.$refs.topBar;
-            if (window.scrollY > 140) {
+            const topBar = this.$refs.topBar.$el;
+            const scrollTop = this.$parent.scrollTop;
+            if (scrollTop > 140) {
                 topBar.classList.add("notop");
             } else {
                 topBar.classList.remove("notop");
             }
         },
     },
-    async created() {
-        window.addEventListener("scroll", this.scrollEvent);
-
-        {
-            const response = await getAllTeams();
-            this.goldTeams = response.slice(0, 2);
-        }
-
-        {
-            const response = await getNewArticles(1);
-            this.latestArticle = response[0];
-        }
+    watch: {
+        "$parent.scrollTop"() {
+            this.scrollEvent();
+        },
     },
-    destroyed() {
-        window.removeEventListener("scroll", this.scrollEvent);
+    mounted() {
+        this.scrollEvent();
+
+        getAllTeams().then((response) => {
+            this.goldTeams = response.slice(0, 2);
+        });
+
+        getNewArticles(1).then((response) => {
+            this.latestArticle = response[0];
+        });
     },
 };
 </script>
@@ -125,19 +133,18 @@ export default {
 <style lang="less" scoped>
 .topBar {
     position: fixed;
+    z-index: 1;
     top: 0;
-
-    width: 100%;
-    height: 2.88rem;
 
     display: flex;
     align-items: center;
 
+    background-color: transparent;
     transition: background-color 0.2s;
 }
 
 .topBar.notop {
-    background: @primary-color;
+    background-color: @primary-color;
 }
 
 .locationIcon {
@@ -149,19 +156,24 @@ export default {
     flex-grow: 1;
 }
 
-.row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+.container {
+    padding: 0.625rem;
 
-.col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    /deep/ .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
 
-.unitBox {
-    margin: 0.625rem auto 1.25rem auto;
+    /deep/ .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /deep/ .unitBox {
+        margin: 0.625rem auto 1.25rem auto;
+    }
 }
 </style>

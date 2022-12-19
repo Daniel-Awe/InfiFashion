@@ -21,6 +21,8 @@ export default {
     display: flex;
     height: max-content;
     flex-wrap: wrap;
+
+    gap: 0.3125rem;
 }
 
 .item {
@@ -29,11 +31,7 @@ export default {
     border-radius: 0.4rem;
     padding: 0.125rem 0.3125rem;
 
-    margin: 0.15625rem;
-
-    /** 文本1 */
-    .font-size-style(4);
-    font-weight: 400;
+    .font-size-style(5);
     color: rgba(42, 130, 228, 1);
 
     white-space: nowrap;

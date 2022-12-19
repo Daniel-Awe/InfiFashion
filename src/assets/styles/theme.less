@@ -1,52 +1,5 @@
-// 引入字体
-@font-face {
-    font-family: "PingFang";
-    src: url("@/assets/fonts/苹方字体/PingFang Regular.ttf");
-}
-
-// 浅色
-@light-color: white;
-// 深色
-@dark-color: black;
-
-// 定义字体的名称
-@primary-font-family: "PingFang";
-
-// 主题颜色
-@primary-color: rgb(143, 121, 212);
-// 比较淡的主题颜色
-@primary-light-color: rgb(172, 142, 227);
-
-// 背景颜色
-@background-color: rgb(249, 249, 249);
-
-// 字体颜色
-@font-color1: rgb(0, 0, 0);
-@font-color2: rgb(56, 56, 56);
-@font-color3: rgb(128, 128, 128);
-@font-color4: rgb(166, 166, 166);
-
-// 字体的主要颜色
-@font-primary-color: rgb(132, 65, 163);
-
-// 字体的尺寸
-.font-size-style(1) {
-    font-size: 1rem;
-}
-
-.font-size-style(2) {
-    font-size: 0.875rem;
-}
-
-.font-size-style(3) {
-    font-size: 0.75rem;
-}
-
-.font-size-style(4) {
-    font-size: 1rem;
-    // 因为h5最小字体是12px即0.75rem，无法继续缩小，所以使用zoom来缩小字体
-    zoom: 0.625;
-}
+@import "./font.less";
+@import "./color.less";
 
 // 单行省略溢出文本
 .font-ellipsis() {

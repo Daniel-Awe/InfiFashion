@@ -52,32 +52,26 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.375rem;
+    gap: 0.1875rem;
 
     color: @font-color2;
 
-    padding: 0 0.25rem;
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    p {
+        margin: 0;
+
+        width: max-content;
+        .font-size-style(5);
+
+        white-space: nowrap;
+    }
 }
 
 .item.selected {
     color: @font-primary-color;
-}
-
-.item img {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.item p {
-    margin: 0;
-
-    width: max-content;
-    height: 1rem;
-    /** 文本1 */
-    .font-size-style(4);
-    font-weight: 500;
-    line-height: 1rem;
-
-    white-space: nowrap;
 }
 </style>

@@ -21,8 +21,7 @@ export default {
     width: max-content;
     height: max-content;
 
-    /** 文本1 */
-    .font-size-style(3);
-    font-weight: 700;
+    .font-size-style(4);
+    font-weight: bold;
 }
 </style>

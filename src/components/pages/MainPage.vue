@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <div class="bg">
+        <div class="view" @scroll="handleScroll">
             <keep-alive>
-                <router-view class="view"></router-view>
+                <router-view></router-view>
             </keep-alive>
         </div>
         <BottomNavigationBar class="bt" :datas="bottomNavigationDatas" />
@@ -19,6 +19,7 @@ export default {
     },
     data() {
         return {
+            scrollTop: 0,
             bottomNavigationDatas: [
                 {
                     title: "首页",
@@ -30,7 +31,7 @@ export default {
                     title: "论坛",
                     selectedIconUrl: require("@/assets/icons/comment_fill.svg"),
                     unselectedIconUrl: require("@/assets/icons/comment_line.svg"),
-                    routeName: undefined,
+                    routeName: "ForumPage",
                 },
                 {
                     title: "发布需求",
@@ -53,7 +54,11 @@ export default {
             ],
         };
     },
-    methods: {},
+    methods: {
+        handleScroll(ev) {
+            this.scrollTop = ev.target.scrollTop;
+        },
+    },
 };
 </script>
 
@@ -61,24 +66,20 @@ export default {
 .container {
     width: 100%;
     height: 100%;
-}
-
-.bg {
-    width: 100%;
-    min-height: 100%;
-    background: @background-color;
-    box-sizing: border-box;
-
-    padding-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .view {
-    width: 100%;
-    height: 100%;
+    background-color: @background-color;
+    flex-grow: 1;
+
+    overflow-y: scroll;
 }
 
 .bt {
-    position: fixed;
-    bottom: 0;
+    width: 100%;
+    height: max-content;
+    padding: 0.3125rem 0;
 }
 </style>

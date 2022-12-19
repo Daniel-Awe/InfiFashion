@@ -39,13 +39,12 @@ export default {
     width: 0.375rem;
     height: 100%;
     border-radius: 0.625rem;
-    background: @primary-color;
+    background-color: @primary-color;
 }
 
 .title {
-    /** 文本1 */
-    .font-size-style(1);
-    font-weight: 700;
+    .font-size-style(2);
+    font-weight: bold;
     color: @font-color1;
 }
 
@@ -56,9 +55,8 @@ export default {
     justify-content: center;
     align-items: center;
 
-    /** 文本1 */
-    .font-size-style(3);
-    font-weight: 700;
+    .font-size-style(4);
+    font-weight: bold;
     color: rgba(166, 166, 166, 1);
 }
 </style>

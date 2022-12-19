@@ -84,23 +84,17 @@ export default {
     color: @light-color;
 }
 .name {
-    /** 文本1 */
-    .font-size-style(2);
-    font-weight: 700;
-
+    .font-size-style(3);
+    font-weight: bold;
     color: @primary-color;
 }
 .date {
-    /** 文本1 */
-    .font-size-style(3);
-    font-weight: 700;
-
+    .font-size-style(4);
+    font-weight: bold;
     color: @font-color3;
 }
 .title {
-    /** 文本1 */
-    .font-size-style(3);
-    font-weight: 400;
+    .font-size-style(4);
     color: @font-color1;
 
     .font-ellipsis();
@@ -117,9 +111,7 @@ export default {
         display: flex;
         align-items: center;
         p {
-            /** 文本1 */
-            .font-size-style(3);
-            font-weight: 400;
+            .font-size-style(4);
             color: @font-color2;
 
             margin: 0;

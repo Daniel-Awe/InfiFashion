@@ -1,0 +1,28 @@
+// 引入字体
+@font-face {
+    font-family: "PingFang";
+    src: url("../fonts/苹方字体/PingFang Regular.ttf");
+}
+
+// 字体的尺寸
+.font-size-style(1) {
+    font-size: 1.125rem;
+}
+
+.font-size-style(2) {
+    font-size: 1rem;
+}
+
+.font-size-style(3) {
+    font-size: 0.875rem;
+}
+
+.font-size-style(4) {
+    font-size: 0.75rem;
+}
+
+.font-size-style(5) {
+    font-size: 1rem;
+    // 因为h5最小字体是12px即0.75rem，无法继续缩小，所以使用zoom来缩小字体
+    zoom: 0.625;
+}

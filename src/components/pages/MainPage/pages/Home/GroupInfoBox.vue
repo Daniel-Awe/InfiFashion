@@ -25,7 +25,7 @@ export default {
     name: "GroupInfoBox",
     components: { TagBox, RoundAvatar },
     props: {
-        team: Object
+        team: Object,
     },
 };
 </script>
@@ -35,7 +35,7 @@ export default {
     width: 10.625rem;
     height: max-content;
     border-radius: 0.3125rem;
-    background: @light-color;
+    background-color: @light-color;
 
     border: 0.0625rem solid rgba(229, 229, 229, 1);
 
@@ -68,15 +68,12 @@ export default {
     align-items: flex-start;
 }
 .name {
-    /** 文本1 */
-    .font-size-style(2);
-    font-weight: 700;
+    .font-size-style(3);
+    font-weight: bold;
     color: @font-color2;
 }
 .region {
-    /** 文本1 */
-    .font-size-style(3);
-    font-weight: 500;
+    .font-size-style(4);
     color: @font-color3;
 }
 </style>

@@ -34,7 +34,7 @@ div {
     width: 18.8rem;
     height: 1.8rem;
     border-radius: 0.625rem;
-    background: @background-color;
+    background-color: @background-color;
 
     border: 0.0625rem solid @primary-light-color;
 
@@ -57,16 +57,13 @@ input {
 
     overflow: hidden;
 
-    background: inherit;
+    background-color: inherit;
     padding: 0;
 
     border: none;
     outline: none;
 
-    /** 文本1 */
-    .font-size-style(3);
-    font-weight: 400;
-    line-height: 1.375rem;
+    .font-size-style(4);
     color: @font-color3;
 }
 

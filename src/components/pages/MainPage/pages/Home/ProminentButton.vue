@@ -45,18 +45,15 @@ div > span {
 
 .title {
     width: 3.5rem;
-    height: 1.25rem;
-    /** 文本1 */
-    .font-size-style(2);
-    font-weight: 700;
+
+    .font-size-style(3);
+    font-weight: bold;
     color: @font-color2;
 }
 .subtitle {
     width: 2.375rem;
-    height: 1.0625rem;
-    /** 文本1 */
-    .font-size-style(3);
-    font-weight: 400;
+
+    .font-size-style(4);
     color: @font-color3;
 }
 </style>
