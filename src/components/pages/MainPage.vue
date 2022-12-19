@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="view" @scroll="handleScroll">
+        <div class="view">
             <keep-alive>
                 <router-view></router-view>
             </keep-alive>
@@ -37,7 +37,7 @@ export default {
                     title: "发布需求",
                     selectedIconUrl: require("@/assets/icons/edit_fill.svg"),
                     unselectedIconUrl: require("@/assets/icons/edit_line.svg"),
-                    routeName: undefined,
+                    routeName: "PublishPage",
                 },
                 {
                     title: "消息",
@@ -54,11 +54,6 @@ export default {
             ],
         };
     },
-    methods: {
-        handleScroll(ev) {
-            this.scrollTop = ev.target.scrollTop;
-        },
-    },
 };
 </script>
 
@@ -74,7 +69,7 @@ export default {
     background-color: @background-color;
     flex-grow: 1;
 
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .bt {

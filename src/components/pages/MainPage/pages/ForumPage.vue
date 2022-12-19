@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div class="container">
         <TopBar class="topBar">
-            <div class="title">{{ "论坛" }}</div>
+            <span class="title">论坛</span>
         </TopBar>
-        <div class="container">
+        <div class="view">
             <LoadingView :isLoading="!forumDatas">
                 <SlideshowBox
                     class="slideshowBox"
@@ -21,6 +21,7 @@
                     :key="key"
                     :iconUrl="item.iconUrl"
                     :title="item.title"
+                    @click="$router.push({ name: item.routeName })"
                 />
             </div>
             <LoadingView style="margin-top: 1rem" :isLoading="!articles">
@@ -93,29 +94,34 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.topBar {
-    position: fixed;
-    top: 0;
-    z-index: 1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .title {
-        .font-size-style(1);
-        width: max-content;
-        height: max-content;
-        color: @light-color;
-    }
-}
-
 .container {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 0.3125rem;
-    padding-top: 4.06rem;
+
+    .topBar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+            .font-size-style(1);
+            font-weight: bold;
+            width: max-content;
+            height: max-content;
+            color: @light-color;
+        }
+    }
+
+    .view {
+        flex-grow: 1;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.3125rem;
+    }
 }
 
 .slideshowBox {

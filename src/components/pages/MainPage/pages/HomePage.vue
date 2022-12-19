@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <TopBar ref="topBar" class="topBar">
             <img
                 class="locationIcon"
@@ -13,39 +13,48 @@
                 v-model="searchContent"
             />
         </TopBar>
-        <img
-            width="100%"
-            :src="require('@/assets/pictures/home_top_bg.png')"
-            alt=""
-        />
-        <div class="container">
-            <PageDivider title="提供服务" />
-            <div class="row unitBox">
-                <ProminentButton
-                    v-for="(item, key) in provideServices"
-                    :key="key"
-                    :title="item.title"
-                    :iconUrl="item.iconUrl"
-                    :subtitle="item.subtitle"
-                    @click="
-                        $router.push(item.routeName, undefined, (reason) => {
-                            console.log(reason);
-                        })
-                    "
+        <div ref="view" class="view" @scroll="scrollEvent()">
+            <img
+                width="100%"
+                :src="require('@/assets/pictures/home_top_bg.png')"
+                alt=""
+            />
+            <div style="padding: 0.625rem">
+                <PageDivider title="提供服务" />
+                <div class="row unitBox">
+                    <ProminentButton
+                        v-for="(item, key) in provideServices"
+                        :key="key"
+                        :title="item.title"
+                        :iconUrl="item.iconUrl"
+                        :subtitle="item.subtitle"
+                        @click="$router.push({ name: item.routeName })"
+                    />
+                </div>
+                <PageDivider
+                    title="金牌团队"
+                    :hasMore="true"
+                    @clickMore="$router.push({ name: undefined })"
                 />
+                <LoadingView class="row unitBox" :isLoading="!goldTeams">
+                    <GroupInfoBox
+                        v-for="(item, key) in goldTeams"
+                        :key="key"
+                        :team="item"
+                    />
+                </LoadingView>
+                <PageDivider
+                    title="行业资讯"
+                    :hasMore="true"
+                    @clickMore="$router.push({ name: undefined })"
+                />
+                <LoadingView class="unitBox" :isLoading="!latestArticle">
+                    <ArticleCard
+                        v-if="latestArticle"
+                        :article="latestArticle"
+                    />
+                </LoadingView>
             </div>
-            <PageDivider title="金牌团队" :hasMore="true" />
-            <LoadingView class="row unitBox" :isLoading="!goldTeams">
-                <GroupInfoBox
-                    v-for="(item, key) in goldTeams"
-                    :key="key"
-                    :team="item"
-                />
-            </LoadingView>
-            <PageDivider title="行业资讯" :hasMore="true" />
-            <LoadingView class="unitBox" :isLoading="!latestArticle">
-                <ArticleCard v-if="latestArticle" :article="latestArticle" />
-            </LoadingView>
         </div>
     </div>
 </template>
@@ -102,7 +111,7 @@ export default {
         scrollEvent() {
             /** @type Element */
             const topBar = this.$refs.topBar.$el;
-            const scrollTop = this.$parent.scrollTop;
+            const scrollTop = this.$refs.view.scrollTop;
             if (scrollTop > 140) {
                 topBar.classList.add("notop");
             } else {
@@ -111,7 +120,7 @@ export default {
         },
     },
     watch: {
-        "$parent.scrollTop"() {
+        "$refs.view.scrollTop"() {
             this.scrollEvent();
         },
     },
@@ -130,20 +139,29 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.topBar {
-    position: fixed;
-    z-index: 1;
-    top: 0;
+.container {
+    width: 100%;
+    height: 100%;
 
-    display: flex;
-    align-items: center;
+    .topBar {
+        position: absolute;
+        top: 0;
 
-    background-color: transparent;
-    transition: background-color 0.2s;
-}
+        display: flex;
+        align-items: center;
 
-.topBar.notop {
-    background-color: @primary-color;
+        background-color: transparent;
+        transition: background-color 0.2s;
+    }
+
+    .topBar.notop {
+        background-color: @primary-color;
+    }
+
+    .view {
+        // flex-grow: 1;
+        overflow-y: scroll;
+    }
 }
 
 .locationIcon {
@@ -155,24 +173,20 @@ export default {
     flex-grow: 1;
 }
 
-.container {
-    padding: 0.625rem;
+/deep/ .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
 
-    /deep/ .row {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
+/deep/ .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    /deep/ .col {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /deep/ .unitBox {
-        margin: 0.625rem auto 1.25rem auto;
-    }
+/deep/ .unitBox {
+    margin: 0.625rem auto 1.25rem auto;
 }
 </style>

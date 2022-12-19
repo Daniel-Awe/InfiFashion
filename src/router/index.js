@@ -5,6 +5,7 @@ import HomePage from '@/components/pages/MainPage/pages/HomePage.vue'
 import MainPage from '@/components/pages/MainPage.vue'
 import UserPage from '@/components/pages/MainPage/pages/UserPage.vue'
 import ForumPage from '@/components/pages/MainPage/pages/ForumPage.vue'
+import PublishPage from '@/components/pages/MainPage/pages/PublishPage.vue'
 
 Vue.use(VueRouter)
 
@@ -32,6 +33,11 @@ const routes = [
 				path: 'forum',
 				name: 'ForumPage',
 				component: ForumPage
+			},
+			{
+				path: 'publish',
+				name: 'PublishPage',
+				component: PublishPage
 			},
 			{
 				path: 'user',

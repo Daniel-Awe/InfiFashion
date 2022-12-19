@@ -20,4 +20,8 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
 </style>
