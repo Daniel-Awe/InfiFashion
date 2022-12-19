@@ -15,18 +15,21 @@
                     </template>
                 </SlideshowBox>
             </LoadingView>
-            <div>
-                <div>
-                    <span v-for="(item, key) in sortDatas" :key="key"></span>
-                </div>
-                <LoadingView :isLoading="!articles">
-                    <ArticleCard
-                        v-for="(item, key) in articles"
-                        :key="key"
-                        :article="item"
-                    />
-                </LoadingView>
+            <div style="margin-top: 1.25rem" class="imageButtonContainer">
+                <ImageButton
+                    v-for="(item, key) in sortDatas"
+                    :key="key"
+                    :iconUrl="item.iconUrl"
+                    :title="item.title"
+                />
             </div>
+            <LoadingView style="margin-top: 1rem" :isLoading="!articles">
+                <ArticleCard
+                    v-for="(item, key) in articles"
+                    :key="key"
+                    :article="item"
+                />
+            </LoadingView>
         </div>
     </div>
 </template>
@@ -37,10 +40,17 @@ import TopBar from "@/components/TopBar.vue";
 import SlideshowBox from "@/components/SlideshowBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
 import LoadingView from "@/components/LoadingView.vue";
+import ImageButton from "./ForumPage/ImageButton.vue";
 
 export default {
     name: "ForumPage",
-    components: { TopBar, SlideshowBox, ArticleCard, LoadingView },
+    components: {
+        TopBar,
+        SlideshowBox,
+        ArticleCard,
+        LoadingView,
+        ImageButton,
+    },
     data() {
         return {
             forumDatas: undefined,
@@ -119,5 +129,11 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.imageButtonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5625rem;
 }
 </style>
