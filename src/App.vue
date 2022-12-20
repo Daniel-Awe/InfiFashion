@@ -10,10 +10,10 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="scss">
 body {
     margin: 0;
-    font-family: @primary-font-family;
+    font-family: $primary-font-family;
 }
 
 #app {

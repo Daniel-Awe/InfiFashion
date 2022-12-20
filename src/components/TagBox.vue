@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .tagBox {
     display: flex;
     height: max-content;
@@ -31,7 +31,7 @@ export default {
     border-radius: 0.4rem;
     padding: 0.125rem 0.3125rem;
 
-    .font-size-style(5);
+    @include font-size-style(5);
     color: rgba(42, 130, 228, 1);
 
     white-space: nowrap;

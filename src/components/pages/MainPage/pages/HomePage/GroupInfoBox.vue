@@ -30,12 +30,12 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .groupInfoBox {
     width: 10.625rem;
     height: max-content;
     border-radius: 0.3125rem;
-    background-color: @light-color;
+    background-color: $light-color;
 
     border: 0.0625rem solid rgba(229, 229, 229, 1);
 
@@ -68,12 +68,12 @@ export default {
     align-items: flex-start;
 }
 .name {
-    .font-size-style(3);
+    @include font-size-style(3);
     font-weight: bold;
-    color: @font-color2;
+    color: $font-color2;
 }
 .region {
-    .font-size-style(4);
-    color: @font-color3;
+    @include font-size-style(4);
+    color: $font-color3;
 }
 </style>

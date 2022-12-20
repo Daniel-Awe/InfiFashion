@@ -1,24 +1,30 @@
 <template>
     <div class="articleCardContainer">
         <div style="margin-top: 4px" class="head">
-            <RoundAvatar :src="article.author.avatar" />
+            <RoundAvatar :src="tryGet(article, ['author', 'avatar'])" />
             <span style="margin-left: 8px" class="text">
-                <div class="name">{{ article.author.name }}</div>
-                <div class="date">{{ article.date }}</div>
+                <div class="name">
+                    {{ tryGet(article, ["author", "name"]) }}
+                </div>
+                <div class="date">{{ tryGet(article, "date") }}</div>
             </span>
             <RoundButton class="button" title="关注" />
         </div>
-        <div style="margin-top: 9px" class="title">{{ article.title }}</div>
+        <div style="margin-top: 9px" class="title">
+            {{ tryGet(article, "title") }}
+        </div>
         <img
             style="margin: 10px auto"
             class="picture"
-            :src="article.picture"
+            :src="tryGet(article, 'picture')"
             alt=""
         />
         <div class="operation">
             <span class="item" v-for="(item, key) in operations" :key="key">
                 <img :src="item.iconUrl" alt="" />
-                <p style="margin-left: 4px">{{ article[item.key] }}</p>
+                <p style="margin-left: 4px">
+                    {{ tryGet(article, item.key) }}
+                </p>
             </span>
         </div>
     </div>
@@ -27,6 +33,7 @@
 <script>
 import RoundAvatar from "@/components/RoundAvatar.vue";
 import RoundButton from "@/components/RoundButton.vue";
+import { helper } from "@/mixin";
 
 export default {
     name: "ArticleCard",
@@ -56,14 +63,15 @@ export default {
     props: {
         article: Object,
     },
+    mixins: [helper],
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .articleCardContainer {
     width: 21.875rem;
     border-radius: 0.3125rem;
-    background-color: @light-color;
+    background-color: $light-color;
 
     box-sizing: border-box;
     padding: 5px 10px;
@@ -80,24 +88,24 @@ export default {
     flex-grow: 1;
 }
 .button {
-    background-color: @primary-color;
-    color: @light-color;
+    background-color: $primary-color;
+    color: $light-color;
 }
 .name {
-    .font-size-style(3);
+    @include font-size-style(3);
     font-weight: bold;
-    color: @primary-color;
+    color: $primary-color;
 }
 .date {
-    .font-size-style(4);
+    @include font-size-style(4);
     font-weight: bold;
-    color: @font-color3;
+    color: $font-color3;
 }
 .title {
-    .font-size-style(4);
-    color: @font-color1;
+    @include font-size-style(4);
+    color: $font-color1;
 
-    .font-ellipsis();
+    @include font-ellipsis();
 }
 .picture {
     width: 19.375rem;
@@ -111,8 +119,8 @@ export default {
         display: flex;
         align-items: center;
         p {
-            .font-size-style(4);
-            color: @font-color2;
+            @include font-size-style(4);
+            color: $font-color2;
 
             margin: 0;
         }

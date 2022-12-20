@@ -11,7 +11,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 img {
     width: 2.375rem;
     height: 2.375rem;

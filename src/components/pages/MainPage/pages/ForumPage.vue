@@ -4,17 +4,16 @@
             <span class="title">论坛</span>
         </TopBar>
         <div class="view">
-            <LoadingView :isLoading="!forumDatas">
+            <div v-loading="!forumDatas">
                 <SlideshowBox
                     class="slideshowBox"
-                    v-if="forumDatas"
-                    :datas="forumDatas.slideshow.pictures"
+                    :datas="tryGet(forumDatas, ['slideshow', 'pictures'])"
                 >
                     <template slot-scope="{ data }">
                         <img class="slideshowImage" :src="data" alt="" />
                     </template>
                 </SlideshowBox>
-            </LoadingView>
+            </div>
             <div style="margin-top: 1.25rem" class="imageButtonContainer">
                 <ImageButton
                     v-for="(item, key) in sortDatas"
@@ -24,13 +23,13 @@
                     @click="$router.push({ name: item.routeName })"
                 />
             </div>
-            <LoadingView style="margin-top: 1rem" :isLoading="!articles">
+            <div style="margin-top: 1rem" v-loading="!articles">
                 <ArticleCard
                     v-for="(item, key) in articles"
                     :key="key"
                     :article="item"
                 />
-            </LoadingView>
+            </div>
         </div>
     </div>
 </template>
@@ -40,8 +39,8 @@ import { getAllArticles, getForumDatas } from "@/api";
 import TopBar from "@/components/TopBar.vue";
 import SlideshowBox from "@/components/SlideshowBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
-import LoadingView from "@/components/LoadingView.vue";
 import ImageButton from "./ForumPage/ImageButton.vue";
+import { helper } from "@/mixin";
 
 export default {
     name: "ForumPage",
@@ -49,7 +48,6 @@ export default {
         TopBar,
         SlideshowBox,
         ArticleCard,
-        LoadingView,
         ImageButton,
     },
     data() {
@@ -80,8 +78,7 @@ export default {
             ],
         };
     },
-    methods: {},
-    mounted() {
+    created() {
         getForumDatas().then((response) => {
             this.forumDatas = response;
         });
@@ -90,10 +87,11 @@ export default {
             this.articles = response;
         });
     },
+    mixins: [helper],
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .container {
     width: 100%;
     height: 100%;
@@ -106,11 +104,11 @@ export default {
         align-items: center;
 
         .title {
-            .font-size-style(1);
+            @include font-size-style(1);
             font-weight: bold;
             width: max-content;
             height: max-content;
-            color: @light-color;
+            color: $light-color;
         }
     }
 

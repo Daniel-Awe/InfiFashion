@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 div {
     display: flex;
     flex-direction: column;
@@ -29,9 +29,9 @@ div {
     }
 
     span {
-        .font-size-style(3);
+        @include font-size-style(3);
         font-weight: bold;
-        color: @font-color2;
+        color: $font-color2;
     }
 }
 </style>

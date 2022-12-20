@@ -35,11 +35,11 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .bt {
     width: 100%;
     height: 3.5rem;
-    background-color: @light-color;
+    background-color: $light-color;
     box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-around;
@@ -54,7 +54,7 @@ export default {
     align-items: center;
     gap: 0.1875rem;
 
-    color: @font-color2;
+    color: $font-color2;
 
     img {
         width: 1.5rem;
@@ -65,13 +65,13 @@ export default {
         margin: 0;
 
         width: max-content;
-        .font-size-style(5);
+        @include font-size-style(5);
 
         white-space: nowrap;
     }
 }
 
 .item.selected {
-    color: @font-primary-color;
+    color: $font-primary-color;
 }
 </style>

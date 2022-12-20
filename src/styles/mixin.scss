@@ -1,8 +1,5 @@
-@import "./font.less";
-@import "./color.less";
-
 // 单行省略溢出文本
-.font-ellipsis() {
+@mixin font-ellipsis() {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: font-ellipsis;

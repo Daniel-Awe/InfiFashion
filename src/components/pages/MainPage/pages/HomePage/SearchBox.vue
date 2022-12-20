@@ -29,14 +29,14 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 div {
     width: 18.8rem;
     height: 1.8rem;
     border-radius: 0.625rem;
-    background-color: @background-color;
+    background-color: $background-color;
 
-    border: 0.0625rem solid @primary-light-color;
+    border: 0.0625rem solid $primary-light-color;
 
     box-sizing: border-box;
 
@@ -63,8 +63,8 @@ input {
     border: none;
     outline: none;
 
-    .font-size-style(4);
-    color: @font-color3;
+    @include font-size-style(4);
+    color: $font-color3;
 }
 
 input:focus {

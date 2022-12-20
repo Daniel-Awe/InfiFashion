@@ -36,24 +36,21 @@
                     :hasMore="true"
                     @clickMore="$router.push({ name: undefined })"
                 />
-                <LoadingView class="row unitBox" :isLoading="!goldTeams">
+                <div class="row unitBox" v-loading="!goldTeams">
                     <GroupInfoBox
                         v-for="(item, key) in goldTeams"
                         :key="key"
                         :team="item"
                     />
-                </LoadingView>
+                </div>
                 <PageDivider
                     title="行业资讯"
                     :hasMore="true"
                     @clickMore="$router.push({ name: undefined })"
                 />
-                <LoadingView class="unitBox" :isLoading="!latestArticle">
-                    <ArticleCard
-                        v-if="latestArticle"
-                        :article="latestArticle"
-                    />
-                </LoadingView>
+                <div class="unitBox" v-loading="!latestArticle">
+                    <ArticleCard :article="latestArticle" />
+                </div>
             </div>
         </div>
     </div>
@@ -67,7 +64,6 @@ import ProminentButton from "./HomePage/ProminentButton.vue";
 import GroupInfoBox from "./HomePage/GroupInfoBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
 import TopBar from "@/components/TopBar.vue";
-import LoadingView from "@/components/LoadingView.vue";
 
 export default {
     components: {
@@ -77,7 +73,6 @@ export default {
         GroupInfoBox,
         ArticleCard,
         TopBar,
-        LoadingView,
     },
     name: "HomePage",
     data() {
@@ -126,7 +121,8 @@ export default {
     },
     mounted() {
         this.scrollEvent();
-
+    },
+    created() {
         getAllTeams().then((response) => {
             this.goldTeams = response.slice(0, 2);
         });
@@ -138,7 +134,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .container {
     width: 100%;
     height: 100%;
@@ -152,10 +148,10 @@ export default {
 
         background-color: transparent;
         transition: background-color 0.2s;
-    }
 
-    .topBar.notop {
-        background-color: @primary-color;
+        &.notop {
+            background-color: $primary-color;
+        }
     }
 
     .view {

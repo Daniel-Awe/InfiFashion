@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .divider {
     width: 100%;
     height: 1.5625rem;
@@ -39,13 +39,13 @@ export default {
     width: 0.375rem;
     height: 100%;
     border-radius: 0.625rem;
-    background-color: @primary-color;
+    background-color: $primary-color;
 }
 
 .title {
-    .font-size-style(2);
+    @include font-size-style(2);
     font-weight: bold;
-    color: @font-color1;
+    color: $font-color1;
 }
 
 .more {
@@ -55,7 +55,7 @@ export default {
     justify-content: center;
     align-items: center;
 
-    .font-size-style(4);
+    @include font-size-style(4);
     font-weight: bold;
     color: rgba(166, 166, 166, 1);
 }

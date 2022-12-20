@@ -11,7 +11,7 @@
             </span>
         </div>
         <keep-alive>
-            <slot v-if="datas.length > 0" :data="datas[index]" />
+            <slot v-if="datas && datas.length > 0" :data="datas[index]" />
         </keep-alive>
     </div>
 </template>
@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 div {
     position: relative;
 }

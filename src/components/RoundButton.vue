@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .button {
     padding: 0.25rem 1rem;
     border-radius: 0.875rem;
@@ -21,7 +21,7 @@ export default {
     width: max-content;
     height: max-content;
 
-    .font-size-style(4);
+    @include font-size-style(4);
     font-weight: bold;
 }
 </style>

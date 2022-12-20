@@ -10,12 +10,12 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .topBar {
     width: 100%;
     height: 2.88rem;
     padding-top: 1.125rem;
 
-    background-color: @primary-color;
+    background-color: $primary-color;
 }
 </style>

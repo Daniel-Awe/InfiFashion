@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .container {
     width: 100%;
     height: 100%;
@@ -66,7 +66,7 @@ export default {
 }
 
 .view {
-    background-color: @background-color;
+    background-color: $background-color;
     flex-grow: 1;
 
     overflow-y: hidden;
