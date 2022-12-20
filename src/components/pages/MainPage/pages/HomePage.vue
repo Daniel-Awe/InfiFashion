@@ -4,7 +4,7 @@
             <img
                 class="locationIcon"
                 style="margin-left: 0.625rem"
-                :src="require('@/assets/icons/location_line.svg')"
+                :src="require('@/assets/svg/location_line.svg')"
                 alt=""
             />
             <SearchBox
@@ -82,19 +82,19 @@ export default {
                 {
                     title: "设计团队",
                     subtitle: "Design",
-                    iconUrl: require("@/assets/icons/services/group.svg"),
+                    iconUrl: require("@/assets/svg/services/group.svg"),
                     routeName: undefined,
                 },
                 {
                     title: "包装推广",
                     subtitle: "Extend",
-                    iconUrl: require("@/assets/icons/services/design_work.svg"),
+                    iconUrl: require("@/assets/svg/services/design_work.svg"),
                     routeName: undefined,
                 },
                 {
                     title: "代理顾问",
                     subtitle: "Agent",
-                    iconUrl: require("@/assets/icons/services/asking.svg"),
+                    iconUrl: require("@/assets/svg/services/asking.svg"),
                     routeName: undefined,
                 },
             ],

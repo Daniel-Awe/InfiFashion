@@ -43,19 +43,19 @@ export default {
             operations: [
                 {
                     key: "agree",
-                    iconUrl: require("@/assets/icons/thumb_up_line.svg"),
+                    iconUrl: require("@/assets/svg/thumb_up_line.svg"),
                 },
                 {
                     key: "collect",
-                    iconUrl: require("@/assets/icons/star_line.svg"),
+                    iconUrl: require("@/assets/svg/star_line.svg"),
                 },
                 {
                     key: "comment",
-                    iconUrl: require("@/assets/icons/message_line.svg"),
+                    iconUrl: require("@/assets/svg/message_line.svg"),
                 },
                 {
                     key: "share",
-                    iconUrl: require("@/assets/icons/share_line.svg"),
+                    iconUrl: require("@/assets/svg/share_line.svg"),
                 },
             ],
         };

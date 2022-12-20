@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="require('@/assets/icons/search_line.svg')" alt="" />
+        <img :src="require('@/assets/svg/search_line.svg')" alt="" />
         <input
             type="text"
             :value="value"

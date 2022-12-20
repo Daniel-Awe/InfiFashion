@@ -4,7 +4,7 @@
         <span style="margin-left: 0.5625rem" class="title">{{ title }}</span>
         <span class="more" v-if="hasMore" @click="$emit('clickMore')">
             <span>更多</span>
-            <img :src="require('@/assets/icons/arrow_right_line.svg')" alt="" />
+            <img :src="require('@/assets/svg/arrow_right_line.svg')" alt="" />
         </span>
     </div>
 </template>

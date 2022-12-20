@@ -24,7 +24,7 @@
                     <div class="add box">
                         <img
                             class="plus"
-                            :src="require('@/assets/icons/plus.svg')"
+                            :src="require('@/assets/svg/plus.svg')"
                             alt=""
                         />
                     </div>

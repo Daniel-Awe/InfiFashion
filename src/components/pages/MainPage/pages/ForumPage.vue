@@ -57,22 +57,22 @@ export default {
             sortDatas: [
                 {
                     title: "流行趋势",
-                    iconUrl: require("@/assets/icons/articles/trend.svg"),
+                    iconUrl: require("@/assets/svg/articles/trend.svg"),
                     routeName: undefined,
                 },
                 {
                     title: "服饰文化",
-                    iconUrl: require("@/assets/icons/articles/culture.svg"),
+                    iconUrl: require("@/assets/svg/articles/culture.svg"),
                     routeName: undefined,
                 },
                 {
                     title: "经验分享",
-                    iconUrl: require("@/assets/icons/articles/communicate.svg"),
+                    iconUrl: require("@/assets/svg/articles/communicate.svg"),
                     routeName: undefined,
                 },
                 {
                     title: "成功案例",
-                    iconUrl: require("@/assets/icons/articles/achievement.svg"),
+                    iconUrl: require("@/assets/svg/articles/achievement.svg"),
                     routeName: undefined,
                 },
             ],
