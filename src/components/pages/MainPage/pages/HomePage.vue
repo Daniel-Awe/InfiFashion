@@ -16,9 +16,8 @@
         <div ref="view" class="view" @scroll="topBarUpdate()">
             <img
                 ref="backgroundPicture"
-                v-loading="!homeDatas"
                 width="100%"
-                :src="tryGet(homeDatas, 'backgroundPictureUrl')"
+                :src="require('@/assets/pictures/home_top_background.png')"
                 alt=""
                 @load="topBarUpdate()"
             />
@@ -60,7 +59,7 @@
 </template>
 
 <script>
-import { getAllTeams, getHomeDatas, getNewArticles } from "@/api/index.js";
+import { getAllTeams, getNewArticles } from "@/api/index.js";
 import SearchBox from "./HomePage/SearchBox.vue";
 import PageDivider from "./HomePage/PageDivider.vue";
 import ProminentButton from "./HomePage/ProminentButton.vue";
@@ -81,7 +80,6 @@ export default {
     name: "HomePage",
     data() {
         return {
-            homeDatas: undefined,
             searchContent: "",
             provideServices: [
                 {
@@ -114,8 +112,8 @@ export default {
             const scrollTop = this.$refs.view.scrollTop;
             const backgroundPicture = this.$refs.backgroundPicture;
             if (
-                scrollTop >
-                backgroundPicture.clientHeight - topBar.clientHeight
+                backgroundPicture.clientHeight !== 0 &&
+                scrollTop > backgroundPicture.clientHeight - topBar.clientHeight
             ) {
                 topBar.classList.add("notop");
             } else {
@@ -127,10 +125,6 @@ export default {
         this.topBarUpdate();
     },
     created() {
-        getHomeDatas().then((response) => {
-            this.homeDatas = response;
-        });
-
         getAllTeams().then((response) => {
             this.goldTeams = response.slice(0, 2);
         });

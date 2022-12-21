@@ -55,7 +55,6 @@ DemoDatas.articles = [
 ]
 
 DemoDatas.home = {
-    backgroundPictureUrl: "https://images.unsplash.com/photo-1669310594980-4e46c24724d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfGFsbHwxN3x8fHx8fDJ8fDE2NjkzNzU4NjI&ixlib=rb-4.0.3&q=80&w=1080"
 }
 
 DemoDatas.forum = {
