@@ -35,7 +35,7 @@ export default {
     width: 10.625rem;
     height: max-content;
     border-radius: 0.3125rem;
-    background-color: $light-color;
+    background-color: $--color-white;
 
     border: 0.0625rem solid rgba(229, 229, 229, 1);
 
@@ -70,10 +70,10 @@ export default {
 .name {
     @include font-size-style(3);
     font-weight: bold;
-    color: $font-color2;
+    color: $--color-text-primary;
 }
 .region {
     @include font-size-style(4);
-    color: $font-color3;
+    color: $--color-text-regular;
 }
 </style>

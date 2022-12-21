@@ -7,9 +7,16 @@ import UserPage from '@/components/pages/MainPage/pages/UserPage.vue'
 import ForumPage from '@/components/pages/MainPage/pages/ForumPage.vue'
 import PublishPage from '@/components/pages/MainPage/pages/PublishPage.vue'
 
+import TestPage from '@/components/pages/TestPage.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
+	{
+		path: '/test',
+		name: 'TestPage',
+		component: TestPage
+	},
 	{
 		path: '*', redirect: '/'
 	},

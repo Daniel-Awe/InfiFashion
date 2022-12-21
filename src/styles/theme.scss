@@ -1,11 +1,48 @@
-@import "./color.scss";
 @import "./font.scss";
 @import "./mixin.scss";
 
-/* 改变主题色变量 */
-$--color-primary: $primary-color;
+/* Color
+-------------------------- */
+/// color|1|Brand Color|0
+$--color-primary: #8f79d4 !default;
+/// color|1|Background Color|4
+$--color-white: #ffffff !default;
+/// color|1|Background Color|4
+$--color-black: #000000 !default;
+
+/// color|1|Functional Color|1
+$--color-success: #67C23A !default;
+/// color|1|Functional Color|1
+$--color-warning: #E6A23C !default;
+/// color|1|Functional Color|1
+$--color-danger: #F56C6C !default;
+/// color|1|Functional Color|1
+$--color-info: #909399 !default;
+
+/// color|1|Font Color|2
+$--color-text-primary: #303133 !default;
+/// color|1|Font Color|2
+$--color-text-regular: #606266 !default;
+/// color|1|Font Color|2
+$--color-text-secondary: #909399 !default;
+/// color|1|Font Color|2
+$--color-text-placeholder: #C0C4CC !default;
+/// color|1|Border Color|3
+$--border-color-base: #DCDFE6 !default;
+/// color|1|Border Color|3
+$--border-color-light: #E4E7ED !default;
+/// color|1|Border Color|3
+$--border-color-lighter: #EBEEF5 !default;
+/// color|1|Border Color|3
+$--border-color-extra-light: #F2F6FC !default;
+
+// Background
+/// color|1|Background Color|4
+$--background-color-base: #f9f9f9 !default;
+
+@import "~element-ui/packages/theme-chalk/src/common/var";
 
 /* 改变 icon 字体路径变量，必需 */
-// $--font-path: 'element-ui/lib/theme-chalk/fonts';
+// $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
-// @import "element-ui/packages/theme-chalk/src/index";
+// @import "~element-ui/packages/theme-chalk/src/index";

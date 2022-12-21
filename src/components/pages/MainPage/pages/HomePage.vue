@@ -13,11 +13,14 @@
                 v-model="searchContent"
             />
         </TopBar>
-        <div ref="view" class="view" @scroll="scrollEvent()">
+        <div ref="view" class="view" @scroll="topBarUpdate()">
             <img
+                ref="backgroundPicture"
+                v-loading="!homeDatas"
                 width="100%"
-                :src="require('@/assets/pictures/home_top_bg.png')"
+                :src="tryGet(homeDatas, 'backgroundPictureUrl')"
                 alt=""
+                @load="topBarUpdate()"
             />
             <div style="padding: 0.625rem">
                 <PageDivider title="提供服务" />
@@ -57,13 +60,14 @@
 </template>
 
 <script>
-import { getAllTeams, getNewArticles } from "@/api/index.js";
+import { getAllTeams, getHomeDatas, getNewArticles } from "@/api/index.js";
 import SearchBox from "./HomePage/SearchBox.vue";
 import PageDivider from "./HomePage/PageDivider.vue";
 import ProminentButton from "./HomePage/ProminentButton.vue";
 import GroupInfoBox from "./HomePage/GroupInfoBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
 import TopBar from "@/components/TopBar.vue";
+import { helper } from "@/mixin";
 
 export default {
     components: {
@@ -77,6 +81,7 @@ export default {
     name: "HomePage",
     data() {
         return {
+            homeDatas: undefined,
             searchContent: "",
             provideServices: [
                 {
@@ -103,26 +108,29 @@ export default {
         };
     },
     methods: {
-        scrollEvent() {
+        topBarUpdate() {
             /** @type Element */
             const topBar = this.$refs.topBar.$el;
             const scrollTop = this.$refs.view.scrollTop;
-            if (scrollTop > 140) {
+            const backgroundPicture = this.$refs.backgroundPicture;
+            if (
+                scrollTop >
+                backgroundPicture.clientHeight - topBar.clientHeight
+            ) {
                 topBar.classList.add("notop");
             } else {
                 topBar.classList.remove("notop");
             }
         },
     },
-    watch: {
-        "$refs.view.scrollTop"() {
-            this.scrollEvent();
-        },
-    },
     mounted() {
-        this.scrollEvent();
+        this.topBarUpdate();
     },
     created() {
+        getHomeDatas().then((response) => {
+            this.homeDatas = response;
+        });
+
         getAllTeams().then((response) => {
             this.goldTeams = response.slice(0, 2);
         });
@@ -131,6 +139,7 @@ export default {
             this.latestArticle = response[0];
         });
     },
+    mixins: [helper],
 };
 </script>
 
@@ -150,7 +159,7 @@ export default {
         transition: background-color 0.2s;
 
         &.notop {
-            background-color: $primary-color;
+            background-color: $--color-primary;
         }
     }
 

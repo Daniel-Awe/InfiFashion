@@ -34,9 +34,9 @@ div {
     width: 18.8rem;
     height: 1.8rem;
     border-radius: 0.625rem;
-    background-color: $background-color;
+    background-color: $--background-color-base;
 
-    border: 0.0625rem solid $primary-light-color;
+    border: 0.0625rem solid $--color-primary-light-2;
 
     box-sizing: border-box;
 
@@ -64,7 +64,7 @@ input {
     outline: none;
 
     @include font-size-style(4);
-    color: $font-color3;
+    color: $--color-text-regular;
 }
 
 input:focus {

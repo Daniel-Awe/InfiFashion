@@ -4,6 +4,9 @@
     src: url("@/assets/fonts/苹方字体/PingFang Regular.ttf");
 }
 
+// 定义字体的名称
+$--font-family-primary: "PingFang";
+
 // 字体的尺寸
 @mixin font-size-style($level) {
     $sizes: 1.125rem,

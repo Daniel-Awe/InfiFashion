@@ -71,7 +71,7 @@ export default {
 .articleCardContainer {
     width: 21.875rem;
     border-radius: 0.3125rem;
-    background-color: $light-color;
+    background-color: $--color-white;
 
     box-sizing: border-box;
     padding: 5px 10px;
@@ -88,22 +88,22 @@ export default {
     flex-grow: 1;
 }
 .button {
-    background-color: $primary-color;
-    color: $light-color;
+    background-color: $--color-primary;
+    color: $--color-white;
 }
 .name {
     @include font-size-style(3);
     font-weight: bold;
-    color: $primary-color;
+    color: $--color-primary;
 }
 .date {
     @include font-size-style(4);
     font-weight: bold;
-    color: $font-color3;
+    color: $--color-text-regular;
 }
 .title {
     @include font-size-style(4);
-    color: $font-color1;
+    color: $--color-black;
 
     @include font-ellipsis();
 }
@@ -120,7 +120,7 @@ export default {
         align-items: center;
         p {
             @include font-size-style(4);
-            color: $font-color2;
+            color: $--color-text-primary;
 
             margin: 0;
         }
