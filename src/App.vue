@@ -13,7 +13,14 @@ export default {
 <style lang="scss">
 body {
     margin: 0;
-    font-family: $primary-font-family;
+    font-family: $--font-family-primary;
+}
+
+input {
+    font-family: $--font-family-primary;
+}
+textarea {
+    font-family: $--font-family-primary;
 }
 
 #app {

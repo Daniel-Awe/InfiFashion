@@ -108,7 +108,7 @@ export default {
             font-weight: bold;
             width: max-content;
             height: max-content;
-            color: $light-color;
+            color: $--color-white;
         }
     }
 

@@ -39,7 +39,7 @@ export default {
 .bt {
     width: 100%;
     height: 3.5rem;
-    background-color: $light-color;
+    background-color: $--color-white;
     box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-around;
@@ -54,7 +54,7 @@ export default {
     align-items: center;
     gap: 0.1875rem;
 
-    color: $font-color2;
+    color: $--color-text-primary;
 
     img {
         width: 1.5rem;
@@ -72,6 +72,6 @@ export default {
 }
 
 .item.selected {
-    color: $font-primary-color;
+    color: rgb(132, 65, 163);
 }
 </style>

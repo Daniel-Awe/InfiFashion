@@ -54,6 +54,9 @@ DemoDatas.articles = [
     }
 ]
 
+DemoDatas.home = {
+}
+
 DemoDatas.forum = {
     slideshow: {
         pictures: [

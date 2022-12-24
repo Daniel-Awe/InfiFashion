@@ -16,6 +16,6 @@ export default {
     height: 2.75rem;
     padding-top: 1.25rem;
 
-    background-color: $primary-color;
+    background-color: $--color-primary;
 }
 </style>

@@ -39,13 +39,13 @@ export default {
     width: 0.375rem;
     height: 100%;
     border-radius: 0.625rem;
-    background-color: $primary-color;
+    background-color: $--color-primary;
 }
 
 .title {
     @include font-size-style(2);
     font-weight: bold;
-    color: $font-color1;
+    color: $--color-black;
 }
 
 .more {

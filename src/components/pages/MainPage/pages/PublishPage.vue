@@ -5,31 +5,56 @@
         </TopBar>
         <div class="view">
             <div class="tip">点击添加附件/长按排序</div>
-            <UploadBox ref="uploadBox" class="uploadBox">
-                <template slot="fileBox" slot-scope="{ file }">
-                    <div class="file box">
-                        <img
-                            class="background"
-                            v-if="file.type.indexOf('image') === 0"
-                            :src="file.url"
-                            alt=""
-                            @click="imagePreviewUrl = file.url"
-                        />
-                        <div class="cover">
-                            {{ file.name }}
+            <div style="padding: 0.9375rem">
+                <UploadBox ref="uploadBox" class="uploadBox">
+                    <template slot="fileBox" slot-scope="{ file }">
+                        <div class="file box">
+                            <img
+                                class="background"
+                                v-if="file.type.indexOf('image') === 0"
+                                :src="file.url"
+                                alt=""
+                                @click="imagePreviewUrl = file.url"
+                            />
+                            <div class="cover">
+                                {{ file.name }}
+                            </div>
                         </div>
-                    </div>
-                </template>
-                <template slot="addBox">
-                    <div class="add box">
-                        <img
-                            class="plus"
-                            :src="require('@/assets/svg/plus.svg')"
-                            alt=""
-                        />
-                    </div>
-                </template>
-            </UploadBox>
+                    </template>
+                    <template slot="addBox">
+                        <div class="add box">
+                            <img
+                                class="plus"
+                                :src="require('@/assets/svg/plus.svg')"
+                                alt=""
+                            />
+                        </div>
+                    </template>
+                </UploadBox>
+                <TextInputRow
+                    style="margin-top: 1.25rem"
+                    type="text"
+                    placeholder="请输入标题"
+                    :maxlength="50"
+                    v-model="title"
+                />
+                <TextInputRow
+                    type="number"
+                    placeholder="请输入联系手机号"
+                    v-model="phone"
+                />
+                <TextInputRow
+                    type="text"
+                    placeholder="需求分类"
+                    v-model="type"
+                />
+                <TextInputArea
+                    style="margin-top: 1.25rem"
+                    title="请输入作品说明"
+                    v-model="description"
+                    :maxlength="2000"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -37,13 +62,19 @@
 <script>
 import TopBar from "@/components/TopBar.vue";
 import UploadBox from "@/components/UploadBox.vue";
+import TextInputRow from "./PublishPage/TextInputRow.vue";
+import TextInputArea from "./PublishPage/TextInputArea.vue";
 
 export default {
-    components: { TopBar, UploadBox },
+    components: { TopBar, UploadBox, TextInputRow, TextInputArea },
     name: "PublishPage",
     data() {
         return {
             imagePreviewUrl: undefined,
+            title: "",
+            phone: "",
+            type: "",
+            description: "",
         };
     },
     methods: {},
@@ -67,7 +98,7 @@ export default {
             font-weight: bold;
             width: max-content;
             height: max-content;
-            color: $light-color;
+            color: $--color-white;
         }
     }
 
@@ -82,7 +113,6 @@ export default {
             background-color: rgba(231, 217, 255, 0.2);
         }
         .uploadBox {
-            margin: 0.9375rem;
             display: flex;
             justify-content: center;
 

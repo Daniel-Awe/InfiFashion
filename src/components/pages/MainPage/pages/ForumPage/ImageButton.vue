@@ -31,7 +31,7 @@ div {
     span {
         @include font-size-style(3);
         font-weight: bold;
-        color: $font-color2;
+        color: $--color-text-primary;
     }
 }
 </style>

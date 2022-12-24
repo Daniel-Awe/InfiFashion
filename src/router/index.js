@@ -9,6 +9,7 @@ import ForumPage from '@/components/pages/MainPage/pages/ForumPage.vue'
 import PublishPage from '@/components/pages/MainPage/pages/PublishPage.vue'
 import LoginMainPage from '@/components/pages/LoginPage/pages/LoginMainPage.vue'
 import GetCodePage from '@/components/pages/LoginPage/pages/GetCodePage.vue'
+
 import TestPage from '@/components/pages/TestPage.vue'
 
 Vue.use(VueRouter)

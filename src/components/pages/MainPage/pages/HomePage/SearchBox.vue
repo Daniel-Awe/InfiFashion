@@ -13,30 +13,19 @@
 <script>
 export default {
     name: "SearchBox",
-    data() {
-        return {};
-    },
     props: {
-        value: {
-            type: String,
-            default: () => "",
-        },
-    },
-    model: {
-        prop: "value",
-        event: "input",
+        value: String,
     },
 };
 </script>
 
 <style lang="scss" scoped>
 div {
-    width: 18.8rem;
     height: 1.8rem;
     border-radius: 0.625rem;
-    background-color: $background-color;
+    background-color: $--background-color-base;
 
-    border: 0.0625rem solid $primary-light-color;
+    border: 0.0625rem solid $--color-primary-light-2;
 
     box-sizing: border-box;
 
@@ -57,14 +46,14 @@ input {
 
     overflow: hidden;
 
-    background-color: inherit;
+    background: none;
     padding: 0;
 
     border: none;
     outline: none;
 
     @include font-size-style(4);
-    color: $font-color3;
+    color: $--color-text-primary;
 }
 
 input:focus {

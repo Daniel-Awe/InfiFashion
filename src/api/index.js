@@ -45,6 +45,13 @@ export const getNewArticles = async function (count = 1) {
 }
 //#endregion
 
+//#region 首页
+export const getHomeDatas = async function () {
+    await sleep(requestTime());
+    return DemoDatas.home;
+}
+//#endregion
+
 //#region 论坛
 export const getForumDatas = async function () {
     await sleep(requestTime());
