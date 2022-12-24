@@ -50,7 +50,7 @@
                     :hasMore="true"
                     @clickMore="$router.push({ name: undefined })"
                 />
-                <div class="unitBox" v-loading="!latestArticle">
+                <div class="col unitBox" v-loading="!latestArticle">
                     <ArticleCard :article="latestArticle" />
                 </div>
             </div>

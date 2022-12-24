@@ -41,7 +41,7 @@ export default {
 
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     box-sizing: border-box;
     padding: 0.5rem 0.625rem;
 }

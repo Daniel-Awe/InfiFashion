@@ -16,6 +16,13 @@ body {
     font-family: $--font-family-primary;
 }
 
+input {
+    font-family: $--font-family-primary;
+}
+textarea {
+    font-family: $--font-family-primary;
+}
+
 #app {
     width: 100vw;
     height: 100vh;
