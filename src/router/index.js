@@ -6,6 +6,7 @@ import MainPage from '@/components/pages/MainPage.vue'
 import UserPage from '@/components/pages/MainPage/pages/UserPage.vue'
 import ForumPage from '@/components/pages/MainPage/pages/ForumPage.vue'
 import PublishPage from '@/components/pages/MainPage/pages/PublishPage.vue'
+import MessagePage from '@/components/pages/MainPage/pages/MessagePage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -45,6 +46,11 @@ const routes = [
 				path: 'publish',
 				name: 'PublishPage',
 				component: PublishPage
+			},
+			{
+				path: 'message',
+				name: 'MessagePage',
+				component: MessagePage
 			},
 			{
 				path: 'user',

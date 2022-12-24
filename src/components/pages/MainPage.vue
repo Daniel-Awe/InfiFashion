@@ -43,7 +43,7 @@ export default {
                     title: "消息",
                     selectedIconUrl: require("@/assets/svg/mail_fill.svg"),
                     unselectedIconUrl: require("@/assets/svg/mail_line.svg"),
-                    routeName: undefined,
+                    routeName: "MessagePage",
                 },
                 {
                     title: "我的",

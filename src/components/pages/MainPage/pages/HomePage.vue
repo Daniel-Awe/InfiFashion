@@ -2,7 +2,6 @@
     <div class="container">
         <TopBar ref="topBar" class="topBar">
             <img
-                class="locationIcon"
                 style="margin-left: 0.625rem"
                 :src="require('@/assets/svg/location_line.svg')"
                 alt=""
@@ -161,11 +160,6 @@ export default {
         // flex-grow: 1;
         overflow-y: scroll;
     }
-}
-
-.locationIcon {
-    width: 1.5rem;
-    height: 1.5rem;
 }
 
 .searchBox {
