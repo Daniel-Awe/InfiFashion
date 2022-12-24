@@ -1,11 +1,12 @@
 <template>
-  <LoginPage/>
+  <GetCodePage/>
 </template>
 
 <script>
-import LoginPage from './LoginPage.vue'
+import GetCodePage from './LoginPage/pages/GetCodePage.vue'
 export default {
-  components: { LoginPage },
+  name:'TestPage',
+  components: {  GetCodePage },
 
 }
 </script>

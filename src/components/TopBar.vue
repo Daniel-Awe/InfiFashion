@@ -13,8 +13,8 @@ export default {
 <style lang="scss" scoped>
 .topBar {
     width: 100%;
-    height: 2.88rem;
-    padding-top: 1.125rem;
+    height: 2.75rem;
+    padding-top: 1.25rem;
 
     background-color: $primary-color;
 }
