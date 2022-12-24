@@ -19,7 +19,7 @@ export default {};
 }
 
 .view {
-  background-color: $background-color;
+  background-color: $--background-color-base;
   flex-grow: 1;
 
   overflow-y: hidden;
