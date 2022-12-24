@@ -1,6 +1,10 @@
 <template>
     <div>
-        <img :src="require('@/assets/svg/search_line.svg')" alt="" />
+        <img
+            style="margin-left: 0.6rem"
+            :src="require('@/assets/svg/search_line.svg')"
+            alt=""
+        />
         <input
             type="text"
             :value="value"
@@ -31,12 +35,6 @@ div {
 
     display: flex;
     align-items: center;
-}
-
-img {
-    width: 0.94rem;
-    height: 0.94rem;
-    margin-left: 0.6rem;
 }
 
 input {

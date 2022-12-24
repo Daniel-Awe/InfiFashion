@@ -7,6 +7,7 @@ import LoginPage from '@/components/pages/LoginPage.vue'
 import UserPage from '@/components/pages/MainPage/pages/UserPage.vue'
 import ForumPage from '@/components/pages/MainPage/pages/ForumPage.vue'
 import PublishPage from '@/components/pages/MainPage/pages/PublishPage.vue'
+import MessagePage from '@/components/pages/MainPage/pages/MessagePage.vue'
 import LoginMainPage from '@/components/pages/LoginPage/pages/LoginMainPage.vue'
 import GetCodePage from '@/components/pages/LoginPage/pages/GetCodePage.vue'
 
@@ -48,6 +49,11 @@ const routes = [
 				path: 'publish',
 				name: 'PublishPage',
 				component: PublishPage
+			},
+			{
+				path: 'message',
+				name: 'MessagePage',
+				component: MessagePage
 			},
 			{
 				path: 'user',
