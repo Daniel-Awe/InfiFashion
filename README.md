@@ -13,16 +13,23 @@
     - index.js——**所有的请求接口代码**
   - *assets*——**资源**
     - *demo*——**测试用的资源**
-      - datas.js——**测试用的请求返回值**
+      - *datas*——**各种数据**
+      - datas.js——**所有测试用的数据**
     - *fonts*——**字体文件**
-    - *svg*——**所有的矢量图图标**
     - *pictures*——**所有的标量图图片**
+    - *svg*——**所有的矢量图图标**
   - *components*——**所有的组件**
   - *mixin*——**vue混入**
   - *router*——**路由**
     - index.js——**所有的路由逻辑代码**
+  - *store*——**vuex代码**
+    - *modules*
+      - loginInfo.js——**登录信息**
+    - index.js——**所有的存储逻辑代码**
   - *styles*——**样式**
-    - theme.less——**主题样式（项目通用的样式）**
+    - font.scss——**字体样式**
+    - mixin.scss——**混入样式**
+    - theme.scss——**主题样式（项目通用的样式）**
 
 > 斜体字为文件夹
 
