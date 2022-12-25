@@ -95,7 +95,7 @@ export default {
 
         .title {
             @include font-size-style(1);
-            font-weight: bold;
+            font-weight: 700;
             width: max-content;
             height: max-content;
             color: $--color-white;
@@ -109,6 +109,7 @@ export default {
         .tip {
             padding: 0.375rem 0.9375rem 0.3125rem 0.9375rem;
             @include font-size-style(4);
+            font-weight: 400;
             color: rgb(176, 176, 176);
             background-color: rgba(231, 217, 255, 0.2);
         }

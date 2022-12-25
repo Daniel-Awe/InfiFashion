@@ -10,6 +10,7 @@ import PublishPage from '@/components/pages/MainPage/pages/PublishPage.vue'
 import MessagePage from '@/components/pages/MainPage/pages/MessagePage.vue'
 import LoginMainPage from '@/components/pages/LoginPage/pages/LoginMainPage.vue'
 import GetCodePage from '@/components/pages/LoginPage/pages/GetCodePage.vue'
+import TeamInformationPage from '@/components/pages/TeamInformationPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -63,9 +64,14 @@ const routes = [
 		]
 	},
 	{
+		path: '/team/:id',
+		name: 'TeamInformationPage',
+		component: TeamInformationPage
+	},
+	{
 		path: '/login',
 		name: 'LoginPage',
-		redirect:'/login/loginmain',
+		redirect: '/login/loginmain',
 		component: LoginPage,
 		children: [
 			{

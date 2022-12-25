@@ -63,6 +63,7 @@ export default {
 
     .title {
         color: $--color-text-secondary;
+        font-weight: 500;
     }
 
     .counter {
@@ -71,6 +72,7 @@ export default {
         right: 0;
 
         color: $--color-text-secondary;
+        font-weight: 500;
 
         transform: translate(-10px, -10px);
     }

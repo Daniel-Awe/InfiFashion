@@ -4,3 +4,9 @@
     overflow: hidden;
     text-overflow: font-ellipsis;
 }
+
+@mixin flex-style($param) {
+    display: flex;
+    flex-direction: $param;
+    align-items: center;
+}

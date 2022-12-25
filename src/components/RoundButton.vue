@@ -22,6 +22,6 @@ export default {
     height: max-content;
 
     @include font-size-style(4);
-    font-weight: bold;
+    font-weight: 700;
 }
 </style>

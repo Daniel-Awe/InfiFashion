@@ -4,7 +4,7 @@
         <span style="margin-left: 0.5625rem" class="title">{{ title }}</span>
         <span class="more" v-if="hasMore" @click="$emit('clickMore')">
             <span>更多</span>
-            <img :src="require('@/assets/svg/arrow_right_line.svg')" alt="" />
+            <img :src="require('@/assets/svg/double_arrow_right_line.svg')" alt="" />
         </span>
     </div>
 </template>
@@ -44,7 +44,7 @@ export default {
 
 .title {
     @include font-size-style(2);
-    font-weight: bold;
+    font-weight: 700;
     color: $--color-black;
 }
 
@@ -56,7 +56,7 @@ export default {
     align-items: center;
 
     @include font-size-style(4);
-    font-weight: bold;
+    font-weight: 700;
     color: rgba(166, 166, 166, 1);
 }
 </style>

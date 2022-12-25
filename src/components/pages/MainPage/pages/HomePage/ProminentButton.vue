@@ -47,13 +47,14 @@ div > span {
     width: 3.5rem;
 
     @include font-size-style(3);
-    font-weight: bold;
+    font-weight: 700;
     color: $--color-text-primary;
 }
 .subtitle {
     width: 2.375rem;
 
     @include font-size-style(4);
+    font-weight: 400;
     color: $--color-text-regular;
 }
 </style>

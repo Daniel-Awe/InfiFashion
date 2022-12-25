@@ -1,5 +1,5 @@
 <template>
-    <div class="groupInfoBox">
+    <div class="groupInfoBox" @click="$emit('click')">
         <div class="userInfoBox">
             <RoundAvatar :src="team.leader.avatar" />
             <div class="text" style="margin-left: 0.5rem">
@@ -69,11 +69,12 @@ export default {
 }
 .name {
     @include font-size-style(3);
-    font-weight: bold;
+    font-weight: 700;
     color: $--color-text-primary;
 }
 .region {
     @include font-size-style(4);
+    font-weight: 500;
     color: $--color-text-regular;
 }
 </style>
