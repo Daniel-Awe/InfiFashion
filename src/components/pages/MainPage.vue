@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             scrollTop: 0,
-            bottomNavigationDatas: [
+            bottomNavigationDatas: null,
+            merchantDatas: [
                 {
                     title: "首页",
                     selectedIconUrl: require("@/assets/svg/home_fill.svg"),
@@ -52,7 +53,16 @@ export default {
                     routeName: "UserPage",
                 },
             ],
+            talentDatas: [],
         };
+    },
+    created() {
+        const theme = document.body.style.getPropertyValue("--theme");
+        if (theme === "merchant") {
+            this.bottomNavigationDatas = this.merchantDatas;
+        } else if (theme === "talent") {
+            this.bottomNavigationDatas = this.talentDatas;
+        }
     },
 };
 </script>

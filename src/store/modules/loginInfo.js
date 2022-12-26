@@ -1,4 +1,4 @@
-import { getUser, login } from "@/api";
+import { getUserByToken, login } from "@/api";
 
 const state = () => ({
     user: null,
@@ -20,7 +20,7 @@ const actions = {
                 const token = localStorage.getItem("token");
                 commit("setToken", token);
             }
-            const user = await getUser();
+            const user = await getUserByToken();
             commit("setUser", user);
             return user;
         }

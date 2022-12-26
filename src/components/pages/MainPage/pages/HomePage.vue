@@ -22,7 +22,7 @@
             />
             <div style="padding: 0.625rem">
                 <PageDivider title="提供服务" />
-                <div class="row unitBox">
+                <div class="row unitBox" style="justify-content: space-around">
                     <ProminentButton
                         v-for="(item, key) in provideServices"
                         :key="key"
@@ -37,7 +37,11 @@
                     :hasMore="true"
                     @clickMore="$router.push({ name: undefined })"
                 />
-                <div class="row unitBox" v-loading="!goldTeams">
+                <div
+                    style="justify-content: space-around"
+                    class="row unitBox"
+                    v-loading="!goldTeams"
+                >
                     <GroupInfoBox
                         v-for="(item, key) in goldTeams"
                         :key="key"
@@ -66,9 +70,9 @@
 </template>
 
 <script>
-import { getAllTeams, getNewArticles } from "@/api/index.js";
+import { getHomeDatas, getNewArticles } from "@/api/index.js";
 import SearchBox from "./HomePage/SearchBox.vue";
-import PageDivider from "./HomePage/PageDivider.vue";
+import PageDivider from "../../../PageDivider.vue";
 import ProminentButton from "./HomePage/ProminentButton.vue";
 import GroupInfoBox from "./HomePage/GroupInfoBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
@@ -132,8 +136,8 @@ export default {
         this.topBarUpdate();
     },
     created() {
-        getAllTeams().then((response) => {
-            this.goldTeams = response.slice(0, 2);
+        getHomeDatas().then((response) => {
+            this.goldTeams = response.goldTeams;
         });
 
         getNewArticles(1).then((response) => {
@@ -175,16 +179,11 @@ export default {
 }
 
 /deep/ .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    @include flex-style(row);
 }
 
 /deep/ .col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-style(column);
 }
 
 /deep/ .unitBox {

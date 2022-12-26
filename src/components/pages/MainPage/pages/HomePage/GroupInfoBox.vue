@@ -1,13 +1,13 @@
 <template>
     <div class="groupInfoBox" @click="$emit('click')">
         <div class="userInfoBox">
-            <RoundAvatar :src="team.leader.avatar" />
+            <RoundAvatar :src="team.avatar" />
             <div class="text" style="margin-left: 0.5rem">
-                <span class="name">{{ team.leader.name }}</span>
-                <span class="region">{{ team.leader.region }}</span>
+                <span class="name">{{ team.name }}</span>
+                <span class="region">{{ team.region }}</span>
             </div>
         </div>
-        <TagBox style="margin-top: 0.625rem" :tags="team.leader.tags" />
+        <TagBox style="margin-top: 0.625rem" :tags="team.tags" />
         <img
             style="margin-top: 0.625rem; margin-bottom: 0.1875rem"
             class="picture"

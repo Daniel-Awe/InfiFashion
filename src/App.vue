@@ -10,6 +10,14 @@
 export default {
     name: "App",
     async created() {
+        if (true) {
+            document.body.style.setProperty("--theme", "merchant");
+            document.body.style.setProperty("--color-primary", "#8f79d4");
+        } else {
+            document.body.style.setProperty("--theme", "talent");
+            document.body.style.setProperty("--color-primary", "#249FB5");
+        }
+
         const user = await this.$store.dispatch("doLogin");
         if (!user) this.$store.dispatch("doLogout");
     },

@@ -29,7 +29,7 @@ div {
     border-radius: 0.625rem;
     background-color: $--background-color-base;
 
-    border: 0.0625rem solid $--color-primary-light-2;
+    border: 0.0625rem solid $--color-primary;
 
     box-sizing: border-box;
 

@@ -1,14 +1,17 @@
 import users from "./datas/users"
-import teams from "./datas/teams"
 import articles from "./datas/articles"
-import dialogues from "./datas/dialogues";
+import dialogues from "./datas/dialogues"
+import services from "./datas/services"
+
+import home from "./datas/home"
 import forum from "./datas/forum"
 
 export default {
     users,
-    teams,
     articles,
     dialogues,
+    services,
 
+    home,
     forum
 };

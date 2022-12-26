@@ -8,6 +8,7 @@
             :class="item.routeName === $route.name ? 'selected' : ''"
         >
             <img
+                rich-icon
                 :src="
                     item.routeName === $route.name
                         ? item.selectedIconUrl

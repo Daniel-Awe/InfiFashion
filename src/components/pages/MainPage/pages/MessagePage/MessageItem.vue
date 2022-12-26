@@ -3,7 +3,7 @@
         <img
             style="margin-left: 1rem; margin-right: 0.75rem"
             :style="
-                tryGet(data, ['other()', 'id', 'indexOf(\'system_\')']) === 0
+                tryGet(data, ['other()', 'type']) === 'system'
                     ? ''
                     : 'border-radius: 50%'
             "

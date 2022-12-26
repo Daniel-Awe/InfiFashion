@@ -5,13 +5,15 @@ const sleep = (ms) => new Promise(resolve => setTimeout(() => resolve(), ms));
 
 const requestTime = () => Math.random() * 2000;
 
+//#region 用户
+
 export const login = async (id, password) => {
     await sleep(requestTime());
     const token = DemoDatas.users().find(value => value.id === id && value.password === password).id;
     return token;
 }
 
-export const getUser = async () => {
+export const getUserByToken = async () => {
     await sleep(requestTime());
     const token = localStorage.getItem("token");
     if (token)
@@ -20,28 +22,11 @@ export const getUser = async () => {
         return null;
 }
 
-//#region 团队
-export const getAllTeams = async () => {
+export const getUserById = async (id) => {
     await sleep(requestTime());
-    return DemoDatas.teams();
+    return DemoDatas.users().find(value => value.id === id) || null;
 }
 
-export const getTeamInfo = async (teamId) => {
-    await sleep(requestTime());
-    return DemoDatas.teams().find((value) => value.id === teamId);
-}
-//#endregion
-
-//#region 用户
-export const getAllUsers = async () => {
-    await sleep(requestTime());
-    return DemoDatas.users();
-}
-
-export const getUserInfo = async (userId) => {
-    await sleep(requestTime());
-    return DemoDatas.users().find((value) => value.id === userId);
-}
 //#endregion
 
 //#region 文章
@@ -84,10 +69,17 @@ export const getDialogues = async (userId) => {
 }
 //#endregion
 
+//#region 服务
+export const getServices = async (userId) => {
+    await sleep(requestTime());
+    return DemoDatas.services().filter(value => value.author.id === userId);
+}
+//#endregion
+
 //#region 首页
 export const getHomeDatas = async () => {
     await sleep(requestTime());
-    return DemoDatas.home;
+    return DemoDatas.home();
 }
 //#endregion
 
