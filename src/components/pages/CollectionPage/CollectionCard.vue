@@ -37,7 +37,7 @@
         <div class="teamInfo">
           <div class="name">{{ tryGet(collection, ["team", "name"]) }}</div>
           <div class="price">
-            ￥{{ tryGet(collection, ["team", "price"]) }}/起
+            {{ tryGet(collection, ["team", "price"]) }}/起
           </div>
         </div>
         <div class="title">{{ tryGet(collection, ["team", "title"]) }}</div>

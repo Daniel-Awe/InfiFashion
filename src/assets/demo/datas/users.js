@@ -154,7 +154,7 @@ export default [
         score: 5,
         agree: 36,
         comment: 12,
-        price: 32000,
+        price: "￥32000",
         title:"通过市场调研等方式收集信息，设....."
     },
     {
@@ -162,6 +162,20 @@ export default [
         type: "talent",
         avatar: "https://img.js.design/assets/img/638614516be1dbaba7a2fd61.jpg#2803929193cf90a0d6ef9a839e4e1f43",
         name: "派维特品牌设计团队",
+        region: undefined,
+        tags: ["已实名认证", "服装设计师"],
+        password: "123456",
+        score: 5,
+        agree: 99,
+        comment: 288,
+        price: "￥28000",
+        title:"团队成立十年，推广设计经验丰富....."
+    },
+    {
+        id: "8",
+        type: "talent",
+        avatar: "https://img.js.design/assets/img/638614516be1dbaba7a2fd61.jpg#2803929193cf90a0d6ef9a839e4e1f43",
+        name: "Gergely",
         region: undefined,
         tags: ["已实名认证", "服装设计师"],
         password: "123456",

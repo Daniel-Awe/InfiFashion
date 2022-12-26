@@ -117,3 +117,10 @@ export const getCollectionDatas = async () => {
     return DemoDatas.collections;
 }
 //#endregion
+
+//#region 历史记录
+export const getHistoryDatas = async ( )=>{
+    await sleep(requestTime());
+    return DemoDatas.history;
+}
+//#endregion

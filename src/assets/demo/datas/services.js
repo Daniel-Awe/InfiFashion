@@ -33,5 +33,43 @@ export default [
         cover: "https://img.js.design/assets/img/63863d2acea634d16f727ddb.jpg#88e4f6324c2dd7333b5d33a65856f341",
         price: "￥18000/起",
         buyCount: 210,
+    },
+    {
+        id: "4",
+        get author() { return getDataById(users, "0") },
+        title: "[设计团队]品牌全案logo/面料挑选服务/提供优质面料...",
+        cover: "https://img.js.design/assets/img/63863d2acea634d16f727ddb.jpg#88e4f6324c2dd7333b5d33a65856f341",
+        price: "￥18000/起",
+        buyCount: 210,
+    },
+    {
+        id: "5",
+        get author() { return getDataById(users, "8") },
+        title: "摩洛哥传统服饰样衣设计",
+        cover: "https://img.js.design/assets/img/6385ef012736564938695070.jpg#633645665166f9143ee7d3a2e42e0aa9",
+        price: "￥18000",
+        buyCount: 150,
+        comment: 38,
+        favorableRate: 100
+    },
+    {
+        id: "6",
+        get author() { return getDataById(users, "8") },
+        title: "孟加拉服饰样衣设计",
+        cover: "https://img.js.design/assets/img/638608b2dba29f39ef7c46da.jpg#4d65322e37bdea133f65f4e9430e976b",
+        price: "￥12000",
+        buyCount: 150,
+        comment: 38,
+        favorableRate: 100
+    },
+    {
+        id: "7",
+        get author() { return getDataById(users, "8") },
+        title: "非洲传统民族服饰样衣设计",
+        cover: "https://img.js.design/assets/img/638604691503685afe928858.jpg#afb41b43cf6e3bfbf760cfabe43d2bc3",
+        price: "￥32000",
+        buyCount: 150,
+        comment: 99,
+        favorableRate: 100
     }
 ]
