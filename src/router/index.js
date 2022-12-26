@@ -14,6 +14,7 @@ import FindPasswordPage1 from '@/components/pages/LoginPage/pages/FindPasswordPa
 import FindPasswordPage2 from '@/components/pages/LoginPage/pages/FindPasswordPage2.vue'
 import FindPasswordPage3 from '@/components/pages/LoginPage/pages/FindPasswordPage3.vue'
 import FindPasswordPage4 from '@/components/pages/LoginPage/pages/FindPasswordPage4.vue'
+import TeamInformationPage from '@/components/pages/TeamInformationPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -67,9 +68,14 @@ const routes = [
 		]
 	},
 	{
+		path: '/team/:id',
+		name: 'TeamInformationPage',
+		component: TeamInformationPage
+	},
+	{
 		path: '/login',
 		name: 'LoginPage',
-		redirect:'/login/loginmain',
+		redirect: '/login/loginmain',
 		component: LoginPage,
 		children: [
 			{

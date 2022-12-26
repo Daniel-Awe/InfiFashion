@@ -1,12 +1,18 @@
 <template>
     <div id="app">
-        <router-view></router-view>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
     </div>
 </template>
 
 <script>
 export default {
     name: "App",
+    async created() {
+        const user = await this.$store.dispatch("doLogin");
+        if (!user) this.$store.dispatch("doLogout");
+    },
 };
 </script>
 

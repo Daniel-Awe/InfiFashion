@@ -39,7 +39,7 @@ import { getAllArticles, getForumDatas } from "@/api";
 import TopBar from "@/components/TopBar.vue";
 import SlideshowBox from "@/components/SlideshowBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
-import ImageButton from "./ForumPage/ImageButton.vue";
+import ImageButton from "../../../ImageButton.vue";
 import { helper } from "@/mixin";
 
 export default {
@@ -105,7 +105,7 @@ export default {
 
         .title {
             @include font-size-style(1);
-            font-weight: bold;
+            font-weight: 700;
             width: max-content;
             height: max-content;
             color: $--color-white;
@@ -139,5 +139,11 @@ export default {
     display: flex;
     flex-direction: row;
     gap: 1.5625rem;
+
+    /deep/ .title {
+        @include font-size-style(3);
+        font-weight: 700;
+        color: $--color-text-primary;
+    }
 }
 </style>

@@ -42,6 +42,14 @@
                         v-for="(item, key) in goldTeams"
                         :key="key"
                         :team="item"
+                        @click="
+                            $router.push({
+                                name: 'TeamInformationPage',
+                                params: {
+                                    id: item.id,
+                                },
+                            })
+                        "
                     />
                 </div>
                 <PageDivider

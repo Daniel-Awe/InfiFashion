@@ -61,6 +61,7 @@ div {
 
     span {
         color: $--color-text-secondary;
+        font-weight: 500;
     }
 }
 </style>

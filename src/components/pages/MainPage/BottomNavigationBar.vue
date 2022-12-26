@@ -66,6 +66,7 @@ export default {
 
         width: max-content;
         @include font-size-style(5);
+        font-weight: 500;
 
         white-space: nowrap;
     }

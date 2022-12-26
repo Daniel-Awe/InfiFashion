@@ -51,6 +51,7 @@ input {
     outline: none;
 
     @include font-size-style(4);
+    font-weight: 400;
     color: $--color-text-primary;
 }
 
