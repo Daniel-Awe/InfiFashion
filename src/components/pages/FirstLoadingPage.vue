@@ -6,7 +6,7 @@
 import { mapState } from "vuex";
 export default {
     name: "FirstLoadingPage",
-    async activated() {
+    async mounted() {
         const user = await this.$store.dispatch("doLogin");
         if (!user) this.$store.dispatch("doLogout");
 

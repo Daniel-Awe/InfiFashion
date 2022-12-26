@@ -12,7 +12,10 @@ export default [
     {
         id: "inform",
         type: "system",
-        avatar: require("@/assets/pictures/system/system_icon.png"),
+        icon: {
+            merchant: require("@/assets/pictures/system/inform_merchant_icon.png"),
+            talent: require("@/assets/pictures/system/inform_talent_icon.png"),
+        },
         name: "系统通知",
         region: undefined,
         tags: ["系统"],
@@ -22,7 +25,10 @@ export default [
     {
         id: "trade",
         type: "system",
-        avatar: require("@/assets/pictures/system/trade_icon.png"),
+        icon: {
+            merchant: require("@/assets/pictures/system/trade_merchant_icon.png"),
+            talent: require("@/assets/pictures/system/trade_talent_icon.png"),
+        },
         name: "交易提醒",
         region: undefined,
         tags: ["系统"],

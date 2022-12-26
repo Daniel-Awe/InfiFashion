@@ -26,12 +26,10 @@ export const helper = {
 
                         if (regRet !== null) { // key是个方法
                             if (!result[regRet[1]]) {
-                                console.warn(`通过'${preKey}'获取的对象中找不到'${regRet[1]}'方法`);
                                 return undefined;
                             }
                         } else { // key是个属性
                             if (!result[key]) {
-                                console.warn(`通过'${preKey}'获取的对象中找不到'${key}'属性`);
                                 return undefined;
                             }
                         }
