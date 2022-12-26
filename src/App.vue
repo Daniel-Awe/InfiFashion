@@ -10,7 +10,7 @@
 export default {
     name: "App",
     async created() {
-        if (true) {
+        if (false) {
             document.body.style.setProperty("--theme", "merchant");
             document.body.style.setProperty("--color-primary", "#8f79d4");
         } else {
