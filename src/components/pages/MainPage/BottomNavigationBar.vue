@@ -4,21 +4,13 @@
             class="item"
             v-for="(item, key) in datas"
             :key="key"
-            @click="
-                $router.push(
-                    { name: item.routeName },
-                    (route) => {
-                        index = key;
-                    },
-                    () => {}
-                )
-            "
-            :class="item.routeName === $route.name ? 'selected' : ''"
+            @click="$router.push({ name: item.routeName }, null, () => {})"
+            :class="containRoute(item.routeName) ? 'selected' : ''"
         >
             <img
                 rich-icon
                 :src="
-                    index === key
+                    containRoute(item.routeName)
                         ? item.selectedIconUrl
                         : item.unselectedIconUrl
                 "
@@ -33,11 +25,6 @@
 import { mapGetters } from "vuex";
 export default {
     name: "BottomNavigationBar",
-    data() {
-        return {
-            index: 0,
-        };
-    },
     props: {
         /** @type {[{ title: string; selectedIconUrl: string; unselectedIconUrl: string; routeName: string; }]} */
         datas: Array,
@@ -58,6 +45,14 @@ export default {
                 );
                 break;
         }
+    },
+    methods: {
+        containRoute(routeName) {
+            for (const route of this.$route.matched) {
+                if (route.name === routeName) return true;
+            }
+            return false;
+        },
     },
     computed: {
         ...mapGetters("loginInfo", ["type"]),

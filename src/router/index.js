@@ -26,6 +26,7 @@ import HistoryPage from '@/components/pages/HistoryPage.vue'
 import ServicePage from '@/components/pages/HistoryPage/pages/ServicePage.vue'
 import SettingPage from '@/components/pages/SettingPage.vue'
 import CostumeDesigningPage from '@/components/pages/MainPage/pages/TalentHomePage/pages/CostumeDesigningPage.vue'
+import IdentitySwitchPage from '@/components/pages/IdentitySwitchPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -168,15 +169,20 @@ const routes = [
 	{
 		path: '/history',
 		name: 'HistoryPage',
-		redirect:'/service',
+		redirect: '/service',
 		component: HistoryPage,
-		children:[
+		children: [
 			{
-				path:'/service',
-				name:'ServicePage',
-				component:ServicePage
+				path: '/service',
+				name: 'ServicePage',
+				component: ServicePage
 			}
 		]
+	},
+	{
+		path: '/identity-switch',
+		name: 'IdentitySwitchPage',
+		component: IdentitySwitchPage
 	}
 ]
 

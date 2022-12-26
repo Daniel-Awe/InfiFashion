@@ -1,4 +1,4 @@
-export default () => [
+export default [
     {
         id: "admin",
         type: "merchant",

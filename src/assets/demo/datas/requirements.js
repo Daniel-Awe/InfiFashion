@@ -1,4 +1,4 @@
-export default () => ({
+export default {
     costumeDesigning: [
         {
             title: "非洲传统民族服饰样衣设计（仅限杭州团队）",
@@ -98,4 +98,4 @@ export default () => ({
             expiration: "12天13小时截止"
         }
     ]
-})
+}

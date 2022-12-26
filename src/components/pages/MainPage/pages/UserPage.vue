@@ -10,7 +10,9 @@
             >
                 <div class="switchButton row">
                     <img :src="require('@/assets/svg/switch_line.svg')" />
-                    <span>切换为人才</span>
+                    <span @click="$router.push({ name: 'IdentitySwitchPage' })">
+                        切换为人才
+                    </span>
                 </div>
                 <img
                     :src="require('@/assets/svg/setting_line.svg')"
