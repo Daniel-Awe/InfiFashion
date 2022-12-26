@@ -2,7 +2,7 @@
 @mixin font-ellipsis() {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: font-ellipsis;
+    text-overflow: ellipsis;
 }
 
 @mixin flex-style($param) {

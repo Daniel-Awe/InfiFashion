@@ -18,6 +18,7 @@
         <div class="view column" style="position: absolute; top: 6.75rem">
             <!-- 用户信息框 -->
             <div
+                v-loading="!user"
                 class="userInfoBox column"
                 style="
                     padding: 2.5rem 0.625rem 0.625rem 0.625rem;
@@ -155,6 +156,7 @@ export default {
                 width: 3.625rem;
                 height: 3.625rem;
                 border-radius: 50%;
+                object-fit: cover;
             }
 
             .primary {

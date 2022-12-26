@@ -4,43 +4,41 @@
 /* Color
 -------------------------- */
 /// color|1|Brand Color|0
-$--color-primary: #8f79d4 !default;
+$--color-primary: var(--color-primary, #8f79d4);
 /// color|1|Background Color|4
-$--color-white: #ffffff !default;
+$--color-white: #ffffff;
 /// color|1|Background Color|4
-$--color-black: #000000 !default;
+$--color-black: #000000;
 
 /// color|1|Functional Color|1
-$--color-success: #67C23A !default;
+$--color-success: #67C23A;
 /// color|1|Functional Color|1
-$--color-warning: #E6A23C !default;
+$--color-warning: #E6A23C;
 /// color|1|Functional Color|1
-$--color-danger: #F56C6C !default;
+$--color-danger: #F56C6C;
 /// color|1|Functional Color|1
-$--color-info: #909399 !default;
+$--color-info: #909399;
 
 /// color|1|Font Color|2
-$--color-text-primary: #303133 !default;
+$--color-text-primary: #303133;
 /// color|1|Font Color|2
-$--color-text-regular: #606266 !default;
+$--color-text-regular: #606266;
 /// color|1|Font Color|2
-$--color-text-secondary: #909399 !default;
+$--color-text-secondary: #909399;
 /// color|1|Font Color|2
-$--color-text-placeholder: #C0C4CC !default;
+$--color-text-placeholder: #C0C4CC;
 /// color|1|Border Color|3
-$--border-color-base: #DCDFE6 !default;
+$--border-color-base: #DCDFE6;
 /// color|1|Border Color|3
-$--border-color-light: #E4E7ED !default;
+$--border-color-light: #E4E7ED;
 /// color|1|Border Color|3
-$--border-color-lighter: #EBEEF5 !default;
+$--border-color-lighter: #EBEEF5;
 /// color|1|Border Color|3
-$--border-color-extra-light: #F2F6FC !default;
+$--border-color-extra-light: #F2F6FC;
 
 // Background
 /// color|1|Background Color|4
-$--background-color-base: #f9f9f9 !default;
-
-@import "~element-ui/packages/theme-chalk/src/common/var";
+$--background-color-base: #f9f9f9;
 
 /* 改变 icon 字体路径变量，必需 */
 // $--font-path: '~element-ui/lib/theme-chalk/fonts';

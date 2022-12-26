@@ -1,11 +1,21 @@
 <template>
     <div class="divider">
-        <span class="head"></span>
-        <span style="margin-left: 0.5625rem" class="title">{{ title }}</span>
-        <span class="more" v-if="hasMore" @click="$emit('clickMore')">
-            <span>更多</span>
-            <img :src="require('@/assets/svg/double_arrow_right_line.svg')" alt="" />
-        </span>
+        <div class="row" style="justify-content: space-between">
+            <slot name="title" :title="title" />
+            <span v-if="!$slots.title" class="row" style="align-items: stretch">
+                <span class="head"></span>
+                <span style="margin-left: 0.5625rem" class="title">
+                    {{ title }}
+                </span>
+            </span>
+            <span class="more" v-if="hasMore" @click="$emit('clickMore')">
+                <span>更多</span>
+                <img
+                    :src="require('@/assets/svg/double_arrow_right_line.svg')"
+                    alt=""
+                />
+            </span>
+        </div>
     </div>
 </template>
 
@@ -29,15 +39,11 @@ export default {
 .divider {
     width: 100%;
     height: 1.5625rem;
-
-    display: flex;
-    align-items: center;
 }
 
 .head {
     display: inline-block;
     width: 0.375rem;
-    height: 100%;
     border-radius: 0.625rem;
     background-color: $--color-primary;
 }
@@ -49,8 +55,6 @@ export default {
 }
 
 .more {
-    margin: 0 0 0 auto;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,5 +62,9 @@ export default {
     @include font-size-style(4);
     font-weight: 700;
     color: rgba(166, 166, 166, 1);
+}
+
+.row {
+    @include flex-style(row);
 }
 </style>
