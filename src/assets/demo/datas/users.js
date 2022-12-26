@@ -7,7 +7,9 @@ export default () => [
         region: undefined,
         tags: ["系统"],
         password: "123456",
-        score: 3
+        score: 3,
+        agree: 0,
+        comment: 0
     },
     {
         id: "inform",
@@ -17,7 +19,9 @@ export default () => [
         region: undefined,
         tags: ["系统"],
         password: "123456",
-        score: 3
+        score: 3,
+        agree: 0,
+        comment: 0
     },
     {
         id: "trade",
@@ -27,7 +31,9 @@ export default () => [
         region: undefined,
         tags: ["系统"],
         password: "123456",
-        score: 3
+        score: 3,
+        agree: 0,
+        comment: 0
     },
     {
         id: "0",
@@ -40,6 +46,8 @@ export default () => [
         picture: "https://images.unsplash.com/photo-1562869929-bda0650edb1f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHw0OXx8Y2xvdGhpbmclMjBmYWJyaWN8ZW58MHx8fHwxNjY5Mzg4NTIy&ixlib=rb-4.0.3&q=80&w=1080",
         password: "123456",
         score: 3,
+        agree: 0,
+        comment: 0,
         resources: [{
             cover: require("../img/cotton.png"),
             url: undefined
@@ -65,6 +73,8 @@ export default () => [
         picture: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHwxM3x8Y2xvdGhlcyUyMHxlbnwwfHx8fDE2NjkzNzYwMDM&ixlib=rb-4.0.3&q=80&w=1080",
         password: "123456",
         score: 3,
+        agree: 0,
+        comment: 0,
         resources: [{
             cover: "https://img.js.design/assets/img/6386ff3caedbf352c475b39a.jpg#92f8584462b589ee882693fe00795617",
             url: undefined
@@ -87,7 +97,9 @@ export default () => [
         region: undefined,
         tags: [],
         password: "123456",
-        score: 3
+        score: 3,
+        agree: 0,
+        comment: 0,
     },
     {
         id: "3",
@@ -97,7 +109,9 @@ export default () => [
         region: undefined,
         tags: [],
         password: "123456",
-        score: 3
+        score: 3,
+        agree: 0,
+        comment: 0,
     },
     {
         id: "4",
@@ -107,7 +121,9 @@ export default () => [
         region: undefined,
         tags: ["已实名认证", "有工商执照", "企业"],
         password: "123456",
-        score: 5
+        score: 5,
+        agree: 0,
+        comment: 0,
     },
     {
         id: "5",
@@ -117,6 +133,36 @@ export default () => [
         region: undefined,
         tags: ["已实名认证", "服装设计师"],
         password: "123456",
-        score: 5
+        score: 5,
+        agree: 0,
+        comment: 0,
+    },
+    {
+        id: "6",
+        type: "talent",
+        avatar: "https://img.js.design/assets/img/638610dbaedbf352c43e42b3.jpg#b5b6011c88b1ed2e4ecb2136295f4f6e",
+        name: "山海设计团队",
+        region: undefined,
+        tags: ["已实名认证", "服装设计师"],
+        password: "123456",
+        score: 5,
+        agree: 36,
+        comment: 12,
+        price: 32000,
+        title:"通过市场调研等方式收集信息，设....."
+    },
+    {
+        id: "7",
+        type: "talent",
+        avatar: "https://img.js.design/assets/img/638614516be1dbaba7a2fd61.jpg#2803929193cf90a0d6ef9a839e4e1f43",
+        name: "派维特品牌设计团队",
+        region: undefined,
+        tags: ["已实名认证", "服装设计师"],
+        password: "123456",
+        score: 5,
+        agree: 99,
+        comment: 288,
+        price: 28000,
+        title:"团队成立十年，推广设计经验丰富....."
     }
 ]

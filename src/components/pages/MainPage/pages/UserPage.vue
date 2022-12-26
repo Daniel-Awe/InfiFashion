@@ -79,7 +79,7 @@ export default {
                     {
                         title: "历史记录",
                         iconUrl: require("@/assets/svg/user/merchant_histroy.svg"),
-                        routeName: undefined,
+                        routeName: "HistoryPage",
                     },
                     {
                         title: "我的订单",
@@ -120,7 +120,7 @@ export default {
                     {
                         title: "历史记录",
                         iconUrl: require("@/assets/svg/user/talent_histroy.svg"),
-                        routeName: undefined,
+                        routeName: "HistoryPage",
                     },
                     {
                         title: "我的发布",
