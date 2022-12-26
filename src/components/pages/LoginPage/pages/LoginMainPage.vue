@@ -132,6 +132,8 @@ export default {
       this.$store.dispatch("doLogin", {
         id: this.userId,
         password: this.password,
+      }).then(()=>{
+        this.$router.push({name:"MainPage"})
       });
     },
     ServiceAgreementRadioClick(e) {

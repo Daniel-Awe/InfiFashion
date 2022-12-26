@@ -27,7 +27,7 @@ export default {
                     title: "首页",
                     selectedIconUrl: require("@/assets/svg/home_fill.svg"),
                     unselectedIconUrl: require("@/assets/svg/home_line.svg"),
-                    routeName: "HomePage",
+                    routeName: "MerchantHomePage",
                 },
                 {
                     title: "论坛",
