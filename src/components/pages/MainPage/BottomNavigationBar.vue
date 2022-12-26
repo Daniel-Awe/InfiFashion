@@ -1,5 +1,5 @@
 <template>
-    <div class="bt">
+    <div ref="root" class="bt">
         <div
             class="item"
             v-for="(item, key) in datas"
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
     name: "BottomNavigationBar",
     data() {
@@ -32,6 +33,26 @@ export default {
     props: {
         /** @type {[{ title: string; selectedIconUrl: string; unselectedIconUrl: string; routeName: string; }]} */
         datas: Array,
+    },
+    activated() {
+        switch (this.type) {
+            case "merchant":
+                this.$refs.root.style.setProperty(
+                    "--select-color",
+                    "rgb(132, 65, 163)"
+                );
+                break;
+
+            case "talent":
+                this.$refs.root.style.setProperty(
+                    "--select-color",
+                    "rgb(0, 137, 186)"
+                );
+                break;
+        }
+    },
+    computed: {
+        ...mapGetters("loginInfo", ["type"]),
     },
 };
 </script>
@@ -74,6 +95,6 @@ export default {
 }
 
 .item.selected {
-    color: rgb(132, 65, 163);
+    color: var(--select-color);
 }
 </style>

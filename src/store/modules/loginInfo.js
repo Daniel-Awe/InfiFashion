@@ -7,6 +7,7 @@ const state = () => ({
 
 const getters = {
     isLogin: (state) => state.token !== null,
+    type: (state) => state.user ? state.user.type : null
 }
 
 const actions = {
@@ -37,6 +38,20 @@ const actions = {
 const mutations = {
     setUser(state, user) {
         state.user = user;
+
+        switch (getters.type(state)) {
+            case "merchant":
+                document.body.style.setProperty("--color-primary", "#8f79d4");
+                break;
+
+            case "talent":
+                document.body.style.setProperty("--color-primary", "#249FB5");
+                break;
+
+            default:
+                document.body.style.setProperty("--color-primary", "#409EFF");
+                break;
+        }
     },
     setToken(state, token) {
         if (typeof token === "string") {

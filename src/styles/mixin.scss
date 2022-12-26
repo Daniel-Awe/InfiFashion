@@ -1,8 +1,9 @@
 // 单行省略溢出文本
-@mixin font-ellipsis() {
-    white-space: nowrap;
+@mixin font-ellipsis($line: 1) {
     overflow: hidden;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
 }
 
 @mixin flex-style($param) {

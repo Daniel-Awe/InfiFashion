@@ -101,7 +101,11 @@
 
                 <div
                     class="resource row"
-                    style="width: 100%; justify-content: space-around"
+                    style="
+                        margin-top: 10px;
+                        width: 100%;
+                        justify-content: space-around;
+                    "
                 >
                     <img
                         class="item"
@@ -111,7 +115,7 @@
                     />
                 </div>
 
-                <PageDivider :hasMore="true">
+                <PageDivider style="margin-top: 20px" :hasMore="true">
                     <template slot="title">
                         <span class="title">服务</span>
                     </template>
@@ -122,6 +126,7 @@
                     style="width: 100%; justify-content: space-around"
                 >
                     <div
+                        style="margin-top: 10px; align-items: stretch"
                         class="item column"
                         v-for="(item, key) in services"
                         :key="key"
@@ -284,13 +289,13 @@ export default {
                 }
 
                 p {
-                    margin: 5px 0 0 0;
+                    margin: 5px 6px 6px 6px;
 
                     @include font-size-style(4);
                     font-weight: 500;
                     color: $--color-text-primary;
 
-                    @include font-ellipsis();
+                    @include font-ellipsis(2);
                 }
             }
         }

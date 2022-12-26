@@ -7,19 +7,16 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
     name: "App",
-    async created() {
-        if (false) {
-            document.body.style.setProperty("--theme", "merchant");
-            document.body.style.setProperty("--color-primary", "#8f79d4");
-        } else {
-            document.body.style.setProperty("--theme", "talent");
-            document.body.style.setProperty("--color-primary", "#249FB5");
+    mounted() {
+        if (!this.isInit) {
+            this.$router.push("/");
         }
-
-        const user = await this.$store.dispatch("doLogin");
-        if (!user) this.$store.dispatch("doLogout");
+    },
+    computed: {
+        ...mapState(["isInit"]),
     },
 };
 </script>
