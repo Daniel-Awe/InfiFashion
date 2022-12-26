@@ -191,6 +191,7 @@ export default {
 
     .view {
         width: 100%;
+        height: 0;
         flex-grow: 1;
         overflow-y: scroll;
 

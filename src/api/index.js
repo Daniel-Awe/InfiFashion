@@ -3,7 +3,7 @@ import DemoDatas from '../assets/demo/datas'
 
 const sleep = (ms) => new Promise(resolve => setTimeout(() => resolve(), ms));
 
-const requestTime = () => Math.random() * 2000;
+const requestTime = () => Math.random() * 1000;
 
 //#region 用户
 

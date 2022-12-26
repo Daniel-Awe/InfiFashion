@@ -2,7 +2,7 @@
     <div>
         <TopBar class="topBar">
             <RoutePopButton />
-            <div class="title">设置</div>
+            <div class="title">身份切换</div>
             <div class="placeholder"></div>
         </TopBar>
 
@@ -15,7 +15,7 @@
                 :class="item.value === type ? 'select' : ''"
                 v-for="(item, key) in datas"
                 :key="key"
-                @click="$store.dispatch('switchIdentity', item.value)"
+                @click="handleClick(item.value)"
             >
                 <img
                     style="margin-left: 25px"
@@ -68,6 +68,16 @@ export default {
                 },
             ],
         };
+    },
+    methods: {
+        async handleClick(value) {
+            const ret = await this.$store.dispatch("switchIdentity", value);
+            if (ret) {
+                this.$router.push("/");
+            } else {
+                this.$message.error("身份切换失败，请重新尝试");
+            }
+        },
     },
     computed: {
         ...mapGetters("loginInfo", ["type"]),

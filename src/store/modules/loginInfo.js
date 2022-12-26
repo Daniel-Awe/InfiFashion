@@ -35,14 +35,12 @@ const actions = {
     },
     switchIdentity: {
         root: true,
-        handler({ commit }, identity) {
-            identitySwitch(identity).then(response => {
-                if (response) {
-                    commit("setType", identity);
-                } else {
-                    console.warn("身份切换失败");
-                }
-            });
+        async handler({ commit }, identity) {
+            const response = await identitySwitch(identity);
+            if (response) {
+                commit("setType", identity);
+            }
+            return response;
         }
     }
 

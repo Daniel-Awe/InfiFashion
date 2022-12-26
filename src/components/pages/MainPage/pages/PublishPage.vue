@@ -103,6 +103,7 @@ export default {
     }
 
     .view {
+        height: 0;
         flex-grow: 1;
         overflow-y: scroll;
 

@@ -4,7 +4,10 @@
             <span style="margin-left: 1.5625rem" class="row">
                 <span class="title">消息</span>
                 <span
-                    style="margin-left: 0.625rem; transform: translateY(0.0625rem)"
+                    style="
+                        margin-left: 0.625rem;
+                        transform: translateY(0.0625rem);
+                    "
                     class="clearButton row"
                 >
                     <span>全部已读</span>
@@ -85,12 +88,16 @@ export default {
     flex-direction: column;
 
     .view {
+        height: 0;
         overflow-y: scroll;
         flex-grow: 1;
 
         @include flex-style(column);
 
         .tip {
+            margin: 10px;
+            @include font-size-style(3);
+            color: $--color-text-secondary;
         }
     }
 }

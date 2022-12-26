@@ -132,7 +132,7 @@ export default {
             }
         },
     },
-    mounted() {
+    activated() {
         this.topBarUpdate();
     },
     created() {
