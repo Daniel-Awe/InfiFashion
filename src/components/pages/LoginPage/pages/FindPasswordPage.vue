@@ -27,13 +27,6 @@ export default {
   flex-direction: column;
 }
 
-.view {
-  background-color: $--background-color-base;
-  flex-grow: 1;
-
-  overflow-y: hidden;
-}
-
 .topbar {
   display: flex;
   flex-direction: row;
@@ -41,7 +34,7 @@ export default {
   justify-content: space-between;
   text-align: center;
   background: rgba(255, 255, 255, 1);
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1); //不知道为啥失效了，在更改路由结构前有用的
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1); 
 }
 .title {
   font-size: 1.125rem;

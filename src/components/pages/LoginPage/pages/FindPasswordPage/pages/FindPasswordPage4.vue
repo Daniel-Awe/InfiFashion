@@ -25,7 +25,6 @@ export default {
   align-items: center;
   width: 100%;
   height: 100%;
-  background: rgba(249, 249, 249, 1);
 }
 .message {
   margin-right: auto;
