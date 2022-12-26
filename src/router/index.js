@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HomePage from '@/components/pages/MainPage/pages/HomePage.vue'
+import store from '@/store'
+
+import MerchantHomePage from '@/components/pages/MainPage/pages/MerchantHomePage.vue'
+import TalentHomePage from '@/components/pages/MainPage/pages/TalentHomePage.vue'
 import MainPage from '@/components/pages/MainPage.vue'
 import LoginPage from '@/components/pages/LoginPage.vue'
 import UserPage from '@/components/pages/MainPage/pages/UserPage.vue'
@@ -38,13 +41,29 @@ const routes = [
 	{
 		path: '/main',
 		name: 'MainPage',
+		redirect: () => {
+			switch (store.getters['loginInfo/type']) {
+				case 'merchant':
+					return { name: 'MerchantHomePage' }
+
+				case 'talent':
+					return { name: 'TalentHomePage' }
+
+				default:
+					return { name: 'LoginPage' }
+			}
+		},
 		component: MainPage,
-		redirect: '/main/home',
 		children: [
 			{
-				path: 'home',
-				name: 'HomePage',
-				component: HomePage
+				path: 'merchant-home',
+				name: 'MerchantHomePage',
+				component: MerchantHomePage
+			},
+			{
+				path: 'talent-home',
+				name: 'TalentHomePage',
+				component: TalentHomePage
 			},
 			{
 				path: 'forum',

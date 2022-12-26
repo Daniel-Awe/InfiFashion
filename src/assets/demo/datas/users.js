@@ -1,7 +1,7 @@
 export default () => [
     {
         id: "admin",
-        type: "system",
+        type: "merchant",
         avatar: "https://images.unsplash.com/photo-1670381225856-997d3eea46df?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=0&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY3MTg4MDgzNA&ixlib=rb-4.0.3&q=80&w=1080",
         name: "管理员",
         region: undefined,
@@ -31,7 +31,7 @@ export default () => [
     },
     {
         id: "0",
-        type: "user",
+        type: "talent",
         avatar: "https://images.unsplash.com/photo-1583674392771-2abf6be75965?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHw1fHxoZWFkJTIwcG9ydHJhaXR8ZW58MHx8fHwxNjY5MzYzODc0&ixlib=rb-4.0.3&q=80&w=1080",
         name: "Artem",
         region: "俄罗斯",
@@ -56,7 +56,7 @@ export default () => [
     },
     {
         id: "1",
-        type: "user",
+        type: "talent",
         avatar: "https://images.unsplash.com/photo-1612459284970-e8f027596582?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHw2Mnx8aGVhZCUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTcwODA3MA&ixlib=rb-4.0.3&q=80&w=1080",
         name: "Tenaj",
         region: "塔桑尼亚",
@@ -81,7 +81,7 @@ export default () => [
     },
     {
         id: "2",
-        type: "user",
+        type: "talent",
         avatar: "https://images.unsplash.com/photo-1577806934037-32d94e326e84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHw0fHxoZWFkJTIwcG9ydHJhaXR8ZW58MHx8fHwxNjY5MzYzODc0&ixlib=rb-4.0.3&q=80&w=1080",
         name: "YOKA时尚精选",
         region: undefined,
@@ -91,7 +91,7 @@ export default () => [
     },
     {
         id: "3",
-        type: "user",
+        type: "talent",
         avatar: "https://images.unsplash.com/photo-1577565177023-d0f29c354b69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHwxfHxoZWFkJTIwcG9ydHJhaXR8ZW58MHx8fHwxNjY5NjA0NDU5&ixlib=rb-4.0.3&q=80&w=1080",
         name: "田小花",
         region: undefined,
@@ -101,11 +101,21 @@ export default () => [
     },
     {
         id: "4",
-        type: "user",
+        type: "merchant",
         avatar: "https://images.unsplash.com/photo-1482555670981-4de159d8553b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHwxNnx8aGVhZCUyMHBvcnRyYWl0fGVufDB8fHx8MTY2OTQ1MDUxMQ&ixlib=rb-4.0.3&q=80&w=1080",
         name: "衣之家服饰",
         region: undefined,
         tags: ["已实名认证", "有工商执照", "企业"],
+        password: "123456",
+        score: 5
+    },
+    {
+        id: "5",
+        type: "talent",
+        avatar: "https://images.unsplash.com/photo-1524550158212-33f2ff985344?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjAzNTV8MHwxfHNlYXJjaHw0Mnx8aGVhZCUyMHBvcnRyYWl0fGVufDB8fHx8MTY3MDY1Njc0Mw&ixlib=rb-4.0.3&q=80&w=1080",
+        name: "Taylor",
+        region: undefined,
+        tags: ["已实名认证", "服装设计师"],
         password: "123456",
         score: 5
     }

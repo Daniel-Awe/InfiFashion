@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import BottomNavigationBar from "./MainPage/BottomNavigationBar.vue";
 
 export default {
@@ -26,7 +27,7 @@ export default {
                     title: "首页",
                     selectedIconUrl: require("@/assets/svg/home_fill.svg"),
                     unselectedIconUrl: require("@/assets/svg/home_line.svg"),
-                    routeName: "HomePage",
+                    routeName: "MerchantHomePage",
                 },
                 {
                     title: "论坛",
@@ -56,13 +57,19 @@ export default {
             talentDatas: [],
         };
     },
-    created() {
-        const theme = document.body.style.getPropertyValue("--theme");
-        if (theme === "merchant") {
-            this.bottomNavigationDatas = this.merchantDatas;
-        } else if (theme === "talent") {
-            this.bottomNavigationDatas = this.talentDatas;
+    activated() {
+        switch (this.type) {
+            case "merchant":
+                this.bottomNavigationDatas = this.merchantDatas;
+                break;
+
+            case "talent":
+                this.bottomNavigationDatas = this.talentDatas;
+                break;
         }
+    },
+    computed: {
+        ...mapGetters("loginInfo", ["type"]),
     },
 };
 </script>

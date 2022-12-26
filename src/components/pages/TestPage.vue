@@ -7,8 +7,6 @@
         <el-button @click="logout">登出</el-button>
         {{ isLogin }}
         <div>{{ tryGet(user, "name") }}</div>
-        <el-button @click="changeTheme('#8f79d4')">切换主题色1</el-button>
-        <el-button @click="changeTheme('#249FB5')">切换主题色2</el-button>
     </div>
 </template>
 
@@ -34,9 +32,6 @@ export default {
         },
         logout() {
             this.$store.dispatch("doLogout");
-        },
-        changeTheme(color) {
-            document.body.style.setProperty("--color-primary", color);
         },
     },
     computed: {

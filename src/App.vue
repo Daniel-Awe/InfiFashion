@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
+    <div id="app" v-loading="loading">
         <keep-alive>
-            <router-view></router-view>
+            <router-view v-if="!loading"></router-view>
         </keep-alive>
     </div>
 </template>
@@ -9,17 +9,14 @@
 <script>
 export default {
     name: "App",
+    data() {
+        return { loading: false };
+    },
     async created() {
-        if (true) {
-            document.body.style.setProperty("--theme", "merchant");
-            document.body.style.setProperty("--color-primary", "#8f79d4");
-        } else {
-            document.body.style.setProperty("--theme", "talent");
-            document.body.style.setProperty("--color-primary", "#249FB5");
-        }
-
+        this.loading = true;
         const user = await this.$store.dispatch("doLogin");
         if (!user) this.$store.dispatch("doLogout");
+        this.loading = false;
     },
 };
 </script>

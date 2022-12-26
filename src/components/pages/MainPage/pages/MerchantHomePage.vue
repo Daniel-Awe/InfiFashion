@@ -88,7 +88,7 @@ export default {
         ArticleCard,
         TopBar,
     },
-    name: "HomePage",
+    name: "MerchantHomePage",
     data() {
         return {
             searchContent: "",
