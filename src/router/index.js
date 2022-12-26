@@ -13,10 +13,11 @@ import PublishPage from '@/components/pages/MainPage/pages/PublishPage.vue'
 import MessagePage from '@/components/pages/MainPage/pages/MessagePage.vue'
 import LoginMainPage from '@/components/pages/LoginPage/pages/LoginMainPage.vue'
 import GetCodePage from '@/components/pages/LoginPage/pages/GetCodePage.vue'
-import FindPasswordPage1 from '@/components/pages/LoginPage/pages/FindPasswordPage1.vue'
-import FindPasswordPage2 from '@/components/pages/LoginPage/pages/FindPasswordPage2.vue'
-import FindPasswordPage3 from '@/components/pages/LoginPage/pages/FindPasswordPage3.vue'
-import FindPasswordPage4 from '@/components/pages/LoginPage/pages/FindPasswordPage4.vue'
+import FindPasswordPage1 from '@/components/pages/LoginPage/pages/FindPasswordPage/pages/FindPasswordPage1.vue'
+import FindPasswordPage2 from '@/components/pages/LoginPage/pages/FindPasswordPage/pages/FindPasswordPage2.vue'
+import FindPasswordPage3 from '@/components/pages/LoginPage/pages/FindPasswordPage/pages/FindPasswordPage3.vue'
+import FindPasswordPage4 from '@/components/pages/LoginPage/pages/FindPasswordPage/pages/FindPasswordPage4.vue'
+import FindPasswordPage from '@/components/pages/LoginPage/pages/FindPasswordPage.vue'
 import TeamInformationPage from '@/components/pages/TeamInformationPage.vue'
 import WorkbenchPage from '@/components/pages/MainPage/pages/WorkbenchPage.vue'
 
@@ -106,7 +107,7 @@ const routes = [
 			{
 				path: 'loginmain',
 				name: 'LoginMainPage',
-				component: LoginMainPage
+				component: LoginMainPage,
 			},
 			{
 				path: 'getcode',
@@ -114,24 +115,30 @@ const routes = [
 				component: GetCodePage
 			},
 			{
-				path: 'findpassword1',
-				name: 'FindPasswordPage1',
-				component: FindPasswordPage1
-			},
-			{
-				path: 'findpassword2',
-				name: 'FindPasswordPage2',
-				component: FindPasswordPage2
-			},
-			{
-				path: 'findpassword3',
-				name: 'FindPasswordPage3',
-				component: FindPasswordPage3
-			},
-			{
-				path: 'findpassword4',
-				name: 'FindPasswordPage4',
-				component: FindPasswordPage4
+				path: 'findpassword',
+				name: 'FindPasswordPage',
+				component: FindPasswordPage,
+				children: [
+					{
+						path: 'findpassword1',
+						name: 'FindPasswordPage1',
+						component: FindPasswordPage1
+					},
+					{
+						path: 'findpassword2',
+						name: 'FindPasswordPage2',
+						component: FindPasswordPage2
+					},
+					{
+						path: 'findpassword3',
+						name: 'FindPasswordPage3',
+						component: FindPasswordPage3
+					},
+					{
+						path: 'findpassword4',
+						name: 'FindPasswordPage4',
+						component: FindPasswordPage4
+					}]
 			}
 		]
 	}

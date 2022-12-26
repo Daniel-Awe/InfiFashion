@@ -27,7 +27,7 @@ export default {
                     title: "首页",
                     selectedIconUrl: require("@/assets/svg/home_fill.svg"),
                     unselectedIconUrl: require("@/assets/svg/home_line.svg"),
-                    routeName: "MerchantHomePage",
+                    routeName: "HomePage",
                 },
                 {
                     title: "论坛",
@@ -54,7 +54,38 @@ export default {
                     routeName: "UserPage",
                 },
             ],
-            talentDatas: [],
+            talentDatas: [
+                {
+                    title: "首页",
+                    selectedIconUrl: require("@/assets/svg/home_talent_fill.svg"),
+                    unselectedIconUrl: require("@/assets/svg/home_line.svg"),
+                    routeName: "HomePage",
+                },
+                {
+                    title: "论坛",
+                    selectedIconUrl: require("@/assets/svg/comment_talent_fill.svg"),
+                    unselectedIconUrl: require("@/assets/svg/comment_line.svg"),
+                    routeName: "ForumPage",
+                },
+                {
+                    title: "工作台",
+                    selectedIconUrl: require("@/assets/svg/workbench_fill.svg"),
+                    unselectedIconUrl: require("@/assets/svg/workbench_line.svg"),
+                    routeName: "WorkbenchPage",
+                },
+                {
+                    title: "消息",
+                    selectedIconUrl: require("@/assets/svg/mail_talent_fill.svg"),
+                    unselectedIconUrl: require("@/assets/svg/mail_line.svg"),
+                    routeName: "MessagePage",
+                },
+                {
+                    title: "我的",
+                    selectedIconUrl: require("@/assets/svg/user_talent_fill.svg"),
+                    unselectedIconUrl: require("@/assets/svg/user_line.svg"),
+                    routeName: "UserPage",
+                },
+            ],
         };
     },
     activated() {
