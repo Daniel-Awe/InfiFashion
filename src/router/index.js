@@ -24,6 +24,7 @@ import WorkbenchPage from '@/components/pages/MainPage/pages/WorkbenchPage.vue'
 import CollectionPage from '@/components/pages/CollectionPage.vue'
 import SettingPage from '@/components/pages/SettingPage.vue'
 import CostumeDesigningPage from '@/components/pages/MainPage/pages/TalentHomePage/pages/CostumeDesigningPage.vue'
+import IdentitySwitchPage from '@/components/pages/IdentitySwitchPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -162,6 +163,11 @@ const routes = [
 		path: '/setting',
 		name: 'SettingPage',
 		component: SettingPage
+	},
+	{
+		path: '/identity-switch',
+		name: 'IdentitySwitchPage',
+		component: IdentitySwitchPage
 	}
 ]
 

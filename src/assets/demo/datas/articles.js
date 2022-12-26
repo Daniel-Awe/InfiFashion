@@ -1,12 +1,12 @@
 import { getDataById } from "../helper"
 import users from "./users"
 
-export default () => [
+export default [
     {
         id: "0",
         title: "干货 | 2022服饰流行趋势完全解读",
         date: "2022/03/17",
-        get author() { return getDataById(users(), "2") },
+        get author() { return getDataById(users, "2") },
         agree: 145,
         collect: 99,
         comment: 123,

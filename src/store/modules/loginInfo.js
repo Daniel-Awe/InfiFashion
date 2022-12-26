@@ -1,4 +1,4 @@
-import { getUserByToken, login } from "@/api";
+import { getUserByToken, identitySwitch, login } from "@/api";
 
 const state = () => ({
     user: null,
@@ -32,10 +32,40 @@ const actions = {
             commit("setUser", null);
             commit("setToken", null);
         }
+    },
+    switchIdentity: {
+        root: true,
+        handler({ commit }, identity) {
+            identitySwitch(identity).then(response => {
+                if (response) {
+                    commit("setType", identity);
+                } else {
+                    console.warn("身份切换失败");
+                }
+            });
+        }
     }
+
 }
 
 const mutations = {
+    setType(state, type) {
+        state.user.type = type;
+
+        switch (type) {
+            case "merchant":
+                document.body.style.setProperty("--color-primary", "#8f79d4");
+                break;
+
+            case "talent":
+                document.body.style.setProperty("--color-primary", "#249FB5");
+                break;
+
+            default:
+                document.body.style.setProperty("--color-primary", "#409EFF");
+                break;
+        }
+    },
     setUser(state, user) {
         state.user = user;
 
