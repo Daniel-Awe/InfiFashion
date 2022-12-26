@@ -78,6 +78,13 @@ export const getServices = async (userId) => {
 }
 //#endregion
 
+//#region 商家的需求
+export const getRequirements = async (type) => {
+    await sleep(requestTime());
+    return DemoDatas.requirements()[type];
+}
+//#endregion
+
 //#region 首页
 export const getHomeDatas = async () => {
     await sleep(requestTime());
@@ -93,7 +100,7 @@ export const getForumDatas = async () => {
 //#endregion
 
 //#region 收藏
-export const getCollectionDatas = async () =>{
+export const getCollectionDatas = async () => {
     await sleep(requestTime());
     return DemoDatas.collections();
 }

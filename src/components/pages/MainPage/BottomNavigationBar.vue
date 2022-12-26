@@ -4,13 +4,21 @@
             class="item"
             v-for="(item, key) in datas"
             :key="key"
-            @click="$router.push({ name: item.routeName }, undefined, () => {})"
+            @click="
+                $router.push(
+                    { name: item.routeName },
+                    (route) => {
+                        index = key;
+                    },
+                    () => {}
+                )
+            "
             :class="item.routeName === $route.name ? 'selected' : ''"
         >
             <img
                 rich-icon
                 :src="
-                    item.routeName === $route.name
+                    index === key
                         ? item.selectedIconUrl
                         : item.unselectedIconUrl
                 "

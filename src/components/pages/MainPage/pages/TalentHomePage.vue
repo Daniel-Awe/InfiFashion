@@ -25,6 +25,11 @@
                 <p>{{ item.title }}</p>
             </el-menu-item>
         </el-menu>
+        <div class="view">
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
+        </div>
     </div>
 </template>
 
@@ -42,7 +47,7 @@ export default {
             menuItems: [
                 {
                     title: "服装设计",
-                    routeName: undefined,
+                    routeName: "CostumeDesigningPage",
                 },
                 {
                     title: "其他配饰设计",
@@ -58,13 +63,28 @@ export default {
     methods: {
         handleSelect(index) {
             this.menuActiveIndex = index;
+            this.$router.push(
+                { name: this.menuItems[index].routeName },
+                null,
+                () => {}
+            );
         },
+    },
+    watch: {
+        menuActiveIndex() {
+            this.handleSelect(this.menuActiveIndex);
+        },
+    },
+    activated() {
+        this.handleSelect(this.menuActiveIndex);
     },
 };
 </script>
 
 <style lang="scss" scoped>
 .container {
+    @include flex-style(column);
+
     .topBar {
         @include flex-style(row);
         .searchBox {
@@ -101,6 +121,12 @@ export default {
                 }
             }
         }
+    }
+
+    .view {
+        width: 100%;
+        flex-grow: 1;
+        overflow-y: scroll;
     }
 }
 </style>

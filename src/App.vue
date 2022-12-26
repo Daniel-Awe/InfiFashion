@@ -10,9 +10,9 @@
 import { mapState } from "vuex";
 export default {
     name: "App",
-    mounted() {
+    beforeMount() {
         if (!this.isInit) {
-            this.$router.push("/");
+            this.$router.push("/", null, () => {});
         }
     },
     computed: {

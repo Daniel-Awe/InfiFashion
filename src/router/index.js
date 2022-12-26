@@ -22,6 +22,7 @@ import FindPasswordPage from '@/components/pages/LoginPage/pages/FindPasswordPag
 import TeamInformationPage from '@/components/pages/TeamInformationPage.vue'
 import WorkbenchPage from '@/components/pages/MainPage/pages/WorkbenchPage.vue'
 import CollectionPage from '@/components/pages/CollectionPage.vue'
+import CostumeDesigningPage from '@/components/pages/MainPage/pages/TalentHomePage/pages/CostumeDesigningPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -66,7 +67,14 @@ const routes = [
 			{
 				path: 'talent-home',
 				name: 'TalentHomePage',
-				component: TalentHomePage
+				component: TalentHomePage,
+				children: [
+					{
+						path: 'costume-designing',
+						name: 'CostumeDesigningPage',
+						component: CostumeDesigningPage
+					}
+				]
 			},
 			{
 				path: 'forum',
