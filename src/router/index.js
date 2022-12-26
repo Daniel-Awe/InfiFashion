@@ -15,6 +15,7 @@ import FindPasswordPage2 from '@/components/pages/LoginPage/pages/FindPasswordPa
 import FindPasswordPage3 from '@/components/pages/LoginPage/pages/FindPasswordPage3.vue'
 import FindPasswordPage4 from '@/components/pages/LoginPage/pages/FindPasswordPage4.vue'
 import TeamInformationPage from '@/components/pages/TeamInformationPage.vue'
+import WorkbenchPage from '@/components/pages/MainPage/pages/WorkbenchPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -64,6 +65,11 @@ const routes = [
 				path: 'user',
 				name: 'UserPage',
 				component: UserPage
+			},
+			{
+				path: 'workbench',
+				name: 'WorkbenchPage',
+				component: WorkbenchPage
 			}
 		]
 	},
