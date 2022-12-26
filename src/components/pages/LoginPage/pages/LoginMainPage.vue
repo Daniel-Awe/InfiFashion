@@ -47,7 +47,12 @@
       <span class="text1">已阅读并同意</span>
       <span class="text2">服务协议</span>
     </div>
-    <CrossButton class="loginButton" title="立即登录" v-if="loginMode === 0" />
+    <CrossButton
+      class="loginButton"
+      title="立即登录"
+      v-if="loginMode === 0"
+      @click="login"
+    />
     <CrossButton
       class="loginButton"
       title="获取验证码"
@@ -123,6 +128,14 @@ export default {
     };
   },
   methods: {
+    login() {
+      this.$store.dispatch("doLogin", {
+        id: this.userId,
+        password: this.password,
+      }).then(()=>{
+        this.$router.push({name:"MainPage"})
+      });
+    },
     ServiceAgreementRadioClick(e) {
       if (e.target.value === "0") {
         e.target.value = "1";
