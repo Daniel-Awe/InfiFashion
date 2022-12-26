@@ -9,7 +9,9 @@ const requestTime = () => Math.random() * 2000;
 
 export const login = async (id, password) => {
     await sleep(requestTime());
-    const token = DemoDatas.users().find(value => value.id === id && value.password === password).id;
+    const user = DemoDatas.users().find(value => value.id === id && value.password === password);
+    if (!user) return null;
+    const token = user.id;
     return token;
 }
 

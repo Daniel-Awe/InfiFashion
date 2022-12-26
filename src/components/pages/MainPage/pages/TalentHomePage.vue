@@ -12,13 +12,17 @@
                 v-model="searchContent"
             />
         </TopBar>
-        <el-menu mode="horizontal">
+        <el-menu
+            mode="horizontal"
+            :default-active="menuActiveIndex.toString()"
+            @select="handleSelect"
+        >
             <el-menu-item
                 v-for="(item, key) in menuItems"
                 :key="key"
-                :index="key"
+                :index="key.toString()"
             >
-                {{ item.title }}
+                <p>{{ item.title }}</p>
             </el-menu-item>
         </el-menu>
     </div>
@@ -34,7 +38,7 @@ export default {
     data() {
         return {
             searchContent: "",
-            menuActiveIndex: 0,
+            menuActiveIndex: "0",
             menuItems: [
                 {
                     title: "服装设计",
@@ -51,6 +55,11 @@ export default {
             ],
         };
     },
+    methods: {
+        handleSelect(index) {
+            this.menuActiveIndex = index;
+        },
+    },
 };
 </script>
 
@@ -60,6 +69,37 @@ export default {
         @include flex-style(row);
         .searchBox {
             flex-grow: 1;
+        }
+    }
+
+    .el-menu {
+        width: 100%;
+        background: $--color-white;
+
+        @include flex-style(row);
+        justify-content: space-around;
+
+        .el-menu-item {
+            padding: 0;
+
+            height: max-content;
+
+            text-align: center;
+
+            @include font-size-style(4);
+            color: $--color-black;
+
+            p {
+                line-height: 100%;
+                margin: 5px;
+                font-weight: 400;
+            }
+
+            &.is-active {
+                p {
+                    font-weight: 700;
+                }
+            }
         }
     }
 }
