@@ -22,6 +22,7 @@ import FindPasswordPage from '@/components/pages/LoginPage/pages/FindPasswordPag
 import TeamInformationPage from '@/components/pages/TeamInformationPage.vue'
 import WorkbenchPage from '@/components/pages/MainPage/pages/WorkbenchPage.vue'
 import CollectionPage from '@/components/pages/CollectionPage.vue'
+import SettingPage from '@/components/pages/SettingPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -148,6 +149,11 @@ const routes = [
 		path: '/collection',
 		name: 'CollectionPage',
 		component: CollectionPage
+	},
+	{
+		path: '/setting',
+		name: 'SettingPage',
+		component: SettingPage
 	}
 ]
 

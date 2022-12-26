@@ -9,7 +9,7 @@
           <img :src="require('@/assets/svg/switch_line.svg')" />
           <span>切换为人才</span>
         </div>
-        <img :src="require('@/assets/svg/setting_line.svg')" />
+        <img :src="require('@/assets/svg/setting_line.svg')" @click="setting" />
       </div>
     </TopBar>
     <div class="view column" style="position: absolute; top: 6.75rem">
@@ -102,6 +102,13 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    setting() {
+      this.$router.push({
+        name: "SettingPage",
+      });
+    },
   },
   computed: {
     ...mapGetters("loginInfo", ["isLogin"]),
