@@ -8,7 +8,7 @@
     <div class="numberShow">
       <div class="text2">已发送至</div>
       <div>{{ "+" + $route.params.region }}</div>
-      <div>{{ $route.params.phoneNumber | maskNumber }}</div>
+      <div>{{ $route.params.phoneNumber | maskString(3, 4, 4) }}</div>
     </div>
     <div class="codeInputBoxContainer" @click="inputFocus">
       <div class="codeInputBox">-</div>
@@ -22,7 +22,7 @@
         v-model="code"
         class="codeInput"
         ref="codeInput"
-        @input="codeInputInput"
+        @input="handleCodeInput"
         maxlength="6"
       />
     </div>
@@ -45,19 +45,14 @@ export default {
     inputFocus() {
       this.$refs.codeInput.focus();
     },
-    codeInputInput() {
+    handleCodeInput() {
       let codeInputBoxs = document.getElementsByClassName("codeInputBox");
       for (let i = 0; i < 6; i++) {
-        codeInputBoxs[i].innerHTML = '-';
+        codeInputBoxs[i].innerHTML = "-";
       }
       for (let i = 0; i < this.code.length; i++) {
         codeInputBoxs[i].innerHTML = this.code[i];
       }
-    },
-  },
-  filters: {
-    maskNumber(number) {
-      return number.slice(0, 3) + "****" + number.slice(7);
     },
   },
 };

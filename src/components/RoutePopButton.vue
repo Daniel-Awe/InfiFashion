@@ -17,6 +17,9 @@ export default {
 
 <style lang="scss" scoped>
 .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 0.875rem;
   width: 1.125rem;
   height: 1.125rem;

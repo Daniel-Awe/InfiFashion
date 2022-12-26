@@ -66,7 +66,9 @@
       <div class="rowText" @click="switchPasswordLogin" v-if="loginMode === 1">
         账号密码登录
       </div>
-      <div class="rowText" v-if="loginMode === 0">忘记密码</div>
+      <div class="rowText" v-if="loginMode === 0" @click="handleFindPassword">
+        忘记密码
+      </div>
     </div>
     <div class="thirdPartyDivider">
       <div class="line"></div>
@@ -82,11 +84,11 @@
 </template>
 
 <script>
-import CrossButton from '@/components/CrossButton.vue';
-import RoutePopButton from '@/components/RoutePopButton.vue';
-import TopBar from '@/components/TopBar.vue';
+import CrossButton from "@/components/CrossButton.vue";
+import RoutePopButton from "@/components/RoutePopButton.vue";
+import TopBar from "@/components/TopBar.vue";
 export default {
-  name: "LoginPage",
+  name: "LoginMainPage",
   components: { TopBar, RoutePopButton, CrossButton },
   data() {
     return {
@@ -124,12 +126,12 @@ export default {
     ServiceAgreementRadioClick(e) {
       if (e.target.value === "0") {
         e.target.value = "1";
-        e.target.checked = true;
+        // e.target.checked = true;
         this.serviceAgreement = true; //最后会被默认事件覆盖成"0",这行无效
         // console.log(e.target.checked);
       } else {
         e.target.value = "0";
-        e.target.checked = false;
+        // e.target.checked = false;
         this.serviceAgreement = false;
         // console.log(e.target.checked);
       }
@@ -151,17 +153,22 @@ export default {
         },
       });
     },
+    handleFindPassword() {
+      this.$router.push({
+        name: "FindPasswordPage1",
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .container {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
   background-image: url("@/assets/pictures/login_bg.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;

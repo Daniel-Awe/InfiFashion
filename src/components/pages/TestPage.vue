@@ -1,14 +1,13 @@
 <template>
-  <GetCodePage/>
+<FindPasswordPage1/>
 </template>
 
 <script>
-import GetCodePage from './LoginPage/pages/GetCodePage.vue'
+import FindPasswordPage1 from './LoginPage/pages/FindPasswordPage1.vue';
 export default {
-  name:'TestPage',
-  components: {  GetCodePage },
-
-}
+  components: { FindPasswordPage1 },
+  name: "TestPage",
+};
 </script>
 
 <style lang="scss" scoped>
