@@ -71,10 +71,10 @@
 
 <script>
 import { getHomeDatas, getNewArticles } from "@/api/index.js";
-import SearchBox from "./HomePage/SearchBox.vue";
+import SearchBox from "../../../SearchBox.vue";
 import PageDivider from "../../../PageDivider.vue";
-import ProminentButton from "./HomePage/ProminentButton.vue";
-import GroupInfoBox from "./HomePage/GroupInfoBox.vue";
+import ProminentButton from "./MerchantHomePage/ProminentButton.vue";
+import GroupInfoBox from "./MerchantHomePage/GroupInfoBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
 import TopBar from "@/components/TopBar.vue";
 import { helper } from "@/mixin";

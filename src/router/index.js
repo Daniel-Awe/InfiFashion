@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import store from '@/store'
 
+import FirstLoadingPage from '@/components/pages/FirstLoadingPage.vue'
 import MerchantHomePage from '@/components/pages/MainPage/pages/MerchantHomePage.vue'
 import TalentHomePage from '@/components/pages/MainPage/pages/TalentHomePage.vue'
 import MainPage from '@/components/pages/MainPage.vue'
@@ -36,8 +37,8 @@ const routes = [
 	},
 	{
 		path: '/',
-		name: 'index',
-		redirect: '/main'
+		name: '',
+		component: FirstLoadingPage
 	},
 	{
 		path: '/main',

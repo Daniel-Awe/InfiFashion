@@ -12,18 +12,55 @@
                 v-model="searchContent"
             />
         </TopBar>
+        <el-menu mode="horizontal">
+            <el-menu-item
+                v-for="(item, key) in menuItems"
+                :key="key"
+                :index="key"
+            >
+                {{ item.title }}
+            </el-menu-item>
+        </el-menu>
     </div>
 </template>
 
 <script>
 import TopBar from "@/components/TopBar.vue";
-import SearchBox from "./HomePage/SearchBox.vue";
+import SearchBox from "../../../SearchBox.vue";
 
 export default {
     components: { TopBar, SearchBox },
     name: "TalentHomePage",
+    data() {
+        return {
+            searchContent: "",
+            menuActiveIndex: 0,
+            menuItems: [
+                {
+                    title: "服装设计",
+                    routeName: undefined,
+                },
+                {
+                    title: "其他配饰设计",
+                    routeName: undefined,
+                },
+                {
+                    title: "包装推广服务",
+                    routeName: undefined,
+                },
+            ],
+        };
+    },
 };
 </script>
 
 <style lang="scss" scoped>
+.container {
+    .topBar {
+        @include flex-style(row);
+        .searchBox {
+            flex-grow: 1;
+        }
+    }
+}
 </style>

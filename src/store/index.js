@@ -10,7 +10,15 @@ const store = new Vuex.Store({
     modules: {
         loginInfo
     },
-    strict: debug
+    strict: debug,
+    state: {
+        isInit: false,
+    },
+    mutations: {
+        init(state) {
+            state.isInit = true;
+        }
+    }
 })
 
 export default store

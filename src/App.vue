@@ -1,22 +1,22 @@
 <template>
-    <div id="app" v-loading="loading">
+    <div id="app">
         <keep-alive>
-            <router-view v-if="!loading"></router-view>
+            <router-view></router-view>
         </keep-alive>
     </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
     name: "App",
-    data() {
-        return { loading: false };
+    mounted() {
+        if (!this.isInit) {
+            this.$router.push("/");
+        }
     },
-    async created() {
-        this.loading = true;
-        const user = await this.$store.dispatch("doLogin");
-        if (!user) this.$store.dispatch("doLogout");
-        this.loading = false;
+    computed: {
+        ...mapState(["isInit"]),
     },
 };
 </script>
