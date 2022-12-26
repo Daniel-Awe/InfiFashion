@@ -89,3 +89,10 @@ export const getForumDatas = async () => {
     return DemoDatas.forum();
 }
 //#endregion
+
+//#region 收藏
+export const getCollectionDatas = async () =>{
+    await sleep(requestTime());
+    return DemoDatas.collections();
+}
+//#endregion

@@ -17,6 +17,7 @@ import FindPasswordPage4 from '@/components/pages/LoginPage/pages/FindPasswordPa
 import FindPasswordPage from '@/components/pages/LoginPage/pages/FindPasswordPage.vue'
 import TeamInformationPage from '@/components/pages/TeamInformationPage.vue'
 import WorkbenchPage from '@/components/pages/MainPage/pages/WorkbenchPage.vue'
+import CollectionPage from '@/components/pages/CollectionPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -122,6 +123,11 @@ const routes = [
 					}]
 			}
 		]
+	},
+	{
+		path: '/collection',
+		name: 'CollectionPage',
+		component: CollectionPage
 	}
 ]
 
