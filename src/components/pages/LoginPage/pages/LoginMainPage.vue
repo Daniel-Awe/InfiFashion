@@ -92,6 +92,7 @@
 import CrossButton from "@/components/CrossButton.vue";
 import RoutePopButton from "@/components/RoutePopButton.vue";
 import TopBar from "@/components/TopBar.vue";
+import { Loading } from 'element-ui';
 export default {
   name: "LoginMainPage",
   components: { TopBar, RoutePopButton, CrossButton },
@@ -129,11 +130,19 @@ export default {
   },
   methods: {
     login() {
+      const loadingInstance = Loading.service({fullscreen: true, lock: true});
       this.$store.dispatch("doLogin", {
         id: this.userId,
         password: this.password,
-      }).then(()=>{
-        this.$router.push({name:"MainPage"})
+      }).then(response=>{
+        loadingInstance.close();
+        if (response)
+          this.$router.push({name:"MainPage"})
+        else
+          this.$message.error("账号不存在或密码错误")
+      }).catch(reason=>{
+        loadingInstance.close();
+        this.$message.error("登录失败，请重试")
       });
     },
     ServiceAgreementRadioClick(e) {

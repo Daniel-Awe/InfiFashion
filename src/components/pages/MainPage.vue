@@ -21,7 +21,6 @@ export default {
     data() {
         return {
             scrollTop: 0,
-            bottomNavigationDatas: null,
             merchantDatas: [
                 {
                     title: "首页",
@@ -88,18 +87,16 @@ export default {
             ],
         };
     },
-    activated() {
-        switch (this.type) {
-            case "merchant":
-                this.bottomNavigationDatas = this.merchantDatas;
-                break;
-
-            case "talent":
-                this.bottomNavigationDatas = this.talentDatas;
-                break;
-        }
-    },
     computed: {
+        bottomNavigationDatas() {
+            switch (this.type) {
+                case "merchant":
+                    return this.merchantDatas;
+
+                case "talent":
+                    return this.talentDatas;
+            }
+        },
         ...mapGetters("loginInfo", ["type"]),
     },
 };

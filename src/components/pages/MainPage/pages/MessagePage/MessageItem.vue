@@ -3,12 +3,13 @@
         <img
             style="margin-left: 1rem; margin-right: 0.75rem"
             :style="
-                tryGet(data, ['other()', 'type']) === 'system'
-                    ? ''
-                    : 'border-radius: 50%'
+                tryGet(data, ['other()', 'avatar']) ? 'border-radius: 50%' : ''
             "
             class="avatar"
-            :src="tryGet(data, ['other()', 'avatar'])"
+            :src="
+                tryGet(data, ['other()', 'avatar']) ||
+                tryGet(data, ['other()', 'icon', type])
+            "
             alt=""
         />
         <div style="flex-grow: 1; margin-right: 1.125rem" class="column">
@@ -36,12 +37,16 @@
 
 <script>
 import { helper } from "@/mixin";
+import { mapGetters } from "vuex";
 export default {
     name: "MessageItem",
     props: {
         data: Object,
     },
     mixins: [helper],
+    computed: {
+        ...mapGetters("loginInfo", ["type"]),
+    },
 };
 </script>
 
