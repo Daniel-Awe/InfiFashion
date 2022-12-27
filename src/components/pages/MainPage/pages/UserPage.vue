@@ -86,7 +86,7 @@ export default {
                     {
                         title: "我的订单",
                         iconUrl: require("@/assets/svg/user/merchant_trade_list.svg"),
-                        routeName: undefined,
+                        routeName: "OrderFormPage",
                     },
                     {
                         title: "我的关注",

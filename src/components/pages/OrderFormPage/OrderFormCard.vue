@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="root">
     <div class="head">
       <div class="title">{{ tryGet(order, ["author", "name"]) }}</div>
       <div class="state">{{ tryGet(order, ["state"]) }}</div>
@@ -34,7 +34,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.root {
+  margin-top: 10px;
   width: 100%;
   background: rgb(255, 255, 255);
 }
@@ -70,7 +71,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
   .name {
     /** 文本1 */
     font-size: 14px;
@@ -90,6 +91,7 @@ export default {
   }
   .right{
     margin-right: 10px;
+    margin-left: 15px;
   }
 }
 .foot {
