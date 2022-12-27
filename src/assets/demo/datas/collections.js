@@ -11,11 +11,26 @@ export default [
     {
         id: "1",
         type: "team",
-        get team(){return getDataById(users,"6")}
+        get team() { return getDataById(users, "6") }
     },
     {
         id: "2",
         type: "team",
-        get team(){return getDataById(users,"7")}
+        get team() { return getDataById(users, "7") }
+    },
+    {
+        id: "2",
+        type: "team",
+        get team() { return getDataById(users, "7") }
+    },
+    {
+        id: "2",
+        type: "team",
+        get team() { return getDataById(users, "7") }
+    },  
+    {
+        id: "2",
+        type: "team",
+        get team() { return getDataById(users, "7") }
     },
 ]

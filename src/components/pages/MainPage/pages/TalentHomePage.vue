@@ -10,6 +10,7 @@
                 class="searchBox"
                 style="margin-left: 0.75rem; margin-right: 1.81rem"
                 v-model="searchContent"
+                placeholder="请输入关键词搜索"
             />
         </TopBar>
         <el-menu

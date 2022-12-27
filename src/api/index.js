@@ -148,3 +148,10 @@ export const getHistoryDatas = async () => {
     return DemoDatas.history;
 }
 //#endregion
+
+//#region 订单
+export const getOrdersDatas = async ()=>{
+    await sleep(requestTime());
+    return DemoDatas.orders;
+}
+//#endregion
