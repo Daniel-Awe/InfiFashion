@@ -1,6 +1,6 @@
 <template>
   <div class="box" @click="routePop">
-    <img :src="require('@/assets/svg/route_pop_fill.svg')" alt="" />
+    <img :src="white ? require('@/assets/svg/route_pop_fill_white.svg') : require('@/assets/svg/route_pop_fill_black.svg')" alt="" />
   </div>
 </template>
 
@@ -11,6 +11,9 @@ export default {
     routePop(){
       this.$router.back();
     }
+  },
+  props:{
+    white:Boolean,
   }
 };
 </script>

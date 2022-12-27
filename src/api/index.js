@@ -10,7 +10,7 @@ const requestTime = () => Math.random() * 1000;
 export const login = async (id, password) => {
     await sleep(requestTime());
     const user = DemoDatas.users.find(value => value.id === id && value.password === password);
-    if (!user) return null;
+    if (!user || user.type === "system") return null;
     const token = user.id;
     return token;
 }
@@ -59,11 +59,14 @@ export const getNewArticles = async (count = 1) => {
 //#endregion
 
 //#region 消息
-export const getDialogues = async (userId) => {
+export const getDialogues = async (userId = undefined) => {
     await sleep(requestTime());
-    return DemoDatas.dialogues.filter(value => value.A.id === userId || value.B.id === userId).map(value => {
+    const token = localStorage.getItem("token");
+    let temp = DemoDatas.dialogues.filter(value => value.A.id === token || value.B.id === token);
+    if (userId) temp = temp.filter(value => value.A.id === userId || value.B.id === userId);
+    return temp.map(value => {
         let other = undefined;
-        if (value.A.id === userId) {
+        if (value.A.id === token) {
             other = value.B;
         }
         else {
@@ -80,6 +83,27 @@ export const getDialogues = async (userId) => {
 
         return o;
     });
+}
+
+export const sendMessage = async (userId, text) => {
+    const token = localStorage.getItem("token");
+    let dialogue = DemoDatas.dialogues.find(value => (value.A.id === userId || value.B.id === userId) && (value.A.id === token || value.B.id === token));
+    const message = {
+        sender: DemoDatas.users.find(value => value.id === token),
+        text,
+        date: new Date()
+    }
+    if (dialogue) {
+        dialogue.messages.push(message);
+    } else {
+        dialogue = {
+            id: DemoDatas.dialogues.length + '',
+            A: DemoDatas.users.find(value => value.id === token),
+            B: DemoDatas.users.find(value => value.id === userId),
+            messages: [message]
+        }
+    }
+    return true;
 }
 //#endregion
 

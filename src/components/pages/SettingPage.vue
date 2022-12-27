@@ -22,7 +22,7 @@ export default {
     logout() {
       this.$store
         .dispatch("doLogout")
-        .then(this.$router.push({ name: "LoginPage" }));
+        .then(()=>this.$router.push("/"));
     },
   },
 };

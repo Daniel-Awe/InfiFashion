@@ -54,7 +54,7 @@ export default {
     async activated() {
         if (this.isLogin) {
             await this.waitUntil(() => this.user !== null);
-            this.dialogues = await getDialogues(this.user.id);
+            this.dialogues = await getDialogues();
         } else {
             this.dialogues = [];
         }
