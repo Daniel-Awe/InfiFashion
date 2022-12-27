@@ -140,7 +140,7 @@ export default {
           this.$router.push({name:"MainPage"})
         else
           this.$message.error("账号不存在或密码错误")
-      }).catch(reason=>{
+      }).catch(()=>{
         loadingInstance.close();
         this.$message.error("登录失败，请重试")
       });

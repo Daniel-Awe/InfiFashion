@@ -19,7 +19,6 @@ export const helper = {
             if (param instanceof Array) {
                 result = obj;
 
-                let preKey = "根对象";
                 for (const key of param) {
                     if (typeof key === "string") {
                         const regRet = key.match(/(.*)\((.*)\)/);
@@ -41,8 +40,6 @@ export const helper = {
                     }
 
                     if (error) break;
-
-                    preKey = key;
                 }
             } else {
                 error = param;

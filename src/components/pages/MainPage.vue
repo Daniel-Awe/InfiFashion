@@ -95,6 +95,9 @@ export default {
 
                 case "talent":
                     return this.talentDatas;
+
+                default:
+                    return null;
             }
         },
         ...mapGetters("loginInfo", ["type"]),
