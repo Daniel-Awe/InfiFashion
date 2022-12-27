@@ -3,6 +3,7 @@
         <TopBar class="topBar">
             <span class="title">论坛</span>
         </TopBar>
+
         <div class="view">
             <div v-loading="!forumDatas">
                 <SlideshowBox
@@ -31,6 +32,7 @@
                 />
             </div>
         </div>
+        <RoundButton v-if="type === 'talent'" class="button" title="发布文章" />
     </div>
 </template>
 
@@ -41,6 +43,8 @@ import SlideshowBox from "@/components/SlideshowBox.vue";
 import ArticleCard from "@/components/ArticleCard.vue";
 import ImageButton from "../../../ImageButton.vue";
 import { helper } from "@/mixin";
+import RoundButton from "@/components/RoundButton.vue";
+import { mapGetters } from "vuex";
 
 export default {
     name: "ForumPage",
@@ -49,6 +53,7 @@ export default {
         SlideshowBox,
         ArticleCard,
         ImageButton,
+        RoundButton,
     },
     data() {
         return {
@@ -87,6 +92,9 @@ export default {
             this.articles = response;
         });
     },
+    computed: {
+        ...mapGetters("loginInfo", ["type"]),
+    },
     mixins: [helper],
 };
 </script>
@@ -95,8 +103,8 @@ export default {
 .container {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    @include flex-style(column);
+    align-items: stretch;
 
     .topBar {
         display: flex;
@@ -146,5 +154,18 @@ export default {
         font-weight: 700;
         color: $--color-text-primary;
     }
+}
+
+.button {
+    margin: 5px auto;
+    width: 300px;
+
+    background-color: $--color-primary;
+
+    @include font-size-style(3);
+    font-weight: 700;
+    color: $--color-white;
+
+    text-align: center;
 }
 </style>
