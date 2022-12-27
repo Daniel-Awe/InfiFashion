@@ -1,12 +1,6 @@
 <template>
     <div>
-        <TopBar />
-        <el-input v-model="id" placeholder="账号" type="text" />
-        <el-input v-model="password" placeholder="密码" type="password" />
-        <el-button @click="login"> 登录 </el-button>
-        <el-button @click="logout">登出</el-button>
-        {{ isLogin }}
-        <div>{{ tryGet(user, "name") }}</div>
+        <OrderFormPage/>
     </div>
 </template>
 
@@ -14,9 +8,10 @@
 import { helper } from "@/mixin";
 import { mapGetters, mapState } from "vuex";
 import TopBar from "../TopBar.vue";
+import OrderFormPage from './OrderFormPage.vue';
 export default {
     name: "TestPage",
-    components: { TopBar },
+    components: { TopBar, OrderFormPage },
     data() {
         return {
             id: null,

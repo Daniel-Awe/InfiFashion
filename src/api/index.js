@@ -119,8 +119,15 @@ export const getCollectionDatas = async () => {
 //#endregion
 
 //#region 历史记录
-export const getHistoryDatas = async ( )=>{
+export const getHistoryDatas = async () => {
     await sleep(requestTime());
     return DemoDatas.history;
+}
+//#endregion
+
+//#region 订单
+export const getOrdersDatas = async ()=>{
+    await sleep(requestTime());
+    return DemoDatas.orders;
 }
 //#endregion
