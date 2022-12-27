@@ -156,7 +156,7 @@ export default {
             services: null,
         };
     },
-    activated() {
+    mounted() {
         this.user = null;
         this.services = null;
 
