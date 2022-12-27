@@ -1,5 +1,5 @@
 <template>
-    <div class="box row">
+    <div class="box row" @click="handleClick">
         <img
             style="margin-left: 1rem; margin-right: 0.75rem"
             :style="
@@ -42,6 +42,16 @@ export default {
     name: "MessageItem",
     props: {
         data: Object,
+    },
+    methods: {
+        handleClick() {
+            this.$router.push({
+                name: "SendMessagePage",
+                params: {
+                    id: this.data.other().id,
+                },
+            });
+        },
     },
     mixins: [helper],
     computed: {

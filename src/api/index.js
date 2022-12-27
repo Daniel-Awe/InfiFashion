@@ -59,10 +59,12 @@ export const getNewArticles = async (count = 1) => {
 //#endregion
 
 //#region 消息
-export const getDialogues = async () => {
+export const getDialogues = async (userId = undefined) => {
     await sleep(requestTime());
     const token = localStorage.getItem("token");
-    return DemoDatas.dialogues.filter(value => value.A.id === token || value.B.id === token).map(value => {
+    let temp = DemoDatas.dialogues.filter(value => value.A.id === token || value.B.id === token);
+    if (userId) temp = temp.filter(value => value.A.id === userId || value.B.id === userId);
+    return temp.map(value => {
         let other = undefined;
         if (value.A.id === token) {
             other = value.B;
@@ -83,24 +85,23 @@ export const getDialogues = async () => {
     });
 }
 
-export const sendDialogues = async (userId, text) => {
-    await sleep(requestTime());
+export const sendMessage = async (userId, text) => {
     const token = localStorage.getItem("token");
-    let dialogue = DemoDatas.dialogues.find(value => (value.A === userId || value.B === userId) && (value.A === token || value.B === token));
+    let dialogue = DemoDatas.dialogues.find(value => (value.A.id === userId || value.B.id === userId) && (value.A.id === token || value.B.id === token));
     const message = {
         sender: DemoDatas.users.find(value => value.id === token),
         text,
         date: new Date()
     }
-    if (!dialogue) {
+    if (dialogue) {
+        dialogue.messages.push(message);
+    } else {
         dialogue = {
             id: DemoDatas.dialogues.length + '',
             A: DemoDatas.users.find(value => value.id === token),
             B: DemoDatas.users.find(value => value.id === userId),
             messages: [message]
         }
-    } else {
-        dialogue.messages.push(message);
     }
     return true;
 }
