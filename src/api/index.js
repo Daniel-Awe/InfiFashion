@@ -10,7 +10,7 @@ const requestTime = () => Math.random() * 1000;
 export const login = async (id, password) => {
     await sleep(requestTime());
     const user = DemoDatas.users.find(value => value.id === id && value.password === password);
-    if (!user) return null;
+    if (!user || user.type === "system") return null;
     const token = user.id;
     return token;
 }
@@ -59,11 +59,12 @@ export const getNewArticles = async (count = 1) => {
 //#endregion
 
 //#region 消息
-export const getDialogues = async (userId) => {
+export const getDialogues = async () => {
     await sleep(requestTime());
-    return DemoDatas.dialogues.filter(value => value.A.id === userId || value.B.id === userId).map(value => {
+    const token = localStorage.getItem("token");
+    return DemoDatas.dialogues.filter(value => value.A.id === token || value.B.id === token).map(value => {
         let other = undefined;
-        if (value.A.id === userId) {
+        if (value.A.id === token) {
             other = value.B;
         }
         else {
@@ -80,6 +81,28 @@ export const getDialogues = async (userId) => {
 
         return o;
     });
+}
+
+export const sendDialogues = async (userId, text) => {
+    await sleep(requestTime());
+    const token = localStorage.getItem("token");
+    let dialogue = DemoDatas.dialogues.find(value => (value.A === userId || value.B === userId) && (value.A === token || value.B === token));
+    const message = {
+        sender: DemoDatas.users.find(value => value.id === token),
+        text,
+        date: new Date()
+    }
+    if (!dialogue) {
+        dialogue = {
+            id: DemoDatas.dialogues.length + '',
+            A: DemoDatas.users.find(value => value.id === token),
+            B: DemoDatas.users.find(value => value.id === userId),
+            messages: [message]
+        }
+    } else {
+        dialogue.messages.push(message);
+    }
+    return true;
 }
 //#endregion
 
@@ -119,7 +142,7 @@ export const getCollectionDatas = async () => {
 //#endregion
 
 //#region 历史记录
-export const getHistoryDatas = async ( )=>{
+export const getHistoryDatas = async () => {
     await sleep(requestTime());
     return DemoDatas.history;
 }
