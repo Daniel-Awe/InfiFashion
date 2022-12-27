@@ -28,6 +28,7 @@ import SettingPage from '@/components/pages/SettingPage.vue'
 import CostumeDesigningPage from '@/components/pages/MainPage/pages/TalentHomePage/pages/CostumeDesigningPage.vue'
 import IdentitySwitchPage from '@/components/pages/IdentitySwitchPage.vue'
 import SendMessagePage from '@/components/pages/SendMessagePage.vue'
+import OrderFormPage from '@/components/pages/OrderFormPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
@@ -179,6 +180,11 @@ const routes = [
 				component: ServicePage
 			}
 		]
+	},
+	{
+		path: '/order',
+		name: 'OrderFormPage',
+		component: OrderFormPage
 	},
 	{
 		path: '/identity-switch',
