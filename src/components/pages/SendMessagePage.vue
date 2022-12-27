@@ -128,4 +128,9 @@ export default {
 .column {
     @include flex-style(column);
 }
+
+.el-button {
+    background-color: $--color-primary;
+    border: none;
+}
 </style>
