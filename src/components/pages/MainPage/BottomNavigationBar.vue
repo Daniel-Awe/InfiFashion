@@ -5,7 +5,7 @@
             v-for="(item, key) in datas"
             :key="key"
             @click="$router.push({ name: item.routeName }, null, () => {})"
-            :class="containRoute(item.routeName) ? 'selected' : ''"
+            :style="containRoute(item.routeName) ? selectedColor : ''"
         >
             <img
                 rich-icon
@@ -29,23 +29,6 @@ export default {
         /** @type {[{ title: string; selectedIconUrl: string; unselectedIconUrl: string; routeName: string; }]} */
         datas: Array,
     },
-    activated() {
-        switch (this.type) {
-            case "merchant":
-                this.$refs.root.style.setProperty(
-                    "--select-color",
-                    "rgb(132, 65, 163)"
-                );
-                break;
-
-            case "talent":
-                this.$refs.root.style.setProperty(
-                    "--select-color",
-                    "rgb(0, 137, 186)"
-                );
-                break;
-        }
-    },
     methods: {
         containRoute(routeName) {
             for (const route of this.$route.matched) {
@@ -55,6 +38,18 @@ export default {
         },
     },
     computed: {
+        selectedColor() {
+            switch (this.type) {
+                case "merchant":
+                    return "color: rgb(132, 65, 163)";
+
+                case "talent":
+                    return "color: rgb(0, 137, 186)";
+
+                default:
+                    return "";
+            }
+        },
         ...mapGetters("loginInfo", ["type"]),
     },
 };
@@ -95,9 +90,5 @@ export default {
 
         white-space: nowrap;
     }
-}
-
-.item.selected {
-    color: var(--select-color);
 }
 </style>
