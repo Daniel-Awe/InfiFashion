@@ -32,172 +32,202 @@ import OrderFormPage from '@/components/pages/OrderFormPage.vue'
 
 import TestPage from '@/components/pages/TestPage.vue'
 
+import UserInfoPage from '@/components/pages/SettingPage/pages/UserInfoPage.vue'
+import CountSecurityPage from '@/components/pages/SettingPage/pages/CountSecurityPage.vue'
+import SettingMainPage from '@/components/pages/SettingPage/pages/SettingMainPage.vue'
+import PrivacyManagementPage from '@/components/pages/SettingPage/pages/PrivacyManagementPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
-	{
-		path: '/test',
-		name: 'TestPage',
-		component: TestPage
-	},
-	{
-		path: '*', redirect: '/'
-	},
-	{
-		path: '/',
-		name: '',
-		component: FirstLoadingPage
-	},
-	{
-		path: '/main',
-		name: 'MainPage',
-		redirect: () => {
-			switch (store.getters['loginInfo/type']) {
-				case 'merchant':
-					return { name: 'MerchantHomePage' }
+  {
+    path: '/test',
+    name: 'TestPage',
+    component: TestPage
+  },
+  {
+    path: '*',
+    redirect: '/'
+  },
+  {
+    path: '/',
+    name: '',
+    component: FirstLoadingPage
+  },
+  {
+    path: '/main',
+    name: 'MainPage',
+    redirect: () => {
+      switch (store.getters['loginInfo/type']) {
+        case 'merchant':
+          return { name: 'MerchantHomePage' }
 
-				case 'talent':
-					return { name: 'TalentHomePage' }
+        case 'talent':
+          return { name: 'TalentHomePage' }
 
-				default:
-					return { name: 'LoginPage' }
-			}
-		},
-		component: MainPage,
-		children: [
-			{
-				path: 'merchant-home',
-				name: 'MerchantHomePage',
-				component: MerchantHomePage
-			},
-			{
-				path: 'talent-home',
-				name: 'TalentHomePage',
-				component: TalentHomePage,
-				children: [
-					{
-						path: 'costume-designing',
-						name: 'CostumeDesigningPage',
-						component: CostumeDesigningPage
-					}
-				]
-			},
-			{
-				path: 'forum',
-				name: 'ForumPage',
-				component: ForumPage
-			},
-			{
-				path: 'publish',
-				name: 'PublishPage',
-				component: PublishPage
-			},
-			{
-				path: 'message',
-				name: 'MessagePage',
-				component: MessagePage
-			},
-			{
-				path: 'user',
-				name: 'UserPage',
-				component: UserPage
-			},
-			{
-				path: 'workbench',
-				name: 'WorkbenchPage',
-				component: WorkbenchPage
-			}
-		]
-	},
-	{
-		path: '/team/:id',
-		name: 'TeamInformationPage',
-		component: TeamInformationPage
-	},
-	{
-		path: '/login',
-		name: 'LoginPage',
-		redirect: '/login/loginmain',
-		component: LoginPage,
-		children: [
-			{
-				path: 'loginmain',
-				name: 'LoginMainPage',
-				component: LoginMainPage,
-			},
-			{
-				path: 'getcode',
-				name: 'GetCodePage',
-				component: GetCodePage
-			},
-			{
-				path: 'findpassword',
-				name: 'FindPasswordPage',
-				component: FindPasswordPage,
-				children: [
-					{
-						path: 'findpassword1',
-						name: 'FindPasswordPage1',
-						component: FindPasswordPage1
-					},
-					{
-						path: 'findpassword2',
-						name: 'FindPasswordPage2',
-						component: FindPasswordPage2
-					},
-					{
-						path: 'findpassword3',
-						name: 'FindPasswordPage3',
-						component: FindPasswordPage3
-					},
-					{
-						path: 'findpassword4',
-						name: 'FindPasswordPage4',
-						component: FindPasswordPage4
-					}]
-			}
-		]
-	},
-	{
-		path: '/collection',
-		name: 'CollectionPage',
-		component: CollectionPage
-	},
-	{
-		path: '/setting',
-		name: 'SettingPage',
-		component: SettingPage
-	},
-	{
-		path: '/history',
-		name: 'HistoryPage',
-		redirect: '/service',
-		component: HistoryPage,
-		children: [
-			{
-				path: '/service',
-				name: 'ServicePage',
-				component: ServicePage
-			}
-		]
-	},
-	{
-		path: '/order',
-		name: 'OrderFormPage',
-		component: OrderFormPage
-	},
-	{
-		path: '/identity-switch',
-		name: 'IdentitySwitchPage',
-		component: IdentitySwitchPage
-	},
-	{
-		path: '/send-message/:id',
-		name: 'SendMessagePage',
-		component: SendMessagePage
-	}
+        default:
+          return { name: 'LoginPage' }
+      }
+    },
+    component: MainPage,
+    children: [
+      {
+        path: 'merchant-home',
+        name: 'MerchantHomePage',
+        component: MerchantHomePage
+      },
+      {
+        path: 'talent-home',
+        name: 'TalentHomePage',
+        component: TalentHomePage,
+        children: [
+          {
+            path: 'costume-designing',
+            name: 'CostumeDesigningPage',
+            component: CostumeDesigningPage
+          }
+        ]
+      },
+      {
+        path: 'forum',
+        name: 'ForumPage',
+        component: ForumPage
+      },
+      {
+        path: 'publish',
+        name: 'PublishPage',
+        component: PublishPage
+      },
+      {
+        path: 'message',
+        name: 'MessagePage',
+        component: MessagePage
+      },
+      {
+        path: 'user',
+        name: 'UserPage',
+        component: UserPage
+      },
+      {
+        path: 'workbench',
+        name: 'WorkbenchPage',
+        component: WorkbenchPage
+      }
+    ]
+  },
+  {
+    path: '/team/:id',
+    name: 'TeamInformationPage',
+    component: TeamInformationPage
+  },
+  {
+    path: '/login',
+    name: 'LoginPage',
+    redirect: '/login/loginmain',
+    component: LoginPage,
+    children: [
+      {
+        path: 'loginmain',
+        name: 'LoginMainPage',
+        component: LoginMainPage
+      },
+      {
+        path: 'getcode',
+        name: 'GetCodePage',
+        component: GetCodePage
+      },
+      {
+        path: 'findpassword',
+        name: 'FindPasswordPage',
+        component: FindPasswordPage,
+        children: [
+          {
+            path: 'findpassword1',
+            name: 'FindPasswordPage1',
+            component: FindPasswordPage1
+          },
+          {
+            path: 'findpassword2',
+            name: 'FindPasswordPage2',
+            component: FindPasswordPage2
+          },
+          {
+            path: 'findpassword3',
+            name: 'FindPasswordPage3',
+            component: FindPasswordPage3
+          },
+          {
+            path: 'findpassword4',
+            name: 'FindPasswordPage4',
+            component: FindPasswordPage4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: '/collection',
+    name: 'CollectionPage',
+    component: CollectionPage
+  },
+  {
+    path: '/setting',
+    name: 'SettingPage',
+    redirect: '/settingmain',
+    component: SettingPage,
+    children: [
+      {
+        path: '/settingmain',
+        name: 'SettingMainPage',
+        component: SettingMainPage
+      },
+      {
+        path: '/userinfo',
+        name: 'UserInfoPage',
+        component: UserInfoPage
+      },
+      {
+        path: '/countsecurity',
+        name: 'CountSecurityPage',
+        component: CountSecurityPage
+      },
+      {
+        path: '/privacymanagment',
+        name: 'PrivacyManagementPage',
+        component: PrivacyManagementPage
+      }
+    ]
+  },
+
+  {
+    path: '/history',
+    name: 'HistoryPage',
+    redirect: '/service',
+    component: HistoryPage,
+    children: [
+      {
+        path: '/service',
+        name: 'ServicePage',
+        component: ServicePage
+      }
+    ]
+  },
+  {
+    path: '/order',
+    name: 'OrderFormPage',
+    component: OrderFormPage
+  },
+  {
+    path: '/identity-switch',
+    name: 'IdentitySwitchPage',
+    component: IdentitySwitchPage
+  },
+  {
+    path: '/send-message/:id',
+    name: 'SendMessagePage',
+    component: SendMessagePage
+  }
 ]
 
 export default new VueRouter({
-	routes
+  routes
 })

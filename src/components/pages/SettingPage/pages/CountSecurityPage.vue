@@ -1,0 +1,60 @@
+<template>
+  <div class="main">
+    <SettingTopBar><template #default>账号与安全</template></SettingTopBar>
+    <SettingButton v-for="(item, id) in points" :key="id" :points="item"></SettingButton>
+    <!-- 实名认证还没做 -->
+  </div>
+</template>
+
+<script>
+import SettingButton from '@/components/pages/SettingPage/SettingButton.vue'
+import SettingTopBar from '../SettingTopBar.vue'
+export default {
+  name: 'CountSecurityPage',
+  components: { SettingButton, SettingTopBar },
+  data() {
+    return {
+      points: [
+        {
+          id: '1',
+          title: '修改绑定收集号码',
+          routeName: null
+        },
+        {
+          id: '2',
+          title: '修改登录密码',
+          routeName: null
+        },
+        {
+          id: '3',
+          title: '修改绑定邮箱',
+          routeName: null
+        },
+        {
+          id: '4',
+          title: '第三方账号解绑',
+          routeName: null
+        },
+        {
+          id: '5',
+          title: '注销账户',
+          routeName: null,
+          gap: true
+        },
+        {
+          id: '6',
+          title: '实名认证',
+          routeName: null
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.main {
+  width: 100%;
+  background-color: white;
+}
+</style>
