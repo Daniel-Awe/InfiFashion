@@ -17,33 +17,33 @@ export default {
       points: [
         {
           id: '1',
-          title: '修改绑定收集号码',
+          setting: '修改绑定收集号码',
           routeName: null
         },
         {
           id: '2',
-          title: '修改登录密码',
+          setting: '修改登录密码',
           routeName: null
         },
         {
           id: '3',
-          title: '修改绑定邮箱',
+          setting: '修改绑定邮箱',
           routeName: null
         },
         {
           id: '4',
-          title: '第三方账号解绑',
+          setting: '第三方账号解绑',
           routeName: null
         },
         {
           id: '5',
-          title: '注销账户',
+          setting: '注销账户',
           routeName: null,
           gap: true
         },
         {
           id: '6',
-          title: '实名认证',
+          setting: '实名认证',
           routeName: null
         }
       ]
