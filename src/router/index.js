@@ -36,6 +36,9 @@ import UserInfoPage from '@/components/pages/SettingPage/pages/UserInfoPage.vue'
 import CountSecurityPage from '@/components/pages/SettingPage/pages/CountSecurityPage.vue'
 import SettingMainPage from '@/components/pages/SettingPage/pages/SettingMainPage.vue'
 import PrivacyManagementPage from '@/components/pages/SettingPage/pages/PrivacyManagementPage.vue'
+import MessageNotifyPage from '@/components/pages/SettingPage/pages/MessageNotifyPage.vue'
+import AboutInfiFashionPage from '@/components/pages/SettingPage/pages/AboutInfiFashionPage.vue'
+import FeedbackPage from '@/components/pages/FeedbackPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -194,10 +197,19 @@ const routes = [
         path: '/privacymanagment',
         name: 'PrivacyManagementPage',
         component: PrivacyManagementPage
+      },
+      {
+        path: '/messagenotify',
+        name: 'MessageNotifyPage',
+        component: MessageNotifyPage
+      },
+      {
+        path: 'aboutinfifashion',
+        name: 'AboutInfiFashionPage',
+        component: AboutInfiFashionPage
       }
     ]
   },
-
   {
     path: '/history',
     name: 'HistoryPage',
@@ -210,6 +222,11 @@ const routes = [
         component: ServicePage
       }
     ]
+  },
+  {
+    path: '/feedback',
+    name: 'FeedbackPage',
+    component: FeedbackPage
   },
   {
     path: '/order',
