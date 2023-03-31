@@ -8,47 +8,40 @@
       <!-- 只做了按钮，还没做上传头像-上传后端 -->
     </div>
     <div>
-      <div class="info">
-        <p class="left">昵称</p>
-        <p>{{ tryGet(user, 'name') }}</p>
-        <div class="right">
-          <img :src="require('@/assets/svg/arrow_right.svg')" />
-        </div>
-      </div>
-      <div class="info">
-        <p class="left">性别</p>
-        <p v-if="tryGet(user, 'sex')">{{ tryGet(user, 'sex') }}</p>
-        <p v-else>男</p>
-        <div class="right">
-          <img :src="require('@/assets/svg/arrow_right.svg')" />
-        </div>
-      </div>
-      <div class="info">
-        <p class="left">自我介绍</p>
-        <p class="introduce" v-if="tryGet(user, 'introduce')">{{ tryGet(user, 'introduce') }}</p>
-        <p class="introduce" v-else>填写企业介绍，让人才更好的发现我</p>
-        <div class="right">
-          <img :src="require('@/assets/svg/arrow_right.svg')" />
-        </div>
-      </div>
-      <div class="info">
-        <p style="width: 120px" class="left">我的收货地址</p>
-        <div class="right">
-          <img :src="require('@/assets/svg/arrow_right.svg')" />
-        </div>
-      </div>
+      <UserInfoButton>
+        <template #setting>昵称</template>
+        <template #descripte>
+          <p>{{ tryGet(user, 'name') }}</p>
+        </template>
+      </UserInfoButton>
+      <UserInfoButton>
+        <template #setting>性别</template>
+        <template #descripte>
+          <p>{{ tryGet(user, 'sex') }}</p>
+        </template>
+      </UserInfoButton>
+      <UserInfoButton>
+        <template #setting>自我介绍</template>
+        <template #descripte>
+          <p>{{ tryGet(user, 'name') }}</p>
+        </template>
+      </UserInfoButton>
+      <UserInfoButton>
+        <template #setting>我的收获地址</template>
+      </UserInfoButton>
     </div>
   </div>
 </template>
 
 <script>
 import SettingTopBar from '../SettingTopBar.vue'
+import UserInfoButton from '../UserInfoButton.vue'
 import { helper } from '@/mixin'
 
 import { mapState } from 'vuex'
 export default {
   name: 'UserInfoPage',
-  components: { SettingTopBar },
+  components: { SettingTopBar, UserInfoButton },
   data() {
     return {}
   },
@@ -100,7 +93,6 @@ export default {
 .info {
   display: flex;
   position: relative;
-  height: 44px;
   background-color: #fff;
   font-size: 14px;
   padding-left: 20px;
@@ -110,11 +102,13 @@ export default {
   }
   .left {
     width: 70px;
+    font-weight: 500;
   }
   .introduce {
+    width: 250px;
     color: $--color-info;
+    overflow: hidden;
   }
-
   .right {
     position: absolute;
     right: 16px;
