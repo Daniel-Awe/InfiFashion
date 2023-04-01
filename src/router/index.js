@@ -39,6 +39,8 @@ import PrivacyManagementPage from '@/components/pages/SettingPage/pages/PrivacyM
 import MessageNotifyPage from '@/components/pages/SettingPage/pages/MessageNotifyPage.vue'
 import AboutInfiFashionPage from '@/components/pages/SettingPage/pages/AboutInfiFashionPage.vue'
 import FeedbackPage from '@/components/pages/FeedbackPage.vue'
+import FollowingPage from '@/components/pages/FollowingPage.vue'
+import DemandPage from '@/components/pages/DemandPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -224,11 +226,6 @@ const routes = [
     ]
   },
   {
-    path: '/feedback',
-    name: 'FeedbackPage',
-    component: FeedbackPage
-  },
-  {
     path: '/order',
     name: 'OrderFormPage',
     component: OrderFormPage
@@ -242,6 +239,21 @@ const routes = [
     path: '/send-message/:id',
     name: 'SendMessagePage',
     component: SendMessagePage
+  },
+  {
+    path: '/feedback',
+    name: 'FeedbackPage',
+    component: FeedbackPage
+  },
+  {
+    path: '/following',
+    name: 'FollowingPage',
+    component: FollowingPage
+  },
+  {
+    path: '/demand',
+    name: 'DemandPage',
+    component: DemandPage
   }
 ]
 
