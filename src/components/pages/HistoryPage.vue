@@ -5,16 +5,8 @@
       <div class="title">历史记录</div>
       <div class="edit">编辑</div>
     </TopBar>
-    <el-menu
-      mode="horizontal"
-      :default-active="menuActiveIndex.toString()"
-      @select="handleSelect"
-    >
-      <el-menu-item
-        v-for="(item, key) in menuItems"
-        :key="key"
-        :index="key.toString()"
-      >
+    <el-menu mode="horizontal" :default-active="menuActiveIndex.toString()" @select="handleSelect">
+      <el-menu-item v-for="(item, key) in menuItems" :key="key" :index="key.toString()">
         <p>{{ item.title }}</p>
       </el-menu-item>
     </el-menu>
@@ -23,37 +15,33 @@
 </template>
 
 <script>
-import RoutePopButton from "../RoutePopButton.vue";
-import TopBar from "../TopBar.vue";
+import RoutePopButton from '../RoutePopButton.vue'
+import TopBar from '../TopBar.vue'
 export default {
   components: { TopBar, RoutePopButton },
-  name: "HistoryPage",
+  name: 'HistoryPage',
   data() {
     return {
-      menuActiveIndex: "0",
+      menuActiveIndex: '0',
       menuItems: [
         {
-          title: "服务",
-          routeName: "ServicePage",
+          title: '服务',
+          routeName: 'ServicePage'
         },
         {
-          title: "帖子",
-          routeName: undefined,
-        },
-      ],
-    };
+          title: '帖子',
+          routeName: undefined
+        }
+      ]
+    }
   },
   methods: {
     handleSelect(index) {
-      this.menuActiveIndex = index;
-      this.$router.push(
-        { name: this.menuItems[index].routeName },
-        null,
-        () => {}
-      );
-    },
-  },
-};
+      this.menuActiveIndex = index
+      this.$router.push({ name: this.menuItems[index].routeName }, null, () => {})
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -96,8 +84,11 @@ export default {
 
   @include flex-style(row);
   justify-content: left;
+  .el-menu-item:first-child {
+    margin-left: 1.875rem;
+  }
   .el-menu-item {
-    margin-left: 23px;
+    margin-left: 1.5rem;
     padding: 0;
 
     height: max-content;
