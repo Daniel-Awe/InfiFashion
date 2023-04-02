@@ -158,3 +158,10 @@ export const getFollowingDatas = async () => {
   return DemoDatas.following
 }
 //#endregion
+
+//#region 我的关注
+export const getDemandsDatas = async () => {
+  await sleep(requestTime())
+  return DemoDatas.demands
+}
+//#endregion

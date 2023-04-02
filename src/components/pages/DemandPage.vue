@@ -1,28 +1,32 @@
 <template>
-  <div>
-    <div class="container">
-      <TopBar class="topBar">
-        <RoutePopButton style="margin-right: 12px" />
-        <div class="title">我的需求</div>
-        <div class="edit"></div>
-      </TopBar>
-      <el-menu mode="horizontal" :default-active="menuActiveIndex.toString()" @select="handleSelect">
-        <el-menu-item v-for="(item, key) in menuItems" :key="key" :index="key.toString()">
-          <p>{{ item.title }}</p>
-        </el-menu-item>
-      </el-menu>
+  <div class="container">
+    <TopBar class="topBar">
+      <RoutePopButton style="margin-right: 12px" />
+      <div class="title">我的需求</div>
+      <div class="edit"></div>
+    </TopBar>
+    <el-menu mode="horizontal" :default-active="menuActiveIndex.toString()" @select="handleSelect">
+      <el-menu-item v-for="(item, key) in menuItems" :key="key" :index="key.toString()">
+        <p>{{ item.title }}</p>
+      </el-menu-item>
+    </el-menu>
+    <div class="view">
+      <DemandCard v-for="(item, index) in demands" :key="index" :demand="item" />
     </div>
   </div>
 </template>
 
 <script>
+import { getDemandsDatas } from '@/api/index.js'
 import TopBar from '../TopBar.vue'
 import RoutePopButton from '../RoutePopButton.vue'
+import DemandCard from './DemandPage/DemandCard.vue'
 export default {
   name: 'DemandPage',
-  components: { TopBar, RoutePopButton },
+  components: { TopBar, RoutePopButton, DemandCard },
   data() {
     return {
+      demands: null,
       menuActiveIndex: '0',
       menuItems: [
         {
@@ -53,6 +57,11 @@ export default {
       this.menuActiveIndex = index
       this.$router.push({ name: this.menuItems[index].routeName }, null, () => {})
     }
+  },
+  created() {
+    getDemandsDatas().then(response => {
+      this.demands = response
+    })
   }
 }
 </script>

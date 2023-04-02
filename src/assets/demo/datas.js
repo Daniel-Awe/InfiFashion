@@ -10,6 +10,7 @@ import orders from './datas/orders'
 import home from './datas/home'
 import forum from './datas/forum'
 import following from './datas/following'
+import demands from './datas/demands'
 
 export default {
   users,
@@ -23,5 +24,6 @@ export default {
 
   home,
   forum,
-  following
+  following,
+  demands
 }

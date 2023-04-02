@@ -1,36 +1,36 @@
 <template>
   <div class="root">
     <div class="head">
-      <div class="title">{{ tryGet(order, ["author", "name"]) }}</div>
-      <div class="state">{{ tryGet(order, ["state"]) }}</div>
+      <div class="title">{{ tryGet(order, ['author', 'name']) }}</div>
+      <div class="state">{{ tryGet(order, ['state']) }}</div>
     </div>
     <div class="body">
       <img :src="tryGet(order, ['service', 'cover'])" alt="" class="img" />
       <div class="right">
-        <div class="name">{{ tryGet(order, ["service", "title"]) }}</div>
-        <div class="price">{{ tryGet(order, ["service", "price"]) }}</div>
-        <div class="date">{{ tryGet(order, ["date"]) }}</div>
+        <div class="name">{{ tryGet(order, ['service', 'title']) }}</div>
+        <div class="price">{{ tryGet(order, ['service', 'price']) }}</div>
+        <div class="date">{{ tryGet(order, ['date']) }}</div>
       </div>
     </div>
     <div class="foot">
-      <div class="payment">实付款：{{ tryGet(order, ["payment"]) }}</div>
+      <div class="payment">实付款：{{ tryGet(order, ['payment']) }}</div>
       <div class="button"><div class="text">删除订单</div></div>
     </div>
   </div>
 </template>
 
 <script>
-import { helper } from "@/mixin";
+import { helper } from '@/mixin'
 export default {
-  name: "OrderFormCard",
+  name: 'OrderFormCard',
   data() {
-    return {};
+    return {}
   },
   props: {
-    order: Object,
+    order: Object
   },
-  mixins: [helper],
-};
+  mixins: [helper]
+}
 </script>
 
 <style lang="scss" scoped>
@@ -89,7 +89,7 @@ export default {
     font-weight: 500;
     color: rgba(128, 128, 128, 1);
   }
-  .right{
+  .right {
     margin-right: 10px;
     margin-left: 15px;
   }
@@ -108,18 +108,18 @@ export default {
   }
 }
 .button {
-  margin-right: 10px !important;
-  margin-left: auto;
+  margin: 0.3125rem 10px 0.3125rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 28px;
+  width: 6.25rem;
+  height: 1.75rem;
   border-radius: 16px;
 
   border: 1px solid rgba(128, 128, 128, 1);
   .text {
+    font-size: 0.875rem;
   }
 }
 </style>
