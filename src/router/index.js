@@ -41,6 +41,9 @@ import AboutInfiFashionPage from '@/components/pages/SettingPage/pages/AboutInfi
 import FeedbackPage from '@/components/pages/FeedbackPage.vue'
 import FollowingPage from '@/components/pages/FollowingPage.vue'
 import DemandPage from '@/components/pages/DemandPage.vue'
+import DesignTeamsPage from '@/components/pages/DesignTeamsPage.vue'
+import AgentConsultantPage from '@/components/pages/AgentConsultantPage.vue'
+import ExtendPackingPage from '@/components/pages/ExtendPackingPage.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -254,6 +257,21 @@ const routes = [
     path: '/demand',
     name: 'DemandPage',
     component: DemandPage
+  },
+  {
+    path: '/designteams',
+    name: 'DesignTeamsPage',
+    component: DesignTeamsPage
+  },
+  {
+    path: '/agentconsultant',
+    name: 'AgentConsultantPage',
+    component: AgentConsultantPage
+  },
+  {
+    path: '/extendpacking',
+    name: 'ExtendPackingPage',
+    component: ExtendPackingPage
   }
 ]
 
