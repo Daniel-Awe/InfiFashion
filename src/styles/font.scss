@@ -21,3 +21,10 @@ $--font-family-primary: "PingFang";
         zoom: 0.625;
     }
 }
+
+// 标题的文字大小14px以及粗细700
+@mixin title-size-weight{
+    font-size: .875rem;
+    font-weight: 700;
+    color:black;
+}
