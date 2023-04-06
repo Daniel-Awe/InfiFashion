@@ -35,12 +35,12 @@ export default {
 
 <style lang="scss" scoped>
 .root {
-  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 5px;
   width: 100%;
   background: rgb(255, 255, 255);
 }
 .head {
-  margin-top: 10px;
   margin-left: 10px;
   display: flex;
   flex-direction: row;

@@ -1,19 +1,22 @@
 <template>
   <div class="container">
-    <TopBar class="topBar">
-      <RoutePopButton style="margin-right: 12px" />
-      <SearchBox class="searchBox" placeholder="搜索订单号/订单名称">
-        <div class="button">搜索</div>
-      </SearchBox>
-      <div class="placeholder"></div>
-    </TopBar>
-    <el-menu mode="horizontal" :default-active="menuActiveIndex.toString()" @select="handleSelect">
-      <el-menu-item v-for="(item, key) in menuItems" :key="key" :index="key.toString()">
-        <p>{{ item.title }}</p>
-      </el-menu-item>
-    </el-menu>
+    <div class="top" style="position: fixed; top: 0">
+      <TopBar class="topBar">
+        <RoutePopButton style="margin-right: 12px" />
+        <SearchBox class="searchBox" placeholder="搜索订单号/订单名称">
+          <div class="button">搜索</div>
+        </SearchBox>
+        <div class="placeholder"></div>
+      </TopBar>
+      <el-menu mode="horizontal" :default-active="menuActiveIndex.toString()" @select="handleSelect">
+        <el-menu-item v-for="(item, key) in menuItems" :key="key" :index="key.toString()">
+          <p>{{ item.title }}</p>
+        </el-menu-item>
+      </el-menu>
+    </div>
+    <div class="gap" style="height: 100px"></div>
     <router-view></router-view>
-    <div class="view">
+    <div class="view" v-loading="!orders">
       <OrderFormCard v-for="(item, index) in orders" :key="index" :order="item" />
     </div>
   </div>
@@ -33,12 +36,24 @@ export default {
       menuActiveIndex: '0',
       menuItems: [
         {
-          title: '服务',
+          title: '全部',
           routeName: 'ServicePage'
         },
         {
-          title: '帖子',
+          title: '待付款',
           routeName: undefined
+        },
+        {
+          title: '进行中',
+          routeName: 'ServicePage'
+        },
+        {
+          title: '待评价',
+          routeName: 'ServicePage'
+        },
+        {
+          title: '已结束',
+          routeName: 'ServicePage'
         }
       ],
       orders: null
@@ -132,6 +147,9 @@ export default {
       }
     }
   }
+}
+.gap {
+  background-color: $--background-color-base;
 }
 .view {
   height: 100%;

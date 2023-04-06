@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="container">
-      <div class="title">{{ demand.service.title }}</div>
-      <div class="state">{{ demand.state }}</div>
+    <div class="container" v-show="menustate === '全部' || menustate === demand.state">
+      <div class="title">{{ tryGet(demand, ['service', 'title']) }}</div>
+      <div class="state">{{ tryGet(demand, 'state') }}</div>
       <div class="content">
         <div class="detail">你公开了需求</div>
-        <div class="date">{{ demand.date }}</div>
+        <div class="date">{{ tryGet(demand, 'date') }}</div>
       </div>
       <div class="foot">查看详情</div>
     </div>
@@ -17,9 +17,10 @@ import { helper } from '@/mixin'
 export default {
   name: 'DemandCard',
   props: {
-    demand: Object
+    demand: Object,
+    menustate: String
   },
-  mixin: [helper]
+  mixins: [helper]
 }
 </script>
 
@@ -34,6 +35,7 @@ export default {
   border-radius: 5px;
   background-color: #fff;
   .title {
+    width: 17.5rem;
     font: {
       size: 0.875rem;
       weight: 700;
@@ -43,7 +45,7 @@ export default {
     position: absolute;
     right: 0.625rem;
     top: 0.625rem;
-    color: rgba(143, 121, 212, 1);
+    color: $--color-primary;
     font-size: 0.875rem;
   }
   .content {
@@ -71,6 +73,7 @@ export default {
     border: 1px solid rgba(128, 128, 128, 1);
     text-align: center;
     line-height: 1.75rem;
+    font-size: 0.875rem;
   }
 }
 </style>

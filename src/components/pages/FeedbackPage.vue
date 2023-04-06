@@ -5,6 +5,7 @@
       <div class="title">意见与反馈</div>
       <div class="edit">编辑</div>
     </TopBar>
+    <div class="gap" style="height: 55px"></div>
     <div class="question" style="margin-top: 20px">
       <div class="title">常见问题</div>
       <div>
@@ -60,6 +61,8 @@ export default {
   background-color: $--background-color-base;
 }
 .topbar {
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -130,6 +133,9 @@ export default {
       }
     }
   }
+}
+.gap {
+  background-color: $--background-color-base;
 }
 .bgc {
   background-color: #fff;

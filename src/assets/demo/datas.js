@@ -11,6 +11,9 @@ import home from './datas/home'
 import forum from './datas/forum'
 import following from './datas/following'
 import demands from './datas/demands'
+import design from './datas/design'
+import extend from './datas/extend'
+import agent from './datas/agent'
 
 export default {
   users,
@@ -25,5 +28,8 @@ export default {
   home,
   forum,
   following,
-  demands
+  demands,
+  design,
+  extend,
+  agent
 }

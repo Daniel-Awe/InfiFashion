@@ -1,11 +1,12 @@
 <template>
   <div>
     <div class="container">
-      <RoundAvatar class="avatar" :src="following.avatar"></RoundAvatar>
-      <div style="margin-left: 0.5rem">
-        <div class="name">{{ following.name }}</div>
-        <div class="introduce">{{ following.introduce }}</div>
+      <RoundAvatar class="avatar" :src="tryGet(following, 'avatar')"></RoundAvatar>
+      <div class="content">
+        <div class="name">{{ tryGet(following, 'name') }}</div>
+        <div class="intro">{{ tryGet(following, 'introduce') }}</div>
       </div>
+
       <div class="followed">已关注</div>
     </div>
   </div>
@@ -20,14 +21,14 @@ export default {
   props: {
     following: Object
   },
-  mixin: [helper]
+  mixins: [helper]
 }
 </script>
 
 <style lang="scss" scoped>
 .container {
   display: flex;
-  justify-content: space-between;
+  position: relative;
   width: 100%;
   height: 3.5rem;
   padding: 0.5625rem 0.8125rem;
@@ -39,18 +40,31 @@ export default {
     width: 2.375rem;
     height: 2.375rem;
   }
-  .name {
-    font-size: 16px;
-    font-weight: 700;
+  .content {
+    margin-left: 0.9375rem;
+    .name {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .intro {
+      height: 1.25rem;
+      font-size: 12px;
+      color: rgba(56, 56, 56, 1);
+      width: 18em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
-  .introduce {
-    width: 15.625rem;
-    height: 1.25rem;
-    font-size: 12px;
-    color: rgba(56, 56, 56, 1);
-    overflow: hidden;
-  }
+
   .followed {
+    position: absolute;
+    right: 0.9375rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto 0;
+    outline: none;
+
     width: 2.8125rem;
     font-weight: 500;
     margin: auto 0;

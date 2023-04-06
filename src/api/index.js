@@ -165,3 +165,24 @@ export const getDemandsDatas = async () => {
   return DemoDatas.demands
 }
 //#endregion
+
+//#region 设计团队
+export const getDesignDatas = async () => {
+  await sleep(requestTime())
+  return DemoDatas.design.designs
+}
+//#endregion
+
+//#region 包装推广
+export const getExtendDatas = async () => {
+  await sleep(requestTime())
+  return DemoDatas.extend
+}
+//#endregion
+
+//#region 包装推广
+export const getAgentDatas = async () => {
+  await sleep(requestTime())
+  return DemoDatas.agent
+}
+//#endregion

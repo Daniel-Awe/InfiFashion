@@ -7,8 +7,9 @@
       </SearchBox>
       <div class="placeholder"></div>
     </TopBar>
-    <div class="view">
-      <FollowingCard v-for="(item, key) in myFollowing" :key="key" :following="item"></FollowingCard>
+    <div class="gap" style="height: 75px"></div>
+    <div class="view" v-loading="!followingDatas">
+      <FollowingCard v-for="(item, key) in followingDatas" :key="key" :following="item"></FollowingCard>
     </div>
   </div>
 </template>
@@ -24,12 +25,12 @@ export default {
   components: { RoutePopButton, SearchBox, TopBar, FollowingCard },
   data() {
     return {
-      myFollowing: null
+      followingDatas: null
     }
   },
   created() {
     getFollowingDatas().then(response => {
-      this.myFollowing = response.myFollowing
+      this.followingDatas = response.myFollowing
     })
   }
 }
@@ -42,6 +43,8 @@ export default {
   background-color: $--background-color-base;
 }
 .topBar {
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,6 +52,7 @@ export default {
   text-align: center;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
   .placeholder {
     width: 2rem;
   }
@@ -70,5 +74,13 @@ export default {
       color: rgba(255, 255, 255, 1);
     }
   }
+}
+.gap {
+  background-color: $--background-color-base;
+}
+.view {
+  width: 100%;
+  min-height: 100%;
+  background-color: $--background-color-base !important;
 }
 </style>

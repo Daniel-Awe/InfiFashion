@@ -23,7 +23,7 @@
       <UserInfoButton>
         <template #setting>自我介绍</template>
         <template #descripte>
-          <p>{{ tryGet(user, 'name') }}</p>
+          <input type="text" class="intro" placeholder="填写企业介绍，让人才更好的发现我" :value="tryGet(user, 'introduce')" />
         </template>
       </UserInfoButton>
       <UserInfoButton>
@@ -114,6 +114,15 @@ export default {
     right: 16px;
     top: 50%;
     transform: translateY(-50%);
+  }
+  .intro {
+    outline: none;
+    border: none;
+    //超出部分，文末出现省略号
+    width: 17em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 </style>
