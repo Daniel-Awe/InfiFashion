@@ -9,20 +9,23 @@
 ## 项目文件
 #### src文件夹
 - *src*
-  - *api*——**请求接口**
+  - *api*——**请求接口（需要与后端对接）**
     - index.js——**所有的请求接口代码**
   - *assets*——**资源**
-    - *demo*——**测试用的资源**
-      - *datas*——**各种数据**
+    - *demo*——**测试用的资源（待删除，所需的数据要通过api从后端获取）**
+      - *datas*——**从后端获取的数据**
+      - *img*——**从后端获取的图片**
       - datas.js——**所有测试用的数据**
     - *fonts*——**字体文件**
     - *pictures*——**所有的标量图图片**
     - *svg*——**所有的矢量图图标**
-  - *components*——**所有的组件**
-  - *mixin*——**vue混入**
-  - *router*——**路由**
+  - *components*——**所有的Vue文件**
+    - *pages*——**界面文件**
+  - *mixin*——**vue混入（就是一些可复用的函数）**
+  - *plugin*——**插件（内含filter，结构混乱，待优化）**
+  - *router*——**路由（单文件页面跳转）**
     - index.js——**所有的路由逻辑代码**
-  - *store*——**vuex代码**
+  - *store*——**vuex代码（存储全局数据）**
     - *modules*
       - loginInfo.js——**登录信息**
     - index.js——**所有的存储逻辑代码**
@@ -32,6 +35,26 @@
     - theme.scss——**主题样式（项目通用的样式）**
 
 > 斜体字为文件夹
+
+## 初次启动项目
+
+#### 下载并安装nodejs
+
+本项目使用npm包管理器管理项目，所以需要安装nodejs
+
+nodejs官方下载链接: 
+https://nodejs.org/
+
+#### 安装依赖
+
+初次启动项目需要先下载项目依赖的模块
+
+在项目根目录执行一下命令即可一键安装项目依赖（可能需要科学上网）
+```batch
+npm install
+```
+
+之后就可以通过`npm run serve`调试项目了
 
 ## 使用说明
 #### vue项目
@@ -47,8 +70,6 @@ npm run build
 ```batch
 npm run lint
 ```
-自定义vue项目配置
-> See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### git指令
 设置远程仓库
